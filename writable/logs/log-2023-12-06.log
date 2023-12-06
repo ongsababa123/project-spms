@@ -1,0 +1,131 @@
+CRITICAL - 2023-12-06 04:12:30 --> Invalid file: "dashboard/layout/header.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/layout/header.php')
+ 2 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('dashboard/layout/header', [], true)
+ 3 APPPATH\Controllers\HomeController.php(11): view('dashboard/layout/header')
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 04:23:42 --> Undefined variable $data_history
+in APPPATH\Views\student\home_student.php on line 40.
+ 1 APPPATH\Views\student\home_student.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data_history', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\home_student.php', 40)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\home_student.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/home_student', [], true)
+ 5 APPPATH\Controllers\HomeController.php(10): view('student/home_student')
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 04:24:12 --> Undefined variable $data_history
+in APPPATH\Views\student\home_student.php on line 40.
+ 1 APPPATH\Views\student\home_student.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data_history', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\home_student.php', 40)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\home_student.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/home_student', [], true)
+ 5 APPPATH\Controllers\HomeController.php(10): view('student/home_student')
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:02:12 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(10): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:02:24 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(10): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:02:25 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(10): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:02:25 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(10): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:02:25 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(10): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:02:26 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(10): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:02:44 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(10): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:02:45 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(10): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:02:46 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(10): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 09:03:24 --> You must supply the parameters: from, to.
+in SYSTEMPATH\Router\RouteCollection.php on line 999.
+ 1 APPPATH\Config\Routes.php(9): CodeIgniter\Router\RouteCollection->match([...], '', 'HomeController::index_student')
+ 2 SYSTEMPATH\Router\RouteCollection.php(777): CodeIgniter\Router\RouteCollection->{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 3 APPPATH\Config\Routes.php(8): CodeIgniter\Router\RouteCollection->group('/home/student/', Object(Closure))
+ 4 SYSTEMPATH\Router\RouteCollection.php(344): require('C:\\xampp\\htdocs\\project-spms\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
