@@ -27,18 +27,10 @@
 
     th {
         background-color: #F5F6FA;
-        text-align: center;
-        border-bottom: none;
     }
 
     tbody {
         border-bottom: 10px solid #ccc;
-        text-align: center;
-
-    }
-
-    .table thead th {
-        border-bottom: none;
     }
 </style>
 
