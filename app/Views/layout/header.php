@@ -25,13 +25,6 @@
         font-family: 'Kanit', sans-serif;
     }
 
-    th {
-        background-color: #F5F6FA;
-    }
-
-    tbody {
-        border-bottom: 10px solid #ccc;
-    }
 </style>
 
 

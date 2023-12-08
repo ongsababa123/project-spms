@@ -27,6 +27,14 @@
         height: 100px;
         /* Adjust the height as needed */
     }
+
+    th {
+        background-color: #F5F6FA;
+    }
+
+    tbody {
+        border-bottom: 10px solid #ccc;
+    }
 </style>
 
 

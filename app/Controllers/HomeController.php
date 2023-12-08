@@ -21,5 +21,11 @@ class HomeController extends BaseController
         echo view('layout/header');
         echo view('officer/home_officer');
     }
+
+    public function index_home()
+    {
+        echo view('layout/header');
+        echo view('home');
+    }
 }
 

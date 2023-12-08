@@ -22,4 +22,4 @@ $routes->group("/home/officer/", function ($routes) {
 
 
 $routes->match(['get', 'post'], '/timelist', 'TimelistController::index_time');
-$routes->match(['get', 'post'], '/', 'TimelistController::index_time');
+$routes->match(['get', 'post'], '/', 'HomeController::index_home');
