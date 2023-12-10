@@ -17,14 +17,13 @@
     <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('plugins/datatables-buttons/css/buttons.bootstrap4.min.css'); ?>">
-    <link rel="icon" href="<?=base_url('dist/img/icon/favicon.ico')?>" type="image/gif">
+    <link rel="icon" href="<?= base_url('dist/img/icon/favicon.ico') ?>" type="image/gif">
 </head>
 <style>
     /* เพิ่ม CSS ในส่วนนี้เพื่อกำหนดฟอนต์ให้กับทุกส่วนของหน้าเว็บไซต์ */
     * {
         font-family: 'Kanit', sans-serif;
     }
-
 </style>
 
 
@@ -79,8 +78,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="<?= site_url('/dashboard/index'); ?>" class="brand-link">
-                <span class="brand-text ml-1">ระบบการจัดการ โครงการ</span>
+            <a href="<?= site_url('/'); ?>" class="brand-link text-center">
+                <span class="brand-text ml-1">ระบบการจัดการ <br>โครงงานพิเศษ</span>
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -90,8 +89,8 @@
                         data-accordion="false">
                         <li class="nav-header">Home</li>
                         <li class="nav-item">
-                            <a href="<?= site_url('/dashboard/index'); ?>" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= site_url('/'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     หน้าหลัก
                                 </p>
@@ -100,107 +99,106 @@
                         <div>
                             <hr>
                         </div>
-                        <li class="nav-header">ระบบการจัดการโครงการ (นักศึกษา)</li>
-                            <li class="nav-item">
-                                <a href="<?= site_url(''); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-user-cog"></i>
-                                    <p>
-                                        กรอกตารางว่าง
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= site_url(''); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-user-tie"></i>
-                                    <p>
-                                        ตรวจสอบสถานะ
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= site_url(''); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-user-secret"></i>
-                                    <p>
-                                        ตัวอย่างเอกสาร
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= site_url('/dashboard/admin/index'); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-user-shield"></i>
-                                    <p>
-                                        ตรวจสอบตารางสอบ
-                                    </p>
-                                </a>
-                            </li>
+                        <li class="nav-header">ระบบการจัดการโครงงานพิเศษ (นักศึกษา)</li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('student/timelist'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-check"></i>
+                                <p>
+                                    กรอกตารางว่าง
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('student/projectlist'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-th-list"></i>
+                                <p>
+                                    โครงงานพิเศษทั้งหมด
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url(''); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p>
+                                    ตัวอย่างเอกสาร
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('student/testlist'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>
+                                    ตรวจสอบตารางสอบ
+                                </p>
+                            </a>
+                        </li>
                         <div>
                             <hr>
                         </div>
-                            <li class="nav-header">ระบบการจัดการโครงการ (เจ้าหน้าที่)</li>
-                            <li class="nav-item">
-                                <a href="<?= site_url(''); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-book"></i>
-                                    <p>
-                                        จัดตารางสอบ
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            <a href="<?= site_url(''); ?>" class="nav-link">
-
-                                    <i class="nav-icon fas fa-history"></i>
-                                    <p>
-                                        ตรวจสอบคำร้อง
-                                    </p>
-                                </a>
-                            </li>
-                            <div>
-                                <hr>
-                            </div>
-                            <li class="nav-header">ระบบการจัดการโครงการ (อาจารย์)</li>
-                            <li class="nav-item">
-                                <a href="<?= site_url(''); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-cash-register"></i>
-                                    <p>
-                                        กรอกตารางว่าง
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= site_url(''); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-ad"></i>
-                                    <p>
-                                        การยืนยันนักศึกษา
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= site_url(''); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-ad"></i>
-                                    <p>
-                                        ติดตามความก้าวหน้า
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= site_url(''); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-ad"></i>
-                                    <p>
-                                        แบบฟอร์มบันทึกคะแนน
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= site_url(''); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-ad"></i>
-                                    <p>
-                                        ตรวจสอบตารางสอบ
-                                    </p>
-                                </a>
-                            </li>
-                            <div>
-                                <hr>
-                            </div>
+                        <li class="nav-header">ระบบการจัดการโครงงานพิเศษ (อาจารย์)</li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('teacher/timelist'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-check"></i>
+                                <p>
+                                    กรอกตารางว่าง
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('/teacher/submitpage'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-tasks"></i>
+                                <p>
+                                    การยืนยันนักศึกษา
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('/teacher/progress'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-clipboard-list"></i>
+                                <p>
+                                    ติดตามความก้าวหน้า
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('/teacher/scorepage'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    แบบฟอร์มบันทึกคะแนน
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('teacher/testlist'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>
+                                    ตรวจสอบตารางสอบ
+                                </p>
+                            </a>
+                        </li>
+                        <div>
+                            <hr>
+                        </div>
+                        <li class="nav-header">ระบบการจัดการโครงงานพิเศษ (เจ้าหน้าที่)</li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('officer/testtime'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>
+                                    จัดตารางสอบ
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('officer/request'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-tasks"></i>
+                                <p>
+                                    ตรวจสอบคำร้อง
+                                </p>
+                            </a>
+                        </li>
+                        <div>
+                            <hr>
+                        </div>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

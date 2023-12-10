@@ -1,4 +1,4 @@
-<title>เลือกช่วงเวลา</title>
+<title>จัดตารางสอบ</title>
 <link rel="stylesheet" href="<?= base_url('/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
 
 <body class="hold-transition sidebar-mini">
@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>เลือกช่วงเวลาที่ว่าง</h1>
+                        <h1>จัดตารางสอบ</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">หน้าหลัก</a></li>
-                            <li class="breadcrumb-item active">เลือกช่วงเวลา</li>
+                            <li class="breadcrumb-item active">จัดตารางสอบ</li>
                         </ol>
                     </div>
                 </div>
@@ -22,11 +22,14 @@
         </section>
         <section class="content">
             <div class="container-fluid">
-                <div class="card card-navy shadow">
+                <div class="card card-info shadow">
                     <div class="card-header">
-                        <h3 class="card-title">ตารางช่วงเวลาที่ว่าง</h3>
+                        <h3 class="card-title">ตารางเวลาว่าง อาจารย์และนักศึกษา</h3>
                         <div class="card-tools">
-
+                            <a href="<?= site_url('/officer/historytest'); ?>"
+                                class="btn btn-xs btn-primary">ประวัติการสอบ</a>
+                            <button type="button" class="btn btn-xs btn-dark" data-toggle="modal" data-target="#modal-default"
+                                onclick="load_modal(1)">เพิ่มการสอบ</button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -62,10 +65,8 @@
                                         foreach ($dayNames as $day):
                                             ?>
                                             <td class="text-center">
-                                                <div class="icheck-primary d-inline">
-                                                    <input type="checkbox" id="<?= $day . $i ?>">
-                                                    <label for="<?= $day . $i ?>"></label>
-                                                </div>
+                                                <h6>ชื่อโครงการ : หฟกฟหกฟ</h6>
+                                                <h6>ชื่ออาจารย์ : หฟกฟหกฟ</h6>
                                             </td>
                                         <?php endforeach; ?>
                                     </tr>
@@ -73,13 +74,24 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer clearfix">
-                        <button type="button" class="btn btn btn-success">บันทึก</button>
-                        <button type="button" class="btn btn btn-danger">ยกเลิก</button>
-                    </div>
                     <!-- /.card -->
                 </div>
             </div>
     </div>
     </section>
     </div>
+    <div class="modal fade" id="modal-default">
+        <div id="create_test">
+            <?= $this->include("modal/create_test"); ?>
+        </div>
+    </div>
+    <script>
+        function load_modal(load_check, data_encode) {
+            create_test = document.getElementById("create_test");
+            create_test.style.display = "block";
+
+            if (load_check == 1) {
+
+            }
+        }
+    </script>

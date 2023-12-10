@@ -1,0 +1,10 @@
+CRITICAL - 2023-12-08 13:37:25 --> Call to undefined function day()
+in APPPATH\Views\time_list.php on line 59.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('time_list', [], true)
+ 4 APPPATH\Controllers\TimelistController.php(10): view('time_list')
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\TimelistController->index_time()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TimelistController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
