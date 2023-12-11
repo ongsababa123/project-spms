@@ -199,6 +199,34 @@
                         <div>
                             <hr>
                         </div>
+                        <li class="nav-header">ระบบการจัดการโครงงานพิเศษ (ผู้ดูแลระบบ)</li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('admin/studentlist'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>
+                                    ข้อมูลนักศึกษา
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('admin/teacherlist'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-tasks"></i>
+                                <p>
+                                    ข้อมูลอาจารย์
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('admin/officerlist'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-tasks"></i>
+                                <p>
+                                    ข้อมูลเจ้าหน้าที่
+                                </p>
+                            </a>
+                        </li>
+                        <div>
+                            <hr>
+                        </div>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

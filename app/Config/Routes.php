@@ -26,5 +26,14 @@ $routes->group("officer/", function ($routes) {
     $routes->match(['get', 'post'], 'request', 'PageController::index_project_request');
 });
 
+$routes->group("admin/", function ($routes) {
+    $routes->match(['get', 'post'], 'studentlist', 'PageController::index_student_table');
+    $routes->match(['get', 'post'], 'teacherlist', 'PageController::index_teacher_table');
+    $routes->match(['get', 'post'], 'officerlist', 'PageController::index_officer_table');
+
+    $routes->match(['get', 'post'], 'user/create/(:num)', 'UserController::create_user/$1');
+    $routes->match(['get', 'post'], 'user/getdata/(:num)', 'UserController::get_data_table_user/$1');
+});
+
 $routes->match(['get', 'post'], '/', 'PageController::index_home');
 $routes->match(['get', 'post'], '/login', 'LoginController::index_login');

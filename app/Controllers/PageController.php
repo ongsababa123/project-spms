@@ -74,5 +74,24 @@ class PageController extends BaseController
         echo view('layout/header');
         echo view('officer/project_request');
     }
+
+    //admin page
+    public function index_student_table()
+    {
+        echo view('layout/header');
+        echo view('admin/student_table');
+    }
+
+    public function index_teacher_table()
+    {
+        echo view('layout/header');
+        echo view('admin/teacher_table');
+    }
+
+    public function index_officer_table()
+    {
+        echo view('layout/header');
+        echo view('admin/officer_table');
+    }
 }
 
