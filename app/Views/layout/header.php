@@ -50,8 +50,18 @@
                         <a class="nav-link " href="#" id="userDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <img class="img-circle" src="<?= base_url('dist/img/avatar6.png'); ?>" alt="User Image">
-                            <span class="username">จิลายุทธ บัณฑิค </span>
-                            <span class="description">ผู้จัดการระบบ</span>
+                            <span class="username">
+                                <?= session()->get('name') . ' ' . session()->get('lastname') ?>
+                            </span>
+                            <?php if (session()->get('type') == '1'): ?>
+                                <span class="description">นักศึกษา</span>
+                            <?php elseif (session()->get('type') == '2'): ?>
+                                <span class="description">อาจารย์</span>
+                            <?php elseif (session()->get('type') == '3'): ?>
+                                <span class="description">เจ้าหน้าที่</span>
+                            <?php elseif (session()->get('type') == '4'): ?>
+                                <span class="description">ผู้ดูแลระบบ</span>
+                            <?php endif; ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
                             <!-- Dropdown items go here -->
@@ -196,13 +206,21 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('officer/news'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-newspaper"></i>
+                                <p>
+                                    การจัดการข่าวสาร
+                                </p>
+                            </a>
+                        </li>
                         <div>
                             <hr>
                         </div>
                         <li class="nav-header">ระบบการจัดการโครงงานพิเศษ (ผู้ดูแลระบบ)</li>
                         <li class="nav-item">
                             <a href="<?= site_url('admin/studentlist'); ?>" class="nav-link">
-                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     ข้อมูลนักศึกษา
                                 </p>
@@ -210,7 +228,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="<?= site_url('admin/teacherlist'); ?>" class="nav-link">
-                                <i class="nav-icon fas fa-tasks"></i>
+                                <i class="nav-icon fas fa-user-tie"></i>
                                 <p>
                                     ข้อมูลอาจารย์
                                 </p>
@@ -218,9 +236,17 @@
                         </li>
                         <li class="nav-item">
                             <a href="<?= site_url('admin/officerlist'); ?>" class="nav-link">
-                                <i class="nav-icon fas fa-tasks"></i>
+                                <i class="nav-icon fas fa-user-edit"></i>
                                 <p>
                                     ข้อมูลเจ้าหน้าที่
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('admin/adminlist'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user-cog"></i>
+                                <p>
+                                    ข้อมูลผู้ดูแลระบบ
                                 </p>
                             </a>
                         </li>

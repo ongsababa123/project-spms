@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" placeholder="ชื่อโครงงานพิเศษภาษาอังกฤษ"
-                                id="name_project_thai" name="name_project_thai">
+                                id="name_project_eng" name="name_project_eng">
                         </div>
                     </div>
                 </div>
@@ -41,74 +41,98 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <p>ชื่อ</p>
-                            <input type="text" class="form-control" placeholder="ชื่อนักศึกษา" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="text" class="form-control" placeholder="ชื่อนักศึกษา" id="name_student_1"
+                                name="name_student_1" required disabled>
                         </div>
                         <div class="col-sm-4">
                             <p>นามสกุล</p>
-                            <input type="text" class="form-control" placeholder="นามสกุลนักศึกษา" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="text" class="form-control" placeholder="นามสกุลนักศึกษา"
+                                id="lastname_student_1" name="lastname_student_1" required disabled>
                         </div>
-                        <div class="col-sm-3">
-                            <p>เบอร์โทรศํพท์</p>
-                            <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" id="name_project_thai"
-                                name="name_project_thai">
-                        </div>
-                        <div class="col-sm-1">
-                            <p>ห้อง</p>
-                            <input type="number" class="form-control" placeholder="ห้อง" id="name_project_thai"
-                                name="name_project_thai">
+                        <div class="col-sm-4">
+                            <p>อีเมล์</p>
+                            <input type="text" class="form-control" placeholder="อีเมล์" id="email_student_1"
+                                name="email_student_1" required disabled>
                         </div>
                     </div>
                     <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p>เบอร์โทรศํพท์</p>
+                            <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" id="phone_student_1"
+                                name="phone_student_1" required disabled>
+                        </div>
+                        <div class="col-sm-1">
+                            <p>ห้อง</p>
+                            <input type="number" class="form-control" placeholder="ห้อง" id="room_student_1"
+                                name="room_student_1" required disabled>
+                        </div>
+                    </div>
+                    <hr>
                     <p>นักศึกษาคนที่ 2</p>
                     <div class="row">
                         <div class="col-sm-4">
                             <p>ชื่อ</p>
-                            <input type="text" class="form-control" placeholder="ชื่อนักศึกษา" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="text" class="form-control" placeholder="ชื่อนักศึกษา" id="name_student_2"
+                                name="name_student_2" required>
                         </div>
                         <div class="col-sm-4">
                             <p>นามสกุล</p>
-                            <input type="text" class="form-control" placeholder="นามสกุลนักศึกษา" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="text" class="form-control" placeholder="นามสกุลนักศึกษา"
+                                id="lastname_student_2" name="lastname_student_2" required>
                         </div>
-                        <div class="col-sm-3">
-                            <p>เบอร์โทรศํพท์</p>
-                            <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" id="name_project_thai"
-                                name="name_project_thai">
-                        </div>
-                        <div class="col-sm-1">
-                            <p>ห้อง</p>
-                            <input type="number" class="form-control" placeholder="ห้อง" id="name_project_thai"
-                                name="name_project_thai">
+                        <div class="col-sm-4">
+                            <p>อีเมล์</p>
+                            <input type="text" class="form-control" placeholder="อีเมล์" id="email_student_2"
+                                name="email_student_2" required>
                         </div>
                     </div>
                     <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p>เบอร์โทรศํพท์</p>
+                            <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" id="phone_student_2"
+                                name="phone_student_2" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <p>ห้อง</p>
+                            <input type="number" class="form-control" placeholder="ห้อง" id="room_student_2"
+                                name="room_student_2" required>
+                        </div>
+                    </div>
+                    <hr>
                     <p>นักศึกษาคนที่ 3</p>
                     <div class="row">
                         <div class="col-sm-4">
                             <p>ชื่อ</p>
-                            <input type="text" class="form-control" placeholder="ชื่อนักศึกษา" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="text" class="form-control" placeholder="ชื่อนักศึกษา" id="name_student_3"
+                                name="name_student_3" required>
                         </div>
                         <div class="col-sm-4">
                             <p>นามสกุล</p>
-                            <input type="text" class="form-control" placeholder="นามสกุลนักศึกษา" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="text" class="form-control" placeholder="นามสกุลนักศึกษา"
+                                id="lastname_student_3" name="lastname_student_3" required>
                         </div>
-                        <div class="col-sm-3">
-                            <p>เบอร์โทรศํพท์</p>
-                            <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" id="name_project_thai"
-                                name="name_project_thai">
-                        </div>
-                        <div class="col-sm-1">
-                            <p>ห้อง</p>
-                            <input type="number" class="form-control" placeholder="ห้อง" id="name_project_thai"
-                                name="name_project_thai">
+                        <div class="col-sm-4">
+                            <p>อีเมล์</p>
+                            <input type="text" class="form-control" placeholder="อีเมล์" id="email_student_3"
+                                name="email_student_3" required>
                         </div>
                     </div>
                     <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p>เบอร์โทรศํพท์</p>
+                            <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" id="phone_student_3"
+                                name="phone_student_3" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <p>ห้อง</p>
+                            <input type="number" class="form-control" placeholder="ห้อง" id="room_student_3"
+                                name="room_student_3" required>
+                        </div>
+                    </div>
+                    <hr>
                     <div class="row">
                         <div class="col-sm-5">
                             <p>ภาควิชา</p>

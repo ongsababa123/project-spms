@@ -1,34 +1,6 @@
 <title>ข่าวสาร</title>
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="<?= base_url('/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
-<style>
-    .col-lg-custome {
-        -ms-flex: 0 0 16.666667%;
-        flex: 1 0 19.666667%;
-        max-width: 20.666667%;
-    }
-</style>
-<style>
-    .info-box {
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .info-box:hover {
-        transform: scale(1.05);
-    }
-
-    .expanded-content {
-        display: none;
-        transition: height 0.3s ease-in-out;
-    }
-
-    .info-box:hover .expanded-content {
-        display: block;
-        height: 100px;
-        /* Adjust the height as needed */
-    }
-</style>
-
 
 <body class="hold-transition sidebar-mini">
     <!-- Content Wrapper. Contains page content -->
@@ -51,35 +23,34 @@
         </section>
         <section class="content">
             <div class="container-fluid">
-            <div class="card card-secondary shadow" style="border-radius: 10px;">
+                <div class="card card-secondary shadow" style="border-radius: 10px;">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
                             </div>
                             <div class="col-5">
-                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <ol class="carousel-indicators">
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
-                                        </li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                        <?php foreach ($data_news as $key => $value): ?>
+                                            <?php if ($value['image_news'] !== null): ?>
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>" <?php echo ($key === 0) ? 'class="active"' : ''; ?>></li>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
                                     </ol>
                                     <div class="carousel-inner" style="border-radius: 10px;">
-                                        <div class="carousel-item active">
-                                            <img class="d-block w-100"
-                                                src="https://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap"
-                                                alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-100"
-                                                src="https://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap"
-                                                alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-100"
-                                                src="https://placehold.it/900x500/f39c12/ffffff&text="
-                                                alt="Third slide">
-                                        </div>
+                                        <?php foreach ($data_news as $key => $value): ?>
+                                            <?php if ($value['image_news'] !== null): ?>
+                                                <?php
+                                                $base64Data = $value['image_news'];
+                                                $decodedData = base64_decode($base64Data);
+                                                $imageSrc = 'data:image/png;base64,' . base64_encode($decodedData);
+                                                ?>
+                                                <div class="carousel-item <?php echo ($key === 0) ? 'active' : ''; ?>">
+                                                    <img class="d-block w-100" src="<?= $imageSrc ?>"
+                                                        alt="Slide <?= $key + 1 ?>">
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                                         data-slide="prev">
@@ -105,45 +76,33 @@
                             <div class="col-7">
                                 <div class="card">
                                     <div class="card-body table-responsive p-0">
-                                        <table class="table table-hover text-nowrap">
+                                        <table class="table table-hover text-nowrap table-striped">
                                             <thead>
-                                                <tr class="text-center">
+                                                <tr class="text-center bg-olive">
                                                     <th colspan="2">รายละเอียดข่าวสาร</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.</td>
-                                                </tr>
+                                                <?php foreach ($data_news as $key => $value): ?>
+                                                    <?php if ($value['details_news'] !== null): ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?= $key + 1 ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $value['details_news'] ?>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <!-- /.card-body -->
                                 </div>
                             </div>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
             </div>
-    </div>
-    </section>
+        </section>
     </div>

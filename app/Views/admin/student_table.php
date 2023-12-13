@@ -43,13 +43,12 @@
                                     <th class="text-center">อีเมล์</th>
                                     <th class="text-center">เบอร์โทรศัพท์</th>
                                     <th class="text-center">สถานะ</th>
+                                    <th class="text-center"></th>
                                 </tr>
                             </thead>
                             <tbody>
-
                             </tbody>
                         </table>
-
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
@@ -64,19 +63,56 @@
     </div>
     <script>
         function load_modal(load_check, data_encode) {
-            crud_user = document.getElementById("crud_user");
-            crud_user.style.display = "block";
+            const modalBody = $(".modal-body");
+            const modalHeader = $(".modal-header");
+            const crud_user = $("#crud_user");
+            $(".modal-body #div_room").show();
 
-            if (load_check == 1) {
-                //create user
-                $(".modal-header #title_modal").text("สร้างข้อมูลนักศึกษา");
-                $(".modal-body #url_route").val("admin/user/create/1");
-            } else if (load_check == 2) {
-                //edit user
+            crud_user.show();
+            modalBody.find('#name_user, #lastname_user, #email_user, #phone_user, #room_user').val('');
 
+            const switchStatus = $(".modal-body #customSwitch_status");
+            const textPassword = $(".modal-body #text_password");
+
+            switch (load_check) {
+                case 1:
+                    textPassword.hide();
+                    modalHeader.find('#title_modal').text("สร้างข้อมูลนักศึกษา");
+                    modalBody.find('#url_route').val("admin/user/create/1");
+                    switchStatus.hide();
+                    break;
+                case 2:
+                    const rowData = JSON.parse(decodeURIComponent(data_encode));
+                    switchStatus.show();
+                    modalBody.find('#name_user').val(rowData.name_user);
+                    modalBody.find('#lastname_user').val(rowData.lastname_user);
+                    modalBody.find('#email_user').val(rowData.email_user);
+                    modalBody.find('#phone_user').val(rowData.phone_user);
+                    modalBody.find('#room_user').val(rowData.room_user);
+                    textPassword.show();
+
+                    const customSwitch3 = $(".modal-body #customSwitch3");
+                    const labelCustomSwitch3 = $(".modal-body #LabelcustomSwitch3");
+
+                    if (rowData.status_user == 1 || rowData.status_user == 0) {
+                        customSwitch3.prop('checked', rowData.status_user == 1);
+                        labelCustomSwitch3.text(rowData.status_user == 1 ? "เปิดใช้งาน" : "ปิดใช้งาน");
+                        customSwitch3.prop('disabled', false);
+                        modalBody.find('#name_user, #lastname_user, #email_user, #phone_user, #password').prop('disabled', false);
+                    } else {
+                        customSwitch3.prop('checked', false);
+                        labelCustomSwitch3.text("รอการเข้าสู่ระบบครั้งแรก");
+                        customSwitch3.prop('disabled', true);
+                        modalBody.find('#name_user, #lastname_user, #email_user, #phone_user, #password').prop('disabled', true);
+                    }
+
+                    modalHeader.find('#title_modal').text("แก้ไขข้อมูลนักศึกษา");
+                    modalBody.find('#url_route').val("admin/user/update/" + rowData.id_user);
+                    break;
             }
         }
     </script>
+
     <script>
         $(document).ready(function () {
             getTableData();
@@ -88,7 +124,7 @@
                 $('#example1').DataTable().destroy();
             }
             $('#example1').DataTable({
-                "processing": "<i class='fa fa-refresh fa-spin'></i>",
+                "processing": true,
                 "pageLength": 10,
                 "pagingType": "full_numbers", // Display pagination as 1, 2, 3... instead of Previous, Next buttons
                 'serverSide': true,
@@ -100,10 +136,65 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "searching": false,
                 "drawCallback": function (settings) {
-                    $('#example1 tbody').html(`<tr><td colspan="5" class="text-center"> ไม่พบข้อมูล</td></tr>`);
+                    var daData = settings.json.data;
+                    if (daData.length == 0) {
+                        $('#example1 tbody').html(`<tr><td colspan="5" class="text-center"> ไม่พบข้อมูล</td></tr>`);
+                    }
                 },
+                'columns': [
+                    {
+                        'data': null,
+                        'class': 'text-center',
+                        'render': function (data, type, row, meta) {
+                            return meta.settings.oAjaxData.start += 1;
+
+                        }
+                    },
+                    {
+                        'data': null,
+                        'class': 'text-center',
+                        'render': function (data, type, row, meta) {
+                            return data.name_user + ' ' + data.lastname_user;
+                        }
+                    },
+                    {
+                        'data': null,
+                        'class': 'text-center',
+                        'render': function (data, type, row, meta) {
+                            return data.email_user;
+                        }
+                    },
+                    {
+                        'data': null,
+                        'class': 'text-center',
+                        'render': function (data, type, row, meta) {
+                            return data.phone_user;
+                        }
+                    },
+                    {
+                        'data': null,
+                        'class': 'text-center',
+                        'render': function (data, type, row, meta) {
+                            var status = data.status_user;
+                            if (status == 0) {
+                                return `<span class='badge bg-danger'>ปิดใช้งาน</span>`;
+                            } else if (status == 1) {
+                                return `<span class='badge bg-success'>เปิดใช้งาน</span>`;
+                            } else {
+                                return `<span class='badge bg-info'>รอการแรกเข้า</span>`;
+                            }
+                        }
+                    },
+                    {
+                        'data': null,
+                        'class': 'text-center',
+                        'render': function (data, type, row, meta) {
+                            const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                            return `<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-default" onclick="load_modal(2,'${encodedRowData}')"><i class="fas fa-user-edit"></i> แก้ไขข้อมูล</button>`;
+                        }
+                    },
+                ]
             });
             $('[data-toggle="tooltip"]').tooltip();
         }
@@ -111,6 +202,17 @@
     <script>
         function action_(url, form) {
             var formData = new FormData(document.getElementById(form));
+
+            // Show loading progress
+            var loadingIndicator = Swal.fire({
+                title: 'กำลังโหลด...',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                onBeforeOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
             $.ajax({
                 url: '<?= base_url() ?>' + url,
                 type: "POST",
@@ -119,6 +221,20 @@
                 processData: false,
                 contentType: false,
                 dataType: "JSON",
+                xhr: function () {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function (evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = (evt.loaded / evt.total) * 100;
+                            // You can update a progress bar or any other loading indicator here
+                        }
+                    }, false);
+                    return xhr;
+                },
+                beforeSend: function () {
+                    // Show loading indicator
+                    loadingIndicator;
+                },
                 success: function (response) {
                     console.log(response);
                     if (response.success) {
@@ -134,42 +250,50 @@
                             }
                         }, 2000);
                     } else {
-                        if (response.validator) {
-                            var mes = "";
-                            if (response.validator.email) {
-                                mes += 'ช่องอีเมลจะต้องมีที่อยู่อีเมลที่ถูกต้องหรือมีอีเมล์ซ้ำในระบบ.' + '<br><hr/>'
-                            }
-                            if (response.validator.name) {
-                                mes += 'ชื่อต้องมีอย่างน้อย 2 ตัว.' + '<br><hr/>';
-                            }
-                            if (response.validator.last) {
-                                mes += 'นามสกุลต้องมีอย่างน้อย 2 ตัว.' + '<br><hr/>';
-                            }
-                            if (response.validator.phone) {
-                                mes += 'เบอร์ติดต่อต้องมี 10 หลัก.' + '<br>';
-                            }
-                            Swal.fire({
-                                title: mes,
-                                icon: 'error',
-                                showConfirmButton: true,
-                                width: '55%'
-                            });
-                        } else {
-                            Swal.fire({
-                                title: response.message,
-                                icon: 'error',
-                                showConfirmButton: true
-                            });
-                        }
+                        // Handle error response
+                        handleErrorResponse(response);
                     }
                 },
                 error: function (xhr, status, error) {
-                    Swal.fire({
-                        title: "เกิดข้อผิดพลาด",
-                        icon: 'error',
-                        showConfirmButton: true
+                    // Handle error
+                    handleErrorResponse({
+                        message: "เกิดข้อผิดพลาด"
                     });
+                },
+                complete: function () {
+                    // Hide loading indicator on completion
+                    loadingIndicator.close();
                 }
             });
+        }
+
+        function handleErrorResponse(response) {
+            if (response.validator) {
+                var mes = "";
+                if (response.validator.email_user) {
+                    mes += 'ช่องอีเมลจะต้องมีที่อยู่อีเมลที่ถูกต้องหรือมีอีเมล์ซ้ำในระบบ.' + '<br><hr/>'
+                }
+                if (response.validator.name_user) {
+                    mes += 'ชื่อต้องมีอย่างน้อย 2 ตัว.' + '<br><hr/>';
+                }
+                if (response.validator.lastname_user) {
+                    mes += 'นามสกุลต้องมีอย่างน้อย 2 ตัว.' + '<br><hr/>';
+                }
+                if (response.validator.phone_user) {
+                    mes += 'เบอร์ติดต่อต้องมี 10 หลัก.' + '<br>';
+                }
+                Swal.fire({
+                    title: mes,
+                    icon: 'error',
+                    showConfirmButton: true,
+                    width: '55%'
+                });
+            } else {
+                Swal.fire({
+                    title: response.message,
+                    icon: 'error',
+                    showConfirmButton: true
+                });
+            }
         }
     </script>

@@ -1,13 +1,18 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\NewsModels;
+use App\Models\ProjectModels;
 
 class PageController extends BaseController
 {
     public function index_home()
     {
+        $NewsModels = new NewsModels();
+        $data['data_news'] = $NewsModels->where('status_news', 1)->findAll();
+
         echo view('layout/header');
-        echo view('home');
+        echo view('home' , $data);
     }
     //student page
     public function index_timelist_student()
@@ -17,8 +22,11 @@ class PageController extends BaseController
     }
     public function index_projectlist()
     {
+        $ProjectModels = new ProjectModels();
+        $data['data_project'] = $ProjectModels->where('email_student', session()->get('email'))->findAll();
+
         echo view('layout/header');
-        echo view('student/project_list');
+        echo view('student/project_list' , $data);
     }
 
     public function index_testlist()
@@ -75,6 +83,12 @@ class PageController extends BaseController
         echo view('officer/project_request');
     }
 
+    public function index_news_table()
+    {
+        echo view('layout/header');
+        echo view('officer/news_table');
+    }
+
     //admin page
     public function index_student_table()
     {
@@ -92,6 +106,12 @@ class PageController extends BaseController
     {
         echo view('layout/header');
         echo view('admin/officer_table');
+    }
+
+    public function index_admin_table()
+    {
+        echo view('layout/header');
+        echo view('admin/admin_table');
     }
 }
 

@@ -12,43 +12,62 @@
         <div class="modal-body">
             <form class="mb-3" id="form_user" action="javascript:void(0)" method="post" enctype="multipart/form-data">
                 <div class="form-group">
+                    <div class="row" id="customSwitch_status">
+                        <div class="col-sm-12">
+                            <div class="form-group" id="customSwitch">
+                                <div
+                                    class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch3"
+                                        name="customSwitch3" onclick="change_status()">
+                                    <label class="custom-control-label" for="customSwitch3"
+                                        id="LabelcustomSwitch3"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-sm-4">
-                            <p>ชื่อ</p>
-                            <input type="text" class="form-control" placeholder="ชื่อ" id="name_user"
-                                name="name_user">
+                            <label>ชื่อ</label>
+                            <input type="text" class="form-control" placeholder="ชื่อ" id="name_user" name="name_user"
+                                required>
                         </div>
                         <div class="col-sm-4">
-                            <p>นามสกุล</p>
+                            <label>นามสกุล</label>
                             <input type="text" class="form-control" placeholder="นามสกุล" id="lastname_user"
-                                name="lastname_user">
+                                name="lastname_user" required>
                         </div>
                         <div class="col-sm-4">
-                            <p>เบอร์โทรศํพท์</p>
+                            <label>เบอร์โทรศํพท์</label>
                             <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" id="phone_user"
-                                name="phone_user">
+                                name="phone_user" required>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p>อีเมล์</p>
+                            <label>อีเมล์</label>
                             <input type="text" class="form-control" placeholder="รหัสผ่าน" id="email_user"
-                                name="email_user">
+                                name="email_user" required>
+                        </div>
+                        <div class="col-sm-2" id="div_room">
+                            <label>ห้อง</label>
+                            <input type="text" class="form-control" placeholder="ห้อง" id="room_user"
+                                name="room_user" required>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p>รหัสผ่าน</p>
-                            <input type="text" class="form-control" placeholder="รหัสผ่าน" id="password"
-                                name="password">
+                            <label>รหัสผ่าน </label>
+                            <p id="text_password" name="text_password">(ถ้าไม่เปลี่ยนรหัสผ่านไม่ต้องกรอก)</p>
+                            <input type="text" class="form-control" placeholder="รหัสผ่าน" id="password" name="password">
                         </div>
                     </div>
                 </div>
                 <input type="text" id="url_route" name="url_route" hidden>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="submit" value="Submit" id="submit">ยืนยัน</button>
+                    <button type="submit" class="btn btn-success" name="submit" value="Submit"
+                        id="submit">ยืนยัน</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
                 </div>
             </form>
@@ -73,4 +92,14 @@
     $(function () {
         bsCustomFileInput.init();
     });
+</script>
+<script>
+    function change_status() {
+        const isChecked = document.getElementById("customSwitch3").checked;
+        if (isChecked) {
+            $(".modal-body #LabelcustomSwitch3").text("เปิดใช้งาน");
+        } else {
+            $(".modal-body #LabelcustomSwitch3").text("ปิดใช้งาน");
+        }
+    }
 </script>

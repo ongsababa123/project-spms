@@ -49,51 +49,56 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-center">1.</td>
-                                    <td>
-                                        <p>โครงงานพิเศษที่ 1asdsadsadasdasdas</p>
-                                        <p>โครงงานพิเศษที่ 1</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                            data-target="#modal-default" onclick="load_modal(2)">
-                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                            data-target="#modal-default" onclick="load_modal(3)">
-                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                            data-target="#modal-default" onclick="load_modal(4)">
-                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                            data-target="#modal-default" onclick="load_modal(5)">
-                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                            data-target="#modal-default" onclick="load_modal(6)">
-                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                        </a>
-                                    </td>
-                                    <td class="text-center"><span class="badge bg-warning mt-3">กำลังดำเนินการ</span>
-                                    </td>
-                                </tr>
+                                <?php if (empty($project_list)): ?>
+                                    <tr>
+                                        <td class="text-center" colspan="8">ไม่พบข้อมูล</td>
+                                    </tr>
+                                <?php else: ?>
+                                    <?php foreach ($project_list as $key => $value): ?>
+                                        <tr>
+                                            <td class="text-center">1.</td>
+                                            <td>
+                                                <p>โครงงานพิเศษที่ 1asdsadsadasdasdas</p>
+                                                <p>โครงงานพิเศษที่ 1</p>
+                                            </td>
+                                            <td class="text-center">
+                                                <a class="btn btn-app bg-secondary" data-toggle="modal"
+                                                    data-target="#modal-default" onclick="load_modal(2)">
+                                                    <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a class="btn btn-app bg-secondary" data-toggle="modal"
+                                                    data-target="#modal-default" onclick="load_modal(3)">
+                                                    <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a class="btn btn-app bg-secondary" data-toggle="modal"
+                                                    data-target="#modal-default" onclick="load_modal(4)">
+                                                    <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a class="btn btn-app bg-secondary" data-toggle="modal"
+                                                    data-target="#modal-default" onclick="load_modal(5)">
+                                                    <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a class="btn btn-app bg-secondary" data-toggle="modal"
+                                                    data-target="#modal-default" onclick="load_modal(6)">
+                                                    <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
+                                                </a>
+                                            </td>
+                                            <td class="text-center"><span class="badge bg-warning mt-3">กำลังดำเนินการ</span>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
-
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
             </div>
         </section>
@@ -102,7 +107,6 @@
         <div id="main_tk">
             <?= $this->include("modal/main_tk"); ?>
         </div>
-
     </div>
     <script>
         function load_modal(load_check, data_encode) {
@@ -111,6 +115,9 @@
 
             if (load_check == 1) {
                 //create tk01
+                $(".modal-body #tk_01_file_upload").show();
+                $(".modal-body #tk_01_file_read").hide();
+
                 $(".modal-body #tk_01").show();
                 $(".modal-body #tk_02").hide();
                 $(".modal-body #tk_03").hide();

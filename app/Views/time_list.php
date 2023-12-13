@@ -73,13 +73,31 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer clearfix">
+                    <div class="card-footer clearfix" id="footer_btn_save">
                         <button type="button" class="btn btn btn-success">บันทึก</button>
-                        <button type="button" class="btn btn btn-danger">ยกเลิก</button>
+                        <button type="button" class="btn btn btn-danger" id="cancel" name="cancel">ยกเลิก</button>
+                    </div>
+                    <div class="card-footer clearfix" id="footer_btn_edit">
+                        <button type="button" class="btn btn btn-info">แก้ไขข้อมูล</button>
                     </div>
                     <!-- /.card -->
                 </div>
             </div>
+        </section>
     </div>
-    </section>
-    </div>
+    <script>
+        $(document).ready(function () {
+            $("#footer_btn_save").hide();
+            $("input[type='checkbox']").prop("disabled", true);
+        })
+        $("#footer_btn_edit").on("click", function () {
+            $("#footer_btn_save").show();
+            $("#footer_btn_edit").hide();
+            $("input[type='checkbox']").prop("disabled", false);
+        })
+        $("#cancel").on("click", function () {
+            $("#footer_btn_save").hide();
+            $("#footer_btn_edit").show();
+            $("input[type='checkbox']").prop("disabled", true);
+        })
+    </script>
