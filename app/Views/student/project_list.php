@@ -108,6 +108,7 @@
             <?= $this->include("modal/main_tk"); ?>
         </div>
     </div>
+
     <script>
         function load_modal(load_check, data_encode) {
             main_tk = document.getElementById("main_tk");
@@ -115,14 +116,23 @@
 
             if (load_check == 1) {
                 //create tk01
+                var data_user = <?php echo json_encode($data_user); ?>;
                 $(".modal-body #tk_01_file_upload").show();
                 $(".modal-body #tk_01_file_read").hide();
+
+                $(".modal-body #name_student_1").val(data_user[0]['name_user']);
+                $(".modal-body #lastname_student_1").val(data_user[0]['lastname_user']);
+                $(".modal-body #email_student_1").val(data_user[0]['email_user']);
+                $(".modal-body #phone_student_1").val(data_user[0]['phone_user']);
+                $(".modal-body #room_student_1").val(data_user[0]['room_user']);
 
                 $(".modal-body #tk_01").show();
                 $(".modal-body #tk_02").hide();
                 $(".modal-body #tk_03").hide();
                 $(".modal-body #tk_04").hide();
                 $(".modal-body #tk_05").hide();
+
+                $(".modal-body #url_route").val("student/projectlist/create/tk01");
             } else if (load_check == 2) {
                 //edit tk01
                 $(".modal-body #tk_01").show();
@@ -160,4 +170,79 @@
                 $(".modal-body #tk_05").show();
             }
         }
+    </script>
+        <script>
+        function action_(url, form) {
+            var formData = new FormData(document.getElementById(form));
+            // Show loading progress
+            var loadingIndicator = Swal.fire({
+                title: 'กำลังโหลด...',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                onBeforeOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            $.ajax({
+                url: '<?= base_url() ?>' + url,
+                type: "POST",
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "JSON",
+                xhr: function () {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function (evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = (evt.loaded / evt.total) * 100;
+                            // You can update a progress bar or any other loading indicator here
+                        }
+                    }, false);
+                    return xhr;
+                },
+                beforeSend: function () {
+                    // Show loading indicator
+                    loadingIndicator;
+                },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            title: response.message,
+                            icon: 'success',
+                            showConfirmButton: false,
+                            allowOutsideClick: false
+                        });
+                        setTimeout(() => {
+                            if (response.reload) {
+                                window.location.reload();
+                            }
+                        }, 2000);
+                    } else {
+                        // Handle error response
+                        handleErrorResponse(response);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // Handle error
+                    handleErrorResponse({
+                        message: "เกิดข้อผิดพลาด"
+                    });
+                },
+                complete: function () {
+                    // Hide loading indicator on completion
+                    loadingIndicator.close();
+                }
+            });
+        }
+
+        function handleErrorResponse(response) {
+            Swal.fire({
+                title: response.message,
+                icon: 'error',
+                showConfirmButton: true,
+                width: '55%'
+            });
+        } 
     </script>

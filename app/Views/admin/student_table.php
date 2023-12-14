@@ -76,6 +76,7 @@
 
             switch (load_check) {
                 case 1:
+                    modalBody.find('#name_user, #lastname_user, #email_user, #phone_user, #password, #room_user').prop('disabled', false);
                     textPassword.hide();
                     modalHeader.find('#title_modal').text("สร้างข้อมูลนักศึกษา");
                     modalBody.find('#url_route').val("admin/user/create/1");
@@ -98,12 +99,12 @@
                         customSwitch3.prop('checked', rowData.status_user == 1);
                         labelCustomSwitch3.text(rowData.status_user == 1 ? "เปิดใช้งาน" : "ปิดใช้งาน");
                         customSwitch3.prop('disabled', false);
-                        modalBody.find('#name_user, #lastname_user, #email_user, #phone_user, #password').prop('disabled', false);
+                        modalBody.find('#name_user, #lastname_user, #email_user, #phone_user, #password, #room_user').prop('disabled', false);
                     } else {
                         customSwitch3.prop('checked', false);
                         labelCustomSwitch3.text("รอการเข้าสู่ระบบครั้งแรก");
                         customSwitch3.prop('disabled', true);
-                        modalBody.find('#name_user, #lastname_user, #email_user, #phone_user, #password').prop('disabled', true);
+                        modalBody.find('#name_user, #lastname_user, #email_user, #phone_user, #password, #room_user').prop('disabled', true);
                     }
 
                     modalHeader.find('#title_modal').text("แก้ไขข้อมูลนักศึกษา");

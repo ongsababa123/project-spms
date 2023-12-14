@@ -52,7 +52,7 @@
                         <div class="col-sm-2" id="div_room">
                             <label>ห้อง</label>
                             <input type="text" class="form-control" placeholder="ห้อง" id="room_user"
-                                name="room_user" required>
+                                name="room_user">
                         </div>
                     </div>
                     <br>

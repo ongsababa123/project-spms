@@ -29,6 +29,26 @@ class UserController extends BaseController
                 'status_user' => 2,
                 'type_user' => $type,
             ];
+            if ($type == 1) {
+                if ($this->request->getVar('room_user')) {
+                    $room = [
+                        'room_user' => $this->request->getVar('room_user'),
+                    ];
+                    $data = array_merge($data, $room);
+                } else {
+                    $response = [
+                        'success' => false,
+                        'message' => 'กรุณาเลือกห้อง',
+                        'reload' => false,
+                    ];
+                    return $this->response->setJSON($response);
+                }
+            } else {
+                $room = [
+                    'room_user' => null,
+                ];
+                $data = array_merge($data, $room);
+            }
             $check = $userModels->save($data);
             if ($check) {
                 // $this->sendMail($this->request->getVar('email_user'), $number_random);

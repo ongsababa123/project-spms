@@ -1,3 +1,6 @@
+<!-- Select2 -->
+<link rel="stylesheet" href="<?= base_url('plugins/select2/css/select2.min.css') ?>">
+<link rel="stylesheet" href="<?= base_url('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') ?>">
 <div class="modal-dialog modal-xl">
     <div class="modal-content">
         <div class="overlay preloader">
@@ -21,7 +24,7 @@
                         </div>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" placeholder="ชื่อโครงงานพิเศษภาษาไทย"
-                                id="name_project_thai" name="name_project_thai">
+                                id="name_project_thai" name="name_project_thai" required>
                         </div>
                     </div>
                     <div class="row">
@@ -30,7 +33,7 @@
                         </div>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" placeholder="ชื่อโครงงานพิเศษภาษาอังกฤษ"
-                                id="name_project_eng" name="name_project_eng">
+                                id="name_project_eng" name="name_project_eng" required>
                         </div>
                     </div>
                 </div>
@@ -74,17 +77,17 @@
                         <div class="col-sm-4">
                             <p>ชื่อ</p>
                             <input type="text" class="form-control" placeholder="ชื่อนักศึกษา" id="name_student_2"
-                                name="name_student_2" required>
+                                name="name_student_2">
                         </div>
                         <div class="col-sm-4">
                             <p>นามสกุล</p>
                             <input type="text" class="form-control" placeholder="นามสกุลนักศึกษา"
-                                id="lastname_student_2" name="lastname_student_2" required>
+                                id="lastname_student_2" name="lastname_student_2">
                         </div>
                         <div class="col-sm-4">
                             <p>อีเมล์</p>
                             <input type="text" class="form-control" placeholder="อีเมล์" id="email_student_2"
-                                name="email_student_2" required>
+                                name="email_student_2">
                         </div>
                     </div>
                     <br>
@@ -92,12 +95,12 @@
                         <div class="col-sm-3">
                             <p>เบอร์โทรศํพท์</p>
                             <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" id="phone_student_2"
-                                name="phone_student_2" required>
+                                name="phone_student_2">
                         </div>
                         <div class="col-sm-1">
                             <p>ห้อง</p>
                             <input type="number" class="form-control" placeholder="ห้อง" id="room_student_2"
-                                name="room_student_2" required>
+                                name="room_student_2">
                         </div>
                     </div>
                     <hr>
@@ -106,17 +109,17 @@
                         <div class="col-sm-4">
                             <p>ชื่อ</p>
                             <input type="text" class="form-control" placeholder="ชื่อนักศึกษา" id="name_student_3"
-                                name="name_student_3" required>
+                                name="name_student_3">
                         </div>
                         <div class="col-sm-4">
                             <p>นามสกุล</p>
                             <input type="text" class="form-control" placeholder="นามสกุลนักศึกษา"
-                                id="lastname_student_3" name="lastname_student_3" required>
+                                id="lastname_student_3" name="lastname_student_3">
                         </div>
                         <div class="col-sm-4">
                             <p>อีเมล์</p>
                             <input type="text" class="form-control" placeholder="อีเมล์" id="email_student_3"
-                                name="email_student_3" required>
+                                name="email_student_3">
                         </div>
                     </div>
                     <br>
@@ -124,35 +127,33 @@
                         <div class="col-sm-3">
                             <p>เบอร์โทรศํพท์</p>
                             <input type="number" class="form-control" placeholder="เบอร์โทรศัพท์" id="phone_student_3"
-                                name="phone_student_3" required>
+                                name="phone_student_3">
                         </div>
                         <div class="col-sm-1">
                             <p>ห้อง</p>
                             <input type="number" class="form-control" placeholder="ห้อง" id="room_student_3"
-                                name="room_student_3" required>
+                                name="room_student_3">
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-sm-5">
                             <p>ภาควิชา</p>
-                            <input type="text" class="form-control" placeholder="" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="text" class="form-control" placeholder="" id="department" name="department"
+                                required>
                         </div>
                         <div class="col-sm-4">
                             <p>กลุ่มวิชา</p>
-                            <input type="text" class="form-control" placeholder="" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="text" class="form-control" placeholder="" id="subject_group"
+                                name="subject_group" required>
                         </div>
                         <div class="col-sm-1">
                             <p>ภาคเรียนที่</p>
-                            <input type="number" class="form-control" placeholder="" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="number" class="form-control" placeholder="" id="semester" name="semester" required>
                         </div>
                         <div class="col-sm-2">
                             <p>ปีการศึกษาที่</p>
-                            <input type="number" class="form-control" placeholder="" id="name_project_thai"
-                                name="name_project_thai">
+                            <input type="number" class="form-control" placeholder="" id="learn_year" name="learn_year" required>
                         </div>
                     </div>
                     <hr>
@@ -163,16 +164,16 @@
                                 <p>อาจารย์ที่ปรึกษา </p>
                             </div>
                             <div class="col-sm-10">
-                                <select class="form-control select2 select2-danger"
-                                    data-dropdown-css-class="select2-danger" style="width: 100%;">
-                                    <option selected="selected">Alabama</option>
-                                    <option>Alaska</option>
-                                    <option>California</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
-                                </select>
+                                <div class="form-group">
+                                    <select class="form-control select2bs4" style="width: 100%;" id="select_teacher"
+                                        name="select_teacher">
+                                        <?php foreach ($data_teacher as $key => $value): ?>
+                                            <option value="<?= $value['email_user'] ?>">
+                                                <?= $value['name_user'] . ' ' . $value['lastname_user'] ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -185,7 +186,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="อาจารย์ที่ปรึกษาร่วมคนที่ 1"
-                                    id="name_project_thai" name="name_project_thai">
+                                    id="name_consult_1" name="name_consult_1">
                             </div>
                         </div>
                         <div class="row">
@@ -194,7 +195,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="อาจารย์ที่ปรึกษาร่วมคนที่ 2"
-                                    id="name_project_thai" name="name_project_thai">
+                                    id="name_consult_2" name="name_consult_2">
                             </div>
                         </div>
                     </div>
@@ -233,13 +234,21 @@
     $("#form_tk").on('submit', function (e) {
         e.preventDefault();
         const urlRouteInput = document.getElementById("url_route");
-        // action_(urlRouteInput.value, 'form_tk');
+        action_(urlRouteInput.value, 'form_tk');
     });
 </script>
 <!-- bs-custom-file-input -->
 <script src="<?= base_url('plugins/bs-custom-file-input/bs-custom-file-input.min.js'); ?>"></script>
 <script>
-    $(function () {
+    $(document).ready(function () {
         bsCustomFileInput.init();
     });
+</script>
+<!-- Select2 -->
+<script src="<?= base_url('plugins/select2/js/select2.full.min.js') ?>"></script>
+<script>
+    $('.select2').select2()
+    $('.select2bs4').select2({
+        theme: 'bootstrap4'
+    })
 </script>

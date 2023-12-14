@@ -7,7 +7,10 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->group("student/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'timelist', 'PageController::index_timelist_student');
+
     $routes->match(['get', 'post'], 'projectlist', 'PageController::index_projectlist');
+    $routes->match(['get', 'post'], 'projectlist/create/tk01', 'ProjectController::create_project_tk01');
+
     $routes->match(['get', 'post'], 'testlist', 'PageController::index_testlist');
 });
 

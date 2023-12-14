@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\NewsModels;
 use App\Models\ProjectModels;
+use App\Models\UserModels;
 
 class PageController extends BaseController
 {
@@ -12,7 +14,7 @@ class PageController extends BaseController
         $data['data_news'] = $NewsModels->where('status_news', 1)->findAll();
 
         echo view('layout/header');
-        echo view('home' , $data);
+        echo view('home', $data);
     }
     //student page
     public function index_timelist_student()
@@ -23,10 +25,17 @@ class PageController extends BaseController
     public function index_projectlist()
     {
         $ProjectModels = new ProjectModels();
+        $UserModels = new UserModels();
         $data['data_project'] = $ProjectModels->where('email_student', session()->get('email'))->findAll();
+        $data['data_user'] = $UserModels->where('email_user', session()->get('email'))->findAll();
+        $data['data_teacher'] = $UserModels
+            ->where('type_user', 2)
+            ->where('status_user', 2)
+            ->orWhere('status_user', 1)
+            ->findAll();
 
         echo view('layout/header');
-        echo view('student/project_list' , $data);
+        echo view('student/project_list', $data);
     }
 
     public function index_testlist()
