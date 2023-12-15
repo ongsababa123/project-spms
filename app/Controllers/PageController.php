@@ -26,7 +26,13 @@ class PageController extends BaseController
     {
         $ProjectModels = new ProjectModels();
         $UserModels = new UserModels();
-        $data['data_project'] = $ProjectModels->where('email_student', session()->get('email'))->findAll();
+        $email = 'developer.tnet@gmail.com';
+        $allData = $ProjectModels->findAll();
+        $filteredData = array_filter($allData, function ($row) use ($email) {
+            return strpos($row['email_student'], $email) !== false;
+        });
+        $data['data_project'] = array_values($filteredData);
+
         $data['data_user'] = $UserModels->where('email_user', session()->get('email'))->findAll();
         $data['data_teacher'] = $UserModels
             ->where('type_user', 2)

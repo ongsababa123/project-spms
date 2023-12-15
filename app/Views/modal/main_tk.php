@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" placeholder="ชื่อโครงงานพิเศษภาษาไทย"
-                                id="name_project_thai" name="name_project_thai" required>
+                                id="name_project" name="name_project" required>
                         </div>
                     </div>
                     <div class="row">
@@ -56,6 +56,8 @@
                             <p>อีเมล์</p>
                             <input type="text" class="form-control" placeholder="อีเมล์" id="email_student_1"
                                 name="email_student_1" required disabled>
+                            <input type="text" class="form-control" placeholder="อีเมล์" id="email_student_1"
+                                name="email_student_1" required hidden>
                         </div>
                     </div>
                     <br>
@@ -149,11 +151,13 @@
                         </div>
                         <div class="col-sm-1">
                             <p>ภาคเรียนที่</p>
-                            <input type="number" class="form-control" placeholder="" id="semester" name="semester" required>
+                            <input type="number" class="form-control" placeholder="" id="semester" name="semester"
+                                required>
                         </div>
                         <div class="col-sm-2">
                             <p>ปีการศึกษาที่</p>
-                            <input type="number" class="form-control" placeholder="" id="learn_year" name="learn_year" required>
+                            <input type="number" class="form-control" placeholder="" id="learn_year" name="learn_year"
+                                required>
                         </div>
                     </div>
                     <hr>

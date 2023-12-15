@@ -49,12 +49,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (empty($project_list)): ?>
+                                <?php if (empty($data_project)): ?>
                                     <tr>
                                         <td class="text-center" colspan="8">ไม่พบข้อมูล</td>
                                     </tr>
                                 <?php else: ?>
-                                    <?php foreach ($project_list as $key => $value): ?>
+                                    <?php foreach ($data_project as $key => $value): ?>
                                         <tr>
                                             <td class="text-center">1.</td>
                                             <td>
@@ -108,7 +108,10 @@
             <?= $this->include("modal/main_tk"); ?>
         </div>
     </div>
-
+    <script>
+        var data_project = <?php echo json_encode($data_project); ?>;
+        console.log(data_project);
+    </script>
     <script>
         function load_modal(load_check, data_encode) {
             main_tk = document.getElementById("main_tk");
@@ -171,7 +174,7 @@
             }
         }
     </script>
-        <script>
+    <script>
         function action_(url, form) {
             var formData = new FormData(document.getElementById(form));
             // Show loading progress
@@ -207,6 +210,7 @@
                     loadingIndicator;
                 },
                 success: function (response) {
+                    console.log(response);
                     if (response.success) {
                         Swal.fire({
                             title: response.message,
