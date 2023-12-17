@@ -1,0 +1,580 @@
+CRITICAL - 2023-12-16 03:47:39 --> Undefined variable $data_teacher
+in APPPATH\Views\modal\main_tk.php on line 174.
+ 1 APPPATH\Views\modal\main_tk.php(174): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data_teacher', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\modal\\main_tk.php', 174)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\modal\\main_tk.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('modal/main_tk', null, true)
+ 5 APPPATH\Views\officer\project_request.php(294): CodeIgniter\View\View->include('modal/main_tk')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\officer\\project_request.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('officer/project_request', [], true)
+ 9 APPPATH\Controllers\PageController.php(98): view('officer/project_request')
+10 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_project_request()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 03:50:51 --> Undefined variable $data_teacher
+in APPPATH\Views\modal\main_tk.php on line 174.
+ 1 APPPATH\Views\modal\main_tk.php(174): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data_teacher', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\modal\\main_tk.php', 174)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\modal\\main_tk.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('modal/main_tk', null, true)
+ 5 APPPATH\Views\officer\project_request.php(294): CodeIgniter\View\View->include('modal/main_tk')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\officer\\project_request.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('officer/project_request', [], true)
+ 9 APPPATH\Controllers\PageController.php(98): view('officer/project_request')
+10 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_project_request()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-16 03:53:13 --> mysqli_sql_exception: Unknown column 'department' in 'field list' in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `li...', 0)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `li...')
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `li...')
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `li...', Array, false)
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\project-spms\app\Controllers\ProjectController.php(97): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\ProjectController->create_project_tk01()
+#9 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+#10 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-12-16 03:53:13 --> Unknown column 'department' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `list_project_table` (`name_project_th`, `name_project_eng`, `email_student`, `email_teacher`, `name_consult`, `id_tk01`, `id_tk02`, `id_tk03`, `id_tk04`, `id_tk05`, `department`, `subject_group`, `term`, `year`, `status_project`) VALUES (:name_project_th:, :name_project_eng:, :email_student:, :email_teacher:, :name_consult:, :id_tk01:, :id_tk02:, :id_tk03:, :id_tk04:, :id_tk05:, :department:, :subject_group:, :term:, :year:, :status_project:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\ProjectController.php(97): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->create_project_tk01()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:38:04 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 134.
+ 1 APPPATH\Views\student\project_list.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 134)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:43:23 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 137.
+ 1 APPPATH\Views\student\project_list.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:43:24 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 137.
+ 1 APPPATH\Views\student\project_list.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:45:57 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 141.
+ 1 APPPATH\Views\student\project_list.php(141): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 141)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:46:24 --> Cannot redeclare generateButton() (previously declared in C:\xampp\htdocs\project-spms\app\Views\student\project_list.php:71)
+in APPPATH\Views\student\project_list.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-16 04:46:56 --> Cannot redeclare generateButton() (previously declared in C:\xampp\htdocs\project-spms\app\Views\student\project_list.php:71)
+in APPPATH\Views\student\project_list.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-16 04:47:11 --> Cannot redeclare generateButton() (previously declared in C:\xampp\htdocs\project-spms\app\Views\student\project_list.php:71)
+in APPPATH\Views\student\project_list.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-16 04:47:21 --> Cannot redeclare generateButton() (previously declared in C:\xampp\htdocs\project-spms\app\Views\student\project_list.php:71)
+in APPPATH\Views\student\project_list.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-16 04:53:43 --> Cannot redeclare generateButton() (previously declared in C:\xampp\htdocs\project-spms\app\Views\student\project_list.php:71)
+in APPPATH\Views\student\project_list.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-16 04:53:59 --> Cannot redeclare generateButton() (previously declared in C:\xampp\htdocs\project-spms\app\Views\student\project_list.php:71)
+in APPPATH\Views\student\project_list.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-16 04:54:10 --> Cannot redeclare generateButton() (previously declared in C:\xampp\htdocs\project-spms\app\Views\student\project_list.php:71)
+in APPPATH\Views\student\project_list.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-16 04:54:37 --> Cannot redeclare generateButton() (previously declared in C:\xampp\htdocs\project-spms\app\Views\student\project_list.php:71)
+in APPPATH\Views\student\project_list.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-16 04:54:59 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 137.
+ 1 APPPATH\Views\student\project_list.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:55:00 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 137.
+ 1 APPPATH\Views\student\project_list.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:55:10 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 137.
+ 1 APPPATH\Views\student\project_list.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:55:33 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 122.
+ 1 APPPATH\Views\student\project_list.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 122)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:55:34 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 122.
+ 1 APPPATH\Views\student\project_list.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 122)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 04:56:24 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 122.
+ 1 APPPATH\Views\student\project_list.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 122)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 05:01:16 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 122.
+ 1 APPPATH\Views\student\project_list.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 122)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 05:02:43 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 132.
+ 1 APPPATH\Views\student\project_list.php(132): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 132)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 05:03:13 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 136.
+ 1 APPPATH\Views\student\project_list.php(136): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 136)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 05:05:08 --> Trying to access array offset on value of type null
+in APPPATH\Views\student\project_list.php on line 136.
+ 1 APPPATH\Views\student\project_list.php(136): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 136)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(60): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 07:15:45 --> Cannot redeclare getStatusClass() (previously declared in C:\xampp\htdocs\project-spms\app\Views\student\project_list.php:71)
+in APPPATH\Views\student\project_list.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-16 09:01:29 --> Call to undefined method App\Models\ProjectModels::array_values
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\ProjectController.php(127): CodeIgniter\Model->__call('array_values', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_table_project()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 09:01:34 --> Call to undefined method App\Models\ProjectModels::array_values
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\ProjectController.php(127): CodeIgniter\Model->__call('array_values', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_table_project()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-16 18:44:43 --> mysqli_sql_exception: Unknown column 'email_user' in 'where clause' in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\project-spms\app\Controllers\ProjectController.php(178): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+#9 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-16 18:44:43 --> Unknown column 'email_user' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_temp_table`
+WHERE `email_user` = :email_user:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProjectController.php(178): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-16 18:44:47 --> mysqli_sql_exception: Unknown column 'email_user' in 'where clause' in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\project-spms\app\Controllers\ProjectController.php(178): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+#9 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-16 18:44:47 --> Unknown column 'email_user' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_temp_table`
+WHERE `email_user` = :email_user:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProjectController.php(178): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-16 18:46:13 --> mysqli_sql_exception: Unknown column 'email_teacher' in 'where clause' in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\project-spms\app\Controllers\ProjectController.php(175): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+#9 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-16 18:46:13 --> Unknown column 'email_teacher' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_table`
+WHERE `email_teacher` = :email_teacher:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProjectController.php(175): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-16 18:46:15 --> mysqli_sql_exception: Unknown column 'email_teacher' in 'where clause' in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\project-spms\app\Controllers\ProjectController.php(175): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+#9 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-16 18:46:15 --> Unknown column 'email_teacher' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_table`
+WHERE `email_teacher` = :email_teacher:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProjectController.php(175): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-16 18:46:52 --> mysqli_sql_exception: Unknown column 'email_teacher' in 'where clause' in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\project-spms\app\Controllers\ProjectController.php(175): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+#9 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-16 18:46:52 --> Unknown column 'email_teacher' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_table`
+WHERE `email_teacher` = :email_teacher:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProjectController.php(175): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:48:43 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:48:45 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:49:09 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:49:15 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:49:18 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:49:39 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:49:41 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:52:55 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:53:27 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:53:29 --> Undefined array key 0
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:53:42 --> Undefined array key "data_tk01"
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "data_tk01"', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:53:49 --> Undefined array key "data_tk01"
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "data_tk01"', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:54:10 --> Undefined array key "data_tk01"
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "data_tk01"', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 18:54:12 --> Undefined array key "data_tk01"
+in APPPATH\Controllers\ProjectController.php on line 180.
+ 1 APPPATH\Controllers\ProjectController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "data_tk01"', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-16 18:57:00 --> mysqli_sql_exception: Unknown column 'email_user' in 'where clause' in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\project-spms\app\Controllers\ProjectController.php(177): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+#9 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-16 18:57:00 --> Unknown column 'email_user' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_temp_table`
+WHERE `email_user` = :email_user:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProjectController.php(177): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-16 18:57:02 --> mysqli_sql_exception: Unknown column 'email_user' in 'where clause' in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\project-spms\app\Controllers\ProjectController.php(177): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+#9 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-16 18:57:02 --> Unknown column 'email_user' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_temp_table`
+WHERE `email_user` = :email_user:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProjectController.php(177): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('1')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 19:01:59 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 175.
+ 1 APPPATH\Controllers\ProjectController.php(175): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 175)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('9')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 19:02:34 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 175.
+ 1 APPPATH\Controllers\ProjectController.php(175): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 175)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('10')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 19:02:42 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 175.
+ 1 APPPATH\Controllers\ProjectController.php(175): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 175)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('10')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 19:04:23 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 175.
+ 1 APPPATH\Controllers\ProjectController.php(175): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 175)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('11')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 19:04:26 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 175.
+ 1 APPPATH\Controllers\ProjectController.php(175): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 175)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('11')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-16 19:05:22 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 175.
+ 1 APPPATH\Controllers\ProjectController.php(175): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\project-spms\\app\\Controllers\\ProjectController.php', 175)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->get_data_default('11')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

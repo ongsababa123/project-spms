@@ -1,0 +1,68 @@
+CRITICAL - 2023-12-17 06:55:20 --> Undefined variable $data_user
+in APPPATH\Views\student\project_list.php on line 75.
+ 1 APPPATH\Views\student\project_list.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data_user', 'C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php', 75)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\project-spms\\app\\Views\\student\\project_list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('student/project_list', [], true)
+ 5 APPPATH\Controllers\PageController.php(42): view('student/project_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_projectlist()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-17 12:24:06 --> Call to undefined function App\Controllers\delete_files()
+in APPPATH\Controllers\ProjectController.php on line 129.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->edit_project_tk01('2', '2', '14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-17 12:24:09 --> Call to a member function isValid() on null
+in APPPATH\Controllers\ProjectController.php on line 127.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->edit_project_tk01('2', '2', '14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-17 12:25:57 --> Call to undefined function App\Controllers\delete_files()
+in APPPATH\Controllers\ProjectController.php on line 129.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->edit_project_tk01('2', '2', '14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-17 12:26:00 --> Call to a member function isValid() on null
+in APPPATH\Controllers\ProjectController.php on line 127.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->edit_project_tk01('2', '2', '14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-17 12:27:59 --> Call to undefined function App\Controllers\delete_files()
+in APPPATH\Controllers\ProjectController.php on line 129.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->edit_project_tk01('2', '2', '14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-17 12:28:03 --> Call to a member function isValid() on null
+in APPPATH\Controllers\ProjectController.php on line 127.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->edit_project_tk01('2', '2', '14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-17 12:28:31 --> Call to undefined function App\Controllers\delete_files()
+in APPPATH\Controllers\ProjectController.php on line 129.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->edit_project_tk01('2', '2', '14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-17 13:03:54 --> Attempt to read property "insert_id" on bool
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 588.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(588): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "insert_id" on bool', 'C:\\xampp\\htdocs\\project-spms\\vendor\\codeigniter4\\framework\\system\\Database\\MySQLi\\Connection.php', 588)
+ 2 SYSTEMPATH\Model.php(867): CodeIgniter\Database\MySQLi\Connection->insertID()
+ 3 APPPATH\Controllers\ProjectController.php(141): CodeIgniter\Model->__call('insertID', [])
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->edit_project_tk01('2', '2', '14')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-17 13:03:59 --> Call to a member function isValid() on null
+in APPPATH\Controllers\ProjectController.php on line 129.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\ProjectController->edit_project_tk01('2', '2', '14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

@@ -5,6 +5,11 @@ namespace App\Controllers;
 use App\Models\NewsModels;
 use App\Models\ProjectModels;
 use App\Models\UserModels;
+use App\Models\TK01_Models;
+use App\Models\TK02_Models;
+use App\Models\TK03_Models;
+use App\Models\TK04_Models;
+use App\Models\TK05_Models;
 
 class PageController extends BaseController
 {
@@ -26,12 +31,6 @@ class PageController extends BaseController
     {
         $ProjectModels = new ProjectModels();
         $UserModels = new UserModels();
-        $email = 'developer.tnet@gmail.com';
-        $allData = $ProjectModels->findAll();
-        $filteredData = array_filter($allData, function ($row) use ($email) {
-            return strpos($row['email_student'], $email) !== false;
-        });
-        $data['data_project'] = array_values($filteredData);
 
         $data['data_user'] = $UserModels->where('email_user', session()->get('email'))->findAll();
         $data['data_teacher'] = $UserModels
@@ -39,7 +38,12 @@ class PageController extends BaseController
             ->where('status_user', 2)
             ->orWhere('status_user', 1)
             ->findAll();
-
+        foreach ($data['data_teacher'] as $key => $value) {
+            $data['data_teacher'][$key]['project_count'] = $ProjectModels
+                ->where('email_teacher', $value['email_user'])
+                ->where('status_project', 1)
+                ->countAllResults();
+        }
         echo view('layout/header');
         echo view('student/project_list', $data);
     }

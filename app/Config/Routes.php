@@ -10,6 +10,9 @@ $routes->group("student/", ['filter' => ['AuthGuard']], function ($routes) {
 
     $routes->match(['get', 'post'], 'projectlist', 'PageController::index_projectlist');
     $routes->match(['get', 'post'], 'projectlist/create/tk01', 'ProjectController::create_project_tk01');
+    $routes->match(['get', 'post'], 'projectlist/edit/tk01/(:num)/(:num)/(:num)', 'ProjectController::edit_project_tk01/$1/$2/$3');
+    $routes->match(['get', 'post'], 'projectlist/getdata', 'ProjectController::get_data_table_project');
+    $routes->match(['get', 'post'], 'projectlist/getdata/tk/(:num)', 'ProjectController::get_data_default/$1');
 
     $routes->match(['get', 'post'], 'testlist', 'PageController::index_testlist');
 });
@@ -49,4 +52,5 @@ $routes->match(['get', 'post'], '/', 'PageController::index_home');
 $routes->match(['get', 'post'], '/login', 'LoginController::index_login');
 $routes->match(['get', 'post'], '/login/auth', 'LoginController::loginAuth');
 $routes->match(['get', 'post'], '/logout', 'LoginController::logout');
+$routes->match(['get', 'post'], '/openfile/(:num)', 'FileController::openfile/$1');
 

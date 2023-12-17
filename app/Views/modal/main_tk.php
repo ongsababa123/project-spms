@@ -3,11 +3,11 @@
 <link rel="stylesheet" href="<?= base_url('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') ?>">
 <div class="modal-dialog modal-xl">
     <div class="modal-content">
-        <div class="overlay preloader">
+        <div class="overlay" id="overlay">
             <i class="fas fa-2x fa-sync fa-spin"></i>
         </div>
         <div class="modal-header bg-info">
-            <h4 class="modal-title" id="title_modal" name="title_modal">ข้อมูล ทก.01</h4>
+            <h4 class="modal-title" id="title_modal" name="title_modal"></h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -173,7 +173,7 @@
                                         name="select_teacher">
                                         <?php foreach ($data_teacher as $key => $value): ?>
                                             <option value="<?= $value['email_user'] ?>">
-                                                <?= $value['name_user'] . ' ' . $value['lastname_user'] ?>
+                                                <?= $value['name_user'] . ' ' . $value['lastname_user'] .' [จำนวนโครงงานพิเศษ '. $value['project_count'] . ']'?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
