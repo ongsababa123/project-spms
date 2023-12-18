@@ -67,7 +67,9 @@
     </script>
     <script>
         function load_modal(load_check, data_encode) {
+            var data_teacher = <?php echo json_encode($data_teacher); ?>;
             main_tk = document.getElementById("main_tk");
+            $(".modal-body #select_teacher").empty();
             main_tk.style.display = "block";
             const fieldsToReset = [
                 '#name_project', '#name_project_eng', '#department', '#subject_group',
@@ -78,25 +80,28 @@
             if (load_check == 1) {
                 //create tk01
                 var data_user = <?php echo json_encode($data_user); ?>;
+                data_teacher.forEach(element => {
+                    var newOption = $('<option></option>').val(element.email_user).text(element.name_user + ' ' + element.lastname_user + ' ' + '[จำนวนโครงงานพิเศษ : ' + element.project_count + ']');
+                    $(".modal-body #select_teacher").append(newOption);
+                });
                 $(".modal-body #tk_01_file_upload").show();
                 $(".modal-body #tk_01_file_read").hide();
-
                 $(".modal-body #name_student_1").val(data_user[0]['name_user']);
                 $(".modal-body #lastname_student_1").val(data_user[0]['lastname_user']);
                 $(".modal-body #email_student_1").val(data_user[0]['email_user']);
                 $(".modal-body #phone_student_1").val(data_user[0]['phone_user']);
                 $(".modal-body #room_student_1").val(data_user[0]['room_user']);
-
-
                 fieldsToReset.forEach(field => $(".modal-body " + field).val(''));
-
+                fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', false));
+                $(".modal-body #researched_information").prop('disabled', false);
+                $(".modal-body #select_teacher").prop('disabled', false);
+                $(".modal-footer #submit").prop('disabled', false);
                 $(".modal-header #title_modal").text('ข้อมูล ทก.01');
                 $(".modal-body #tk_01").show();
                 $(".modal-body #tk_02").hide();
                 $(".modal-body #tk_03").hide();
                 $(".modal-body #tk_04").hide();
                 $(".modal-body #tk_05").hide();
-
                 $(".modal-body #url_route").val("student/projectlist/create/tk01");
             } else {
                 $(".modal-content #overlay").show();
@@ -108,7 +113,6 @@
                     contentType: false,
                     dataType: "JSON",
                     success: function (data) {
-
                         $(".modal-content #overlay").hide();
                         $(".modal-body #name_project").val(data['project']['name_project_th']);
                         $(".modal-body #name_project_eng").val(data['project']['name_project_eng']);
@@ -129,9 +133,14 @@
                         $(".modal-body #email_student_1").val(data['students'][0]['email_user']);
                         $(".modal-body #phone_student_1").val(data['students'][0]['phone_user']);
                         $(".modal-body #room_student_1").val(data['students'][0]['room_user']);
-
-                        $(".modal-body #select_teacher option[value='" + data['project']['email_teacher'] + "']:contains('" + data['project']['name_teacher'] + "')").prop('selected', true);
-
+                        data_teacher.forEach(element => {
+                            var newOption = $('<option></option>').val(element.email_user).text(element.name_user + ' ' + element.lastname_user + ' ' + '[จำนวนโครงงานพิเศษ : ' + element.project_count + ']');
+                            if (element.email_user == data['project']['email_teacher']) {
+                                $(".modal-body #select_teacher").append(newOption.prop('selected', true));
+                            } else {
+                                $(".modal-body #select_teacher").append(newOption);
+                            }
+                        });
                         if (data['students'][1] == null) {
                             $(".modal-body #name_student_2").val('');
                             $(".modal-body #lastname_student_2").val('');
@@ -190,28 +199,151 @@
                             $(".modal-body #url_route").val("student/projectlist/edit/tk01/" + data['project']['id_project'] + "/" + data['data_tk01']['id_tk_01'] + "/" + data['data_tk01']['id_file_01']);
                         } else if (load_check == 3) {
                             //edit tk02
+                            $(".modal-body #select_teacher").prop('disabled', true);
+
+                            if (data['data_tk02'] != null) {
+                                $(".modal-body #tk_02_file_read").show();
+                                if (data['data_tk02']['status_tk_02'] == 6 || data['data_tk02']['status_tk_02'] == 2 || data['data_tk02']['status_tk_02'] == 4) {
+                                    $(".modal-footer #submit").prop('disabled', true);
+                                    $(".modal-body #file_project").prop('disabled', true);
+                                    $(".modal-body #file_present").prop('disabled', true);
+                                } else {
+                                    fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', false));
+                                    $(".modal-footer #submit").prop('disabled', false);
+                                    $(".modal-body #file_project").prop('disabled', false);
+                                    $(".modal-body #file_present").prop('disabled', false);
+                                }
+                                $("#tk_02_file_read_1").click(() => window.open('<?php echo site_url('openfile/') ?>' + data['data_tk02']['id_file_02'], '_blank'));
+                                if (data['data_tk02']['id_file_present'] != null) {
+                                    $(".modal-body #tk_02_file_present").show();
+                                    $("#tk_02_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + data['data_tk02']['id_file_present'], '_blank'));
+                                } else {
+                                    $(".modal-body #tk_02_file_present").hide();
+                                }
+                                $(".modal-body #url_route").val("student/projectlist/edit/tk02/" + data['data_tk02']['id_tk_02'] + "/" + data['data_tk02']['id_file_02'] + "/" + data['data_tk02']['id_file_present']);
+                            } else {
+                                $(".modal-body #tk_02_file_read").hide();
+                                $(".modal-footer #submit").prop('disabled', false);
+                                $(".modal-body #file_project").prop('disabled', false);
+                                $(".modal-body #file_present").prop('disabled', false);
+                                $(".modal-body #url_route").val("student/projectlist/create/tk02/" + data['project']['id_project']);
+                            }
+
                             $(".modal-header #title_modal").text('ข้อมูล ทก.02');
                             $(".modal-body #tk_01").hide();
                             $(".modal-body #tk_02").show();
                             $(".modal-body #tk_03").hide();
                             $(".modal-body #tk_04").hide();
                             $(".modal-body #tk_05").hide();
+                            fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', true));
+
                         } else if (load_check == 4) {
                             //edit tk03
+                            $(".modal-body #select_teacher").prop('disabled', true);
+                            if (data['data_tk03'] != null) {
+                                $(".modal-body #file_read_tk03").show();
+                                if (data['data_tk03']['status_tk_03'] == 6 || data['data_tk03']['status_tk_03'] == 2 || data['data_tk03']['status_tk_03'] == 4) {
+                                    $(".modal-footer #submit").prop('disabled', true);
+                                    $(".modal-body #file_project_tk03").prop('disabled', true);
+                                    $(".modal-body #file_present_tk03").prop('disabled', true);
+                                } else {
+                                    fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', false));
+                                    $(".modal-footer #submit").prop('disabled', false);
+                                    $(".modal-body #file_project_tk03").prop('disabled', false);
+                                    $(".modal-body #file_present_tk03").prop('disabled', false);
+                                }
+                                $("#tk_03_file_read_1").click(() => window.open('<?php echo site_url('openfile/') ?>' + data['data_tk03']['id_file_03'], '_blank'));
+                                if (data['data_tk03']['id_file_present'] != null) {
+                                    $(".modal-body #tk_03_file_present").show();
+                                    $("#tk_03_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + data['data_tk03']['id_file_present'], '_blank'));
+                                } else {
+                                    $(".modal-body #tk_03_file_present").hide();
+                                }
+                                if (data['data_tk03']['id_score'] != null) {
+                                    $(".modal-body #tk_03_score").show();
+                                    // $("#tk_03_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + data['data_tk03']['id_file_present'], '_blank'));
+                                } else {
+                                    $(".modal-body #tk_03_score").hide();
+                                }
+                                $(".modal-body #url_route").val("student/projectlist/edit/tk03/" + data['data_tk03']['id_tk_03'] + "/" + data['data_tk03']['id_file_03'] + "/" + data['data_tk03']['id_file_present']);
+                            } else {
+                                $(".modal-body #file_read_tk03").hide();
+                                $(".modal-footer #submit").prop('disabled', false);
+                                $(".modal-body #file_project_tk03").prop('disabled', false);
+                                $(".modal-body #file_present_tk03").prop('disabled', false);
+                                $(".modal-body #url_route").val("student/projectlist/create/tk03/" + data['project']['id_project']);
+                            }
                             $(".modal-header #title_modal").text('ข้อมูล ทก.03');
                             $(".modal-body #tk_01").hide();
                             $(".modal-body #tk_02").hide();
                             $(".modal-body #tk_03").show();
                             $(".modal-body #tk_04").hide();
                             $(".modal-body #tk_05").hide();
+                            fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', true));
                         } else if (load_check == 5) {
                             //edit tk04
+                            $(".modal-body #select_teacher").prop('disabled', true);
+                            if (data['data_tk04'] != null) {
+                                if (data['data_tk04']['status_tk_04'] == 6 || data['data_tk04']['status_tk_04'] == 2 || data['data_tk04']['status_tk_04'] == 4) {
+                                    $(".modal-footer #submit").prop('disabled', true);
+                                    $(".modal-body #file_project_tk04").prop('disabled', true);
+                                } else {
+                                    $(".modal-footer #submit").prop('disabled', false);
+                                    $(".modal-body #file_project_tk04").prop('disabled', false);
+                                }
+                                var consultants = data['data_tk04']['id_file_04'].split(',');
+
+                                consultants.forEach((consultant, index) => {
+                                    console.log(consultant);
+                                    console.log(data);
+                                    // const htmlTemplate = `
+                                    //                     <div class="row">
+                                    //                         <div class="col-md-2 text-center mt-3">
+                                    //                             <p>${index + 1}</p>
+                                    //                         </div>
+                                    //                         <div class="col-md-2 text-center">
+                                    //                             <a class="btn btn-app bg-danger" href="<?= site_url('openfile/') ?>${consultant}" target="_blank">?>">
+                                    //                                 <i class="fas fa-file-pdf"></i> ไฟล์รายงานความก้าวหน้า
+                                    //                             </a>
+                                    //                         </div>
+                                    //                         <div class="col-md-2 text-center mt-3">
+                                    //                             <p>${consultant.reportDate}</p>
+                                    //                         </div>
+                                    //                         <div class="col-md-1 text-center mt-3">
+                                    //                             <span class="badge bg-warning">${consultant.status}</span>
+                                    //                         </div>
+                                    //                         <div class="col-md-3 text-center mt-3">
+                                    //                             <div class="row">
+                                    //                                 <div class="col-md-6">
+                                    //                                     <button type="button" class="btn btn-block btn-success btn-sm">ตรวจสอบแล้ว</button>
+                                    //                                 </div>
+                                    //                                 <div class="col-md-6">
+                                    //                                     <button type="button" class="btn btn-block btn-danger btn-sm">ไม่อนุมัติ</button>
+                                    //                                 </div>
+                                    //                                 <div class="col-md-6">
+                                    //                                     <button type="button" class="btn btn-block btn-warning btn-sm">กำลังตรวจสอบ</button>
+                                    //                                 </div>
+                                    //                             </div>
+                                    //                         </div>
+                                    //                     </div>
+                                    //                 `;
+                                    // // เพิ่ม HTML element ใน container
+                                    // container.innerHTML += htmlTemplate;
+                                });
+                                $(".modal-body #tk_04_file").show();
+                                $(".modal-body #url_route").val("student/projectlist/edit/tk04/" + data['data_tk04']['id_tk_04'] + "/" + data['data_tk04']['id_file_04']);
+                            } else {
+                                $(".modal-footer #submit").prop('disabled', false);
+                                $(".modal-body #tk_04_file").hide();
+                                $(".modal-body #url_route").val("student/projectlist/create/tk04/" + data['project']['id_project']);
+                            }
                             $(".modal-header #title_modal").text('ข้อมูล ทก.04');
                             $(".modal-body #tk_01").hide();
                             $(".modal-body #tk_02").hide();
                             $(".modal-body #tk_03").hide();
                             $(".modal-body #tk_04").show();
                             $(".modal-body #tk_05").hide();
+                            fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', true));
                         } else if (load_check == 6) {
                             //edit tk05
                             $(".modal-header #title_modal").text('ข้อมูล ทก.05');
@@ -359,7 +491,7 @@
                         'class': 'text-center',
                         'render': function (data, type, row, meta) {
                             if (data.data_tk02 == null) {
-                                return create_button(1, 3);
+                                return create_button(1, 3, data.id_project);
                             } else {
                                 return create_button(data.data_tk02.status_tk_02, 3, data.id_project);
                             }
@@ -370,7 +502,7 @@
                         'class': 'text-center',
                         'render': function (data, type, row, meta) {
                             if (data.data_tk03 == null) {
-                                return create_button(1, 4);
+                                return create_button(1, 4, data.id_project);
                             } else {
                                 return create_button(data.data_tk03.status_tk_03, 4, data.id_project);
                             }
@@ -381,7 +513,7 @@
                         'class': 'text-center',
                         'render': function (data, type, row, meta) {
                             if (data.data_tk04 == null) {
-                                return create_button(1, 5);
+                                return create_button(1, 5, data.id_project);
                             } else {
                                 return create_button(data.data_tk04.status_tk_04, 5, data.id_project);
                             }

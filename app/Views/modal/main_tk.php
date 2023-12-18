@@ -169,13 +169,7 @@
                             </div>
                             <div class="col-sm-10">
                                 <div class="form-group">
-                                    <select class="form-control select2bs4" style="width: 100%;" id="select_teacher"
-                                        name="select_teacher">
-                                        <?php foreach ($data_teacher as $key => $value): ?>
-                                            <option value="<?= $value['email_user'] ?>">
-                                                <?= $value['name_user'] . ' ' . $value['lastname_user'] .' [จำนวนโครงงานพิเศษ '. $value['project_count'] . ']'?>
-                                            </option>
-                                        <?php endforeach; ?>
+                                    <select class="form-control select2bs4" style="width: 100%;" id="select_teacher" name="select_teacher">
                                     </select>
                                 </div>
                             </div>

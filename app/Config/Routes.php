@@ -11,6 +11,16 @@ $routes->group("student/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'projectlist', 'PageController::index_projectlist');
     $routes->match(['get', 'post'], 'projectlist/create/tk01', 'ProjectController::create_project_tk01');
     $routes->match(['get', 'post'], 'projectlist/edit/tk01/(:num)/(:num)/(:num)', 'ProjectController::edit_project_tk01/$1/$2/$3');
+
+    $routes->match(['get', 'post'], 'projectlist/create/tk02/(:num)', 'ProjectController::create_project_tk02/$1');
+    $routes->match(['get', 'post'], 'projectlist/edit/tk02/(:num)/(:num)/(:any)', 'ProjectController::edit_project_tk02/$1/$2/$3');
+
+    $routes->match(['get', 'post'], 'projectlist/create/tk03/(:num)', 'ProjectController::create_project_tk03/$1');
+    $routes->match(['get', 'post'], 'projectlist/edit/tk03/(:num)/(:num)/(:any)', 'ProjectController::edit_project_tk03/$1/$2/$3');
+
+    $routes->match(['get', 'post'], 'projectlist/create/tk04/(:num)', 'ProjectController::create_project_tk04/$1');
+    $routes->match(['get', 'post'], 'projectlist/edit/tk04/(:num)/(:num)', 'ProjectController::edit_project_tk04/$1/$2');
+
     $routes->match(['get', 'post'], 'projectlist/getdata', 'ProjectController::get_data_table_project');
     $routes->match(['get', 'post'], 'projectlist/getdata/tk/(:num)', 'ProjectController::get_data_default/$1');
 
@@ -48,7 +58,7 @@ $routes->group("admin/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'user/getdata/(:num)', 'UserController::get_data_table_user/$1');
 });
 
-$routes->match(['get', 'post'], '/', 'PageController::index_home');
+$routes->match(['get', 'post'], '/', 'PageController::index_home' , ['filter' => ['AuthGuard']]);
 $routes->match(['get', 'post'], '/login', 'LoginController::index_login');
 $routes->match(['get', 'post'], '/login/auth', 'LoginController::loginAuth');
 $routes->match(['get', 'post'], '/logout', 'LoginController::logout');

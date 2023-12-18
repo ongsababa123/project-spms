@@ -1,53 +1,43 @@
-<h3>2. รายงานความก้าวหน้า</h3>
-<div class="row">
-    <div class="col-md-2 text-center">
-        <p>ลำดับ</p>
-    </div>
-    <div class="col-md-2 text-center">
-        <p>ไฟล์</p>
-    </div>
-    <div class="col-md-2 text-center">
-        <p>วัน / เดือน / ปี</p>
-    </div>
-    <div class="col-md-1 text-center">
-        <p>สถานะ</p>
-    </div>
-    <div class="col-md-3 text-center">
-        <p>การตรวจสอบ</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-2 text-center mt-3">
-        <p>1</p>
-    </div>
-    <div class="col-md-2 text-center">
-        <a class="btn btn-app bg-danger">
-            <i class="fas fa-file-pdf"></i> ไฟล์รายงานความก้าวหน้า
-        </a>
-    </div>
-    <div class="col-md-2 text-center mt-3">
-        <p>20/1/2023</p>
-    </div>
-    <div class="col-md-1 text-center mt-3">
-        <span class="badge bg-warning">รอตรวจสอบ</span>
-    </div>
-    <div class="col-md-3 text-center mt-3">
-        <div class="row">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-block btn-success btn-sm">ตรวจสอบแล้ว</button>
-            </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-block btn-danger btn-sm">ไม่อนุมัติ</button>
-            </div>
-        </div>
-
+<label>1.5 แนบไฟล์รายงานบทที่ 1-5 และไฟล์ที่จะนำเสนอ</label>
+<div class="form-group">
+    <p>เลือกไฟล์รายงานบทที่ 1-5</p>
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="file_project_tk03" accept=".pdf" data-max-size="20971520"
+            name="file_project_tk03">
+        <label class="custom-file-label" for="customFile">เลือกไฟล์บทที่ 1-5</label>
     </div>
 </div>
 <div class="form-group">
-    <p>เลือกไฟล์รายงานความก้าวหน้า</p>
+    <p>เลือกไฟล์นำเสนอ</p>
     <div class="custom-file">
-        <input type="file" class="custom-file-input" id="exampleInputFile" accept=".pdf" data-max-size="20971520"
-            name="file">
-        <label class="custom-file-label" for="customFile">เลือกไฟล์รายงานความก้าวหน้า</label>
+        <input type="file" class="custom-file-input" id="file_present_tk03" accept="" data-max-size="20971520"
+            name="file_present_tk03">
+        <label class="custom-file-label" for="customFile">เลือกไฟล์นำเสนอ</label>
+    </div>
+</div>
+<div class="row" id="file_read_tk03">
+    <div class="col-md-2">
+        <div class="form-group">
+            <p>ไฟล์รายงานบทที่ 1-5</p>
+            <a class="btn btn-app bg-danger" id="tk_03_file_read_1">
+                <i class="fas fa-file-pdf"></i> ไฟล์รายงานบทที่ 1-5
+            </a>
+        </div>
+    </div>
+    <div class="col-md-2" id="tk_03_file_present">
+        <div class="form-group">
+            <p>ไฟล์นำเสนอ</p>
+            <a class="btn btn-app bg-danger" id="tk_03_file_read_2">
+                <i class="fas fa-file-alt"></i> ไฟล์นำเสนอ
+            </a>
+        </div>
+    </div>
+    <div class="col-md-1" id="tk_03_score">
+        <div class="form-group">
+            <p>คะแนนที่ได้</p>
+            <a class="btn btn-app bg-info" id="tk_03_score_read">
+            <i class="fas fa-star"></i> คะแนน
+            </a>
+        </div>
     </div>
 </div>
