@@ -39,7 +39,10 @@ $routes->group("teacher/", ['filter' => ['AuthGuard']], function ($routes) {
 $routes->group("officer/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'testtime', 'PageController::index_testtime');
     $routes->match(['get', 'post'], 'historytest', 'PageController::index_history_test');
+
     $routes->match(['get', 'post'], 'request', 'PageController::index_project_request');
+    $routes->match(['get', 'post'], 'request/changestatus/tk/(:num)/(:num)/(:num)', 'ProjectController::changestatus_request/$1/$2/$3');
+
 
     $routes->match(['get', 'post'], 'news', 'PageController::index_news_table');
     $routes->match(['get', 'post'], 'news/create', 'NewsController::create_news');

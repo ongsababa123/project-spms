@@ -326,12 +326,9 @@
                                                 </div>
                                             </div>
                                         `;
-
                                     // Append the new HTML code to the tk_04_file_1 element
                                     $("#tk_04_file_1").append(newHtml);
                                 });
-
-
                                 $(".modal-body #tk_04_file").show();
                                 $(".modal-body #url_route").val("student/projectlist/edit/tk04/" + data['data_tk04']['id_tk_04']);
                             } else {
@@ -356,7 +353,6 @@
                             $(".modal-body #director_2").prop('disabled', true);
                             $(".modal-footer #submit").prop('disabled', true);
                             if (data['data_tk05'] != null) {
-                                console.log(data['project']['email_teacher']);
                                 $(".modal-body #score_tk05").show();
                                 $(".modal-body #chairman").val(data['data_tk05']['email_director1']);
                                 $(".modal-body #director_1").val(data['data_tk05']['email_director2']);

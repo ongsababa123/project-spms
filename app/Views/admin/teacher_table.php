@@ -111,7 +111,6 @@
             }
         }
     </script>
-
     <script>
         $(document).ready(function () {
             getTableData();

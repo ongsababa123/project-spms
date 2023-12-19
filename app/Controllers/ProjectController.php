@@ -585,5 +585,39 @@ class ProjectController extends BaseController
         return $this->response->setJSON($data);
     }
 
+    public function changestatus_request($id_tk = null, $type_tk = null, $status = null)
+    {
+        $TK01_Models = new TK01_Models();
+        $TK02_Models = new TK02_Models();
+        $TK03_Models = new TK03_Models();
+        $TK04_Models = new TK04_Models();
+        $TK05_Models = new TK05_Models();
+
+        if ($type_tk == 1) {
+            $TK01_Models->update($id_tk, ['status_tk_01' => $status]);
+        } else if ($type_tk == 2) {
+            $TK02_Models->update($id_tk, ['status_tk_02' => $status]);
+        } else if ($type_tk == 3) {
+            $TK03_Models->update($id_tk, ['status_tk_03' => $status]);
+        } else if ($type_tk == 4) {
+            $TK04_Models->update($id_tk, ['status_tk_04' => $status]);
+        } else if ($type_tk == 5) {
+            $TK05_Models->update($id_tk, ['status_tk_05' => $status]);
+        } else {
+            $response = [
+                'success' => false,
+                'message' => 'เกิดข้อผิดพลาด',
+                'reload' => false,
+            ];
+            return $this->response->setJSON($response);
+        }
+
+        $response = [
+            'success' => true,
+            'message' => 'เสร็จสิ้น',
+            'reload' => true,
+        ];
+        return $this->response->setJSON($response);
+    }
 }
 
