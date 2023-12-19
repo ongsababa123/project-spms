@@ -11,5 +11,5 @@ class TK01_Models extends Model
     protected $primaryKey = 'id_tk_01';
 
     protected $allowedFields = ['id_file_01' , 'status_tk_01'];
-
+    
 }

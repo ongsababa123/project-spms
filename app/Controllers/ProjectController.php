@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Models\UserTempModels;
 use App\Models\UserModels;
 use App\Models\FileModels;
-use App\Models\NewsModels;
 use App\Models\ProjectModels;
 use App\Models\TK01_Models;
 use App\Models\TK02_Models;
@@ -51,14 +50,14 @@ class ProjectController extends BaseController
                         $email_students[] = $email_candidate;
                     } else {
                         $email_students[] = $email_candidate;
-                        $check_user_temp = $UserTempModels->where('email_user_temp', $email_candidate)->first();
+                        $check_user_temp = $UserTempModels->where('email_user', $email_candidate)->first();
                         if (empty($check_user_temp)) {
                             $data_temp = [
-                                'email_user_temp' => $email_candidate,
-                                'name_user_temp' => $this->request->getVar('name_student_' . $i),
-                                'lastname_user_temp' => $this->request->getVar('lastname_student_' . $i),
-                                'phone_user_temp' => $this->request->getVar('phone_student_' . $i),
-                                'room_user_temp' => $this->request->getVar('room_student_' . $i),
+                                'email_user' => $email_candidate,
+                                'name_user' => $this->request->getVar('name_student_' . $i),
+                                'lastname_user' => $this->request->getVar('lastname_student_' . $i),
+                                'phone_user' => $this->request->getVar('phone_student_' . $i),
+                                'room_user' => $this->request->getVar('room_student_' . $i),
                             ];
                             $UserTempModels->insert($data_temp);
                         }
@@ -148,14 +147,14 @@ class ProjectController extends BaseController
                     $email_students[] = $email_candidate;
                 } else {
                     $email_students[] = $email_candidate;
-                    $check_user_temp = $UserTempModels->where('email_user_temp', $email_candidate)->first();
+                    $check_user_temp = $UserTempModels->where('email_user', $email_candidate)->first();
                     if (empty($check_user_temp)) {
                         $data_temp = [
-                            'email_user_temp' => $email_candidate,
-                            'name_user_temp' => $this->request->getVar('name_student_' . $i),
-                            'lastname_user_temp' => $this->request->getVar('lastname_student_' . $i),
-                            'phone_user_temp' => $this->request->getVar('phone_student_' . $i),
-                            'room_user_temp' => $this->request->getVar('room_student_' . $i),
+                            'email_user' => $email_candidate,
+                            'name_user' => $this->request->getVar('name_student_' . $i),
+                            'lastname_user' => $this->request->getVar('lastname_student_' . $i),
+                            'phone_user' => $this->request->getVar('phone_student_' . $i),
+                            'room_user' => $this->request->getVar('room_student_' . $i),
                         ];
                         $UserTempModels->insert($data_temp);
                     }
@@ -438,6 +437,7 @@ class ProjectController extends BaseController
             $FileModels->insert([
                 'name_file' => $newName,
                 'date_uploade' => $currentDateTime,
+                'status_file' => 0,
             ]);
             $id_file_project = $FileModels->insertID();
             $file_project_tk04->move(ROOTPATH . 'public/uploads/' . $id_file_project, $newName);
@@ -480,6 +480,7 @@ class ProjectController extends BaseController
             $FileModels->insert([
                 'name_file' => $newName,
                 'date_uploade' => $currentDateTime,
+                'status_file' => 0,
             ]);
             $id_file_project = $FileModels->insertID();
             $data['tk04'] = $TK04_Models->where('id_tk_04', $id_tk04)->first();
@@ -563,7 +564,7 @@ class ProjectController extends BaseController
         $data['project'] = $ProjectModels->where('id_project', $id_project)->first();
         $email_students = explode(',', $data['project']['email_student']);
         foreach ($email_students as $key => $value) {
-            $data['students'][$key] = $UserTempModels->where('email_user_temp', $value)->first();
+            $data['students'][$key] = $UserTempModels->where('email_user', $value)->first();
             if ($data['students'][$key] == null) {
                 $data['students'][$key] = $UserModels->where('email_user', $value)->first();
             }
@@ -573,10 +574,13 @@ class ProjectController extends BaseController
         $data['data_tk02'] = $TK02_Models->where('id_tk_02', $data['project']['id_tk02'])->first();
         $data['data_tk03'] = $TK03_Models->where('id_tk_03', $data['project']['id_tk03'])->first();
         $data['data_tk04'] = $TK04_Models->where('id_tk_04', $data['project']['id_tk04'])->first();
-        $id_file_tk04 = explode(',', $data['data_tk04']['id_file_04']);
-        foreach ($id_file_tk04 as $key => $value) {
-            $data['data_tk04']['file_04'][$key] = $FileModels->where('id_file', $value)->first();
+        if ($data['data_tk04'] != null) {
+            $id_file_tk04 = explode(',', $data['data_tk04']['id_file_04']);
+            foreach ($id_file_tk04 as $key => $value) {
+                $data['data_tk04']['file_04'][$key] = $FileModels->where('id_file', $value)->first();
+            }
         }
+
         $data['data_tk05'] = $TK05_Models->where('id_tk_05', $data['project']['id_tk05'])->first();
         return $this->response->setJSON($data);
     }

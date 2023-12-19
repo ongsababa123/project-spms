@@ -10,6 +10,6 @@ class FileModels extends Model
 
     protected $primaryKey = 'id_file';
 
-    protected $allowedFields = ['name_file', 'date_uploade'];
+    protected $allowedFields = ['name_file', 'date_uploade', 'status_file'];
 
 }

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\NewsModels;
 use App\Models\ProjectModels;
+use App\Models\UserTempModels;
 use App\Models\UserModels;
 use App\Models\TK01_Models;
 use App\Models\TK02_Models;
@@ -98,8 +99,41 @@ class PageController extends BaseController
 
     public function index_project_request()
     {
+        $ProjectModels = new ProjectModels();
+        $TK01_Models = new TK01_Models();
+        $TK02_Models = new TK02_Models();
+        $TK03_Models = new TK03_Models();
+        $TK04_Models = new TK04_Models();
+        $TK05_Models = new TK05_Models();
+        $UserModels = new UserModels();
+        $UserTempModels = new UserTempModels();
+        $data['data_project'] = $ProjectModels->where('status_project', 1)->findAll();
+
+        foreach ($data['data_project'] as $key => $value) {
+            $data['data_project_tk'][$key]['data_tk01'] = $TK01_Models->where('id_tk_01', $value['id_tk01'])->where('status_tk_01', 2)->first();
+            $data['data_project_tk'][$key]['data_tk02'] = $TK02_Models->where('id_tk_02', $value['id_tk02'])->where('status_tk_02', 2)->first();
+            $data['data_project_tk'][$key]['data_tk03'] = $TK03_Models->where('id_tk_03', $value['id_tk03'])->where('status_tk_03', 2)->first();
+            $data['data_project_tk'][$key]['data_tk04'] = $TK04_Models->where('id_tk_04', $value['id_tk04'])->where('status_tk_04', 2)->first();
+            $data['data_project_tk'][$key]['data_tk05'] = $TK05_Models->where('id_tk_05', $value['id_tk05'])->where('status_tk_05', 2)->first();
+            if ($data['data_project_tk'][$key]['data_tk01'] != null || $data['data_project_tk'][$key]['data_tk02'] != null || $data['data_project_tk'][$key]['data_tk03'] != null || $data['data_project_tk'][$key]['data_tk04'] != null || $data['data_project_tk'][$key]['data_tk05'] != null) {
+                $data['data_project_tk'][$key]['data_teacher'] = $UserModels->where('email_user', $value['email_teacher'])->first();
+                $data['data_project_tk'][$key]['data_teacher']['project_count'] = $ProjectModels
+                    ->where('email_teacher', $value['email_teacher'])
+                    ->where('status_project', 1)
+                    ->countAllResults();
+
+                $email_students = explode(',', $value['email_student']);
+                foreach ($email_students as $index => $email) {
+                    $data['data_project_tk'][$key]['data_student'][$index] = $UserTempModels->where('email_user', $email)->first();
+                    if ($data['data_project_tk'][$key]['data_student'][$index] == null) {
+                        $data['data_project_tk'][$key]['data_student'][$index] = $UserModels->where('email_user', $email)->first();
+                    }
+                }
+                $data['data_project_tk'][$key]['data_project'] = $value;
+            }
+        }
         echo view('layout/header');
-        echo view('officer/project_request');
+        echo view('officer/project_request', $data);
     }
 
     public function index_news_table()

@@ -70,6 +70,7 @@
             var data_teacher = <?php echo json_encode($data_teacher); ?>;
             main_tk = document.getElementById("main_tk");
             $(".modal-body #select_teacher").empty();
+            $(".modal-body #tk_04_file_1").empty();
             main_tk.style.display = "block";
             const fieldsToReset = [
                 '#name_project', '#name_project_eng', '#department', '#subject_group',
@@ -141,6 +142,7 @@
                                 $(".modal-body #select_teacher").append(newOption);
                             }
                         });
+                        console.log(data['students']);
                         if (data['students'][1] == null) {
                             $(".modal-body #name_student_2").val('');
                             $(".modal-body #lastname_student_2").val('');
@@ -291,51 +293,52 @@
                                     $(".modal-footer #submit").prop('disabled', false);
                                     $(".modal-body #file_project_tk04").prop('disabled', false);
                                 }
-                                var consultants = data['data_tk04']['id_file_04'].split(',');
+                                data['data_tk04']['file_04'].forEach((data_file_04, index) => {
+                                    var statusButtonHtml = '';
+                                    if (data_file_04.status_file == 0) {
+                                        statusButtonHtml = `
+                                                    <button type="button" class="btn btn-block btn-warning btn-sm">กำลังตรวจสอบ</button>
+                                            `;
+                                    } else if (data_file_04.status_file == 1) {
+                                        statusButtonHtml = `
+                                                    <button type="button" class="btn btn-block btn-success btn-sm">ตรวจสอบแล้ว</button>
+                                            `;
+                                    } else {
+                                        statusButtonHtml = `
+                                                <button type="button" class="btn btn-block btn-danger btn-sm">ไม่ผ่านการตรวจสอบ</button>
+                                            `;
+                                    }
+                                    var newHtml = `
+                                            <div class="row">
+                                                <div class="col-md-2 text-center mt-2">
+                                                    <p>${index + 1}</p>
+                                                </div>
+                                                <div class="col-md-2 text-center">
+                                                    <a class="btn btn-app bg-danger" href="<?= site_url('openfile/') ?>${data_file_04.id_file}" target="_blank">
+                                                        <i class="fas fa-file-pdf"></i> ไฟล์รายงานความก้าวหน้า
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-3 text-center mt-2">
+                                                    <p>${data_file_04.date_uploade}</p>
+                                                </div>
+                                                <div class="col-md-3 text-center">
+                                                        ${statusButtonHtml}
+                                                </div>
+                                            </div>
+                                        `;
 
-                                consultants.forEach((consultant, index) => {
-                                    console.log(consultant);
-                                    console.log(data);
-                                    // const htmlTemplate = `
-                                    //                     <div class="row">
-                                    //                         <div class="col-md-2 text-center mt-3">
-                                    //                             <p>${index + 1}</p>
-                                    //                         </div>
-                                    //                         <div class="col-md-2 text-center">
-                                    //                             <a class="btn btn-app bg-danger" href="<?= site_url('openfile/') ?>${consultant}" target="_blank">?>">
-                                    //                                 <i class="fas fa-file-pdf"></i> ไฟล์รายงานความก้าวหน้า
-                                    //                             </a>
-                                    //                         </div>
-                                    //                         <div class="col-md-2 text-center mt-3">
-                                    //                             <p>${consultant.reportDate}</p>
-                                    //                         </div>
-                                    //                         <div class="col-md-1 text-center mt-3">
-                                    //                             <span class="badge bg-warning">${consultant.status}</span>
-                                    //                         </div>
-                                    //                         <div class="col-md-3 text-center mt-3">
-                                    //                             <div class="row">
-                                    //                                 <div class="col-md-6">
-                                    //                                     <button type="button" class="btn btn-block btn-success btn-sm">ตรวจสอบแล้ว</button>
-                                    //                                 </div>
-                                    //                                 <div class="col-md-6">
-                                    //                                     <button type="button" class="btn btn-block btn-danger btn-sm">ไม่อนุมัติ</button>
-                                    //                                 </div>
-                                    //                                 <div class="col-md-6">
-                                    //                                     <button type="button" class="btn btn-block btn-warning btn-sm">กำลังตรวจสอบ</button>
-                                    //                                 </div>
-                                    //                             </div>
-                                    //                         </div>
-                                    //                     </div>
-                                    //                 `;
-                                    // // เพิ่ม HTML element ใน container
-                                    // container.innerHTML += htmlTemplate;
+                                    // Append the new HTML code to the tk_04_file_1 element
+                                    $("#tk_04_file_1").append(newHtml);
                                 });
+
+
                                 $(".modal-body #tk_04_file").show();
-                                $(".modal-body #url_route").val("student/projectlist/edit/tk04/" + data['data_tk04']['id_tk_04'] + "/" + data['data_tk04']['id_file_04']);
+                                $(".modal-body #url_route").val("student/projectlist/edit/tk04/" + data['data_tk04']['id_tk_04']);
                             } else {
                                 $(".modal-footer #submit").prop('disabled', false);
                                 $(".modal-body #tk_04_file").hide();
                                 $(".modal-body #url_route").val("student/projectlist/create/tk04/" + data['project']['id_project']);
+                                $(".modal-body #file_project_tk04").prop('disabled', false);
                             }
                             $(".modal-header #title_modal").text('ข้อมูล ทก.04');
                             $(".modal-body #tk_01").hide();
@@ -346,6 +349,25 @@
                             fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', true));
                         } else if (load_check == 6) {
                             //edit tk05
+                            $(".modal-body #select_teacher").prop('disabled', true);
+                            fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', true));
+                            $(".modal-body #chairman").prop('disabled', true);
+                            $(".modal-body #director_1").prop('disabled', true);
+                            $(".modal-body #director_2").prop('disabled', true);
+                            $(".modal-footer #submit").prop('disabled', true);
+                            if (data['data_tk05'] != null) {
+                                console.log(data['project']['email_teacher']);
+                                $(".modal-body #score_tk05").show();
+                                $(".modal-body #chairman").val(data['data_tk05']['email_director1']);
+                                $(".modal-body #director_1").val(data['data_tk05']['email_director2']);
+                                data_teacher.forEach(element => {
+                                    if (element.email_user == data['project']['email_teacher']) {
+                                        $(".modal-body #director_2").val(element.name_user + ' ' + element.lastname_user);
+                                    }
+                                });
+                            } else {
+                                $(".modal-body #score_tk05").hide();
+                            }
                             $(".modal-header #title_modal").text('ข้อมูล ทก.05');
                             $(".modal-body #tk_01").hide();
                             $(".modal-body #tk_02").hide();
@@ -524,7 +546,7 @@
                         'class': 'text-center',
                         'render': function (data, type, row, meta) {
                             if (data.data_tk05 == null) {
-                                return create_button(1, 6);
+                                return create_button(1, 6, data.id_project);
                             } else {
                                 return create_button(data.data_tk05.status_tk_05, 6, data.id_project);
                             }
@@ -534,8 +556,14 @@
                         'data': null,
                         'class': 'text-center',
                         'render': function (data, type, row, meta) {
-                            const encodedRowData = encodeURIComponent(JSON.stringify(row));
-                            return `<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-default" onclick="load_modal(2,'${encodedRowData}')"><i class="fas fa-user-edit"></i> แก้ไขข้อมูล</button>`;
+                            console.log(data);
+                            if (data.status_project == 0) {
+                                return `<span class="badge bg-success">ปิดโครงงานพิเศษ</span>`
+                            }else if (data.status_project == 1) {
+                                return `<span class="badge bg-warning">กำลังดำเนินการ</span>`
+                            }else{
+                                return `<span class="badge bg-danger">ยกเลิกโครงงานพิเศษ</span>`
+                            }
                         }
                     },
                 ]

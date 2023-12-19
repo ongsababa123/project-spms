@@ -122,3 +122,45 @@ in SYSTEMPATH\Model.php on line 873.
  3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
  4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-18 10:26:02 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'project_spms', 3306, '', 0)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\project-spms\app\Controllers\PageController.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\PageController->index_home()
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+#9 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp\htdocs\project-spms\app\Controllers\PageController.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\PageController->index_home()
+#7 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+#8 C:\xampp\htdocs\project-spms\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\project-spms\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-12-18 10:26:02 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 428.
+ 1 SYSTEMPATH\Database\BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `news_list_table`
+WHERE `status_news` = :status_news:', [...], false)
+ 3 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\PageController.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\PageController->index_home()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

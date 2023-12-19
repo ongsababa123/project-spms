@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-12-18T10:14:54.046Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="RDr4eRgnykPhnRqp_Uzz" version="22.1.11" type="device" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-12-19T10:05:05.989Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="3gnWa2P5kmz79YRy3MaT" version="22.1.11" type="device" pages="3">
   <diagram name="หน้า-1" id="DMUz9sBse3PZV6IZHQLu">
-    <mxGraphModel dx="3530" dy="2868" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1873" dy="1985" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -383,7 +383,7 @@
             <mxRectangle width="110" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="99Qca9etn90GHEmItJmd-16" value="ไอดี ทก 03 (,)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" parent="99Qca9etn90GHEmItJmd-13" vertex="1">
+        <mxCell id="99Qca9etn90GHEmItJmd-16" value="ไอดี ทก 03" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" parent="99Qca9etn90GHEmItJmd-13" vertex="1">
           <mxGeometry x="280" width="182" height="40" as="geometry">
             <mxRectangle width="182" height="40" as="alternateBounds" />
           </mxGeometry>
@@ -401,7 +401,7 @@
             <mxRectangle width="110" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="99Qca9etn90GHEmItJmd-12" value="ไอดี ทก 04" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" parent="99Qca9etn90GHEmItJmd-9" vertex="1">
+        <mxCell id="99Qca9etn90GHEmItJmd-12" value="ไอดี ทก 04 (,)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" parent="99Qca9etn90GHEmItJmd-9" vertex="1">
           <mxGeometry x="280" width="182" height="40" as="geometry">
             <mxRectangle width="182" height="40" as="alternateBounds" />
           </mxGeometry>
@@ -515,7 +515,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="G4IiiggDIK_kVr6--v8K-1" value="file_table" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;strokeColor=#000000;fontSize=16;strokeWidth=2;fillColor=#28a745;" parent="1" vertex="1">
-          <mxGeometry x="2470" y="140" width="462.00000000000045" height="190" as="geometry" />
+          <mxGeometry x="2470" y="140" width="462.00000000000045" height="230" as="geometry" />
         </mxCell>
         <mxCell id="G4IiiggDIK_kVr6--v8K-2" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;" parent="G4IiiggDIK_kVr6--v8K-1" vertex="1">
           <mxGeometry y="30" width="462.00000000000045" height="40" as="geometry" />
@@ -585,6 +585,24 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="wUg8VDY7fTrFYcDKmjU--4" value="วันที่อัปโหลดไฟล์" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" parent="wUg8VDY7fTrFYcDKmjU--1" vertex="1">
+          <mxGeometry x="280" width="182" height="40" as="geometry">
+            <mxRectangle width="182" height="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lYeDw-1d_6ovAgjdI4WK-1" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;" vertex="1" parent="G4IiiggDIK_kVr6--v8K-1">
+          <mxGeometry y="190" width="462.00000000000045" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lYeDw-1d_6ovAgjdI4WK-2" value="status file" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" vertex="1" parent="lYeDw-1d_6ovAgjdI4WK-1">
+          <mxGeometry width="170" height="40" as="geometry">
+            <mxRectangle width="170" height="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lYeDw-1d_6ovAgjdI4WK-3" value="int (10)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" vertex="1" parent="lYeDw-1d_6ovAgjdI4WK-1">
+          <mxGeometry x="170" width="110" height="40" as="geometry">
+            <mxRectangle width="110" height="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lYeDw-1d_6ovAgjdI4WK-4" value="ใช้ใน tk04" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" vertex="1" parent="lYeDw-1d_6ovAgjdI4WK-1">
           <mxGeometry x="280" width="182" height="40" as="geometry">
             <mxRectangle width="182" height="40" as="alternateBounds" />
           </mxGeometry>
@@ -1996,7 +2014,7 @@
             <mxPoint x="2432" y="496" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="70rcBR9KImX-7yg67cZC-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;strokeWidth=2;" parent="1" source="99Qca9etn90GHEmItJmd-88" edge="1">
+        <mxCell id="70rcBR9KImX-7yg67cZC-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;strokeWidth=2;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="2430" y="456" as="targetPoint" />
           </mxGeometry>
@@ -2004,11 +2022,24 @@
         <mxCell id="70rcBR9KImX-7yg67cZC-4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;endArrow=none;endFill=0;jumpStyle=arc;jumpSize=14;" parent="1" source="ukZI3MTLFusQV6b9oFrn-28" target="W8C7NjlIdrSOsKWV7DWQ-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lYeDw-1d_6ovAgjdI4WK-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="lYeDw-1d_6ovAgjdI4WK-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3037" y="347.5" as="targetPoint" />
+            <mxPoint x="2932.000000000001" y="350" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="3081" y="350" />
+              <mxPoint x="3081" y="348" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lYeDw-1d_6ovAgjdI4WK-6" value="0 = ระหว่างตรวจสอบ&lt;br&gt;1 = ตรวจสอบแล้ว&amp;nbsp;&lt;br&gt;2 = ไม่ผ่าน" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3092" y="323" width="149" height="51" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="KOwp7pMl0KyYbaFD60LX" name="หน้า-2">
-    <mxGraphModel dx="3872" dy="3079" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="4407" dy="3364" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
