@@ -198,9 +198,9 @@ class ProjectController extends BaseController
         $ProjectModels->update($id_project, $data);
 
         $response = [
-            'success' => false,
-            'message' => 'โปรดอัปโหลดไฟล์ ทก.01 ก่อน',
-            'reload' => false,
+            'success' => true,
+            'message' => 'เสร็จสิ้น',
+            'reload' => true,
         ];
         return $this->response->setJSON($response);
     }
@@ -466,7 +466,7 @@ class ProjectController extends BaseController
         return $this->response->setJSON($response);
     }
 
-    public function edit_project_tk04($id_tk04 = null, $id_file = null)
+    public function edit_project_tk04($id_tk04 = null)
     {
         helper(['form']);
         helper('filesystem');
@@ -537,6 +537,77 @@ class ProjectController extends BaseController
             $project['data_tk05'] = $TK05_Models->where('id_tk_05', $value['id_tk05'])->first();
 
             $data[] = $project;
+        }
+
+        // Prepare the response
+        $response = [
+            'draw' => intval($draw),
+            'recordsTotal' => count($allData),
+            'recordsFiltered' => $totalRecords,
+            'data' => $data,
+        ];
+
+        return $this->response->setJSON($response);
+    }
+
+    public function get_data_table_project_teacher()
+    {
+        $ProjectModels = new ProjectModels();
+        $TK01_Models = new TK01_Models();
+        $TK02_Models = new TK02_Models();
+        $TK03_Models = new TK03_Models();
+        $TK04_Models = new TK04_Models();
+        $TK05_Models = new TK05_Models();
+        $UserModels = new UserModels();
+        $UserTempModels = new UserTempModels();
+        $FileModels = new FileModels();
+
+        $email = session()->get('email');
+        $allData = $ProjectModels->findAll();
+
+        // Filter data based on the email condition
+        $filteredData = array_filter($allData, function ($row) use ($email) {
+            return strpos($row['email_teacher'], $email) !== false;
+        });
+
+        // Get the total number of records after filtering
+        $totalRecords = count($filteredData);
+
+        // Get the DataTables parameters
+        $limit = $this->request->getVar('length');
+        $start = $this->request->getVar('start');
+        $draw = $this->request->getVar('draw');
+
+        // Slice the filtered data based on limit and start
+        $slicedData = array_slice($filteredData, $start, $limit);
+
+        // Fetch related data for each project
+        $data = [];
+        foreach ($slicedData as $key => $value) {
+            $project = $value;
+            $project['data_tk01'] = $TK01_Models->where('id_tk_01', $value['id_tk01'])->where('status_tk_01', 6)->first();
+            if ($project['data_tk01'] != null) {
+                $project['data_tk02'] = $TK02_Models->where('id_tk_02', $value['id_tk02'])->first();
+                $project['data_tk03'] = $TK03_Models->where('id_tk_03', $value['id_tk03'])->first();
+                $project['data_tk04'] = $TK04_Models->where('id_tk_04', $value['id_tk04'])->first();
+                if ($project['data_tk04'] != null) {
+                    $id_file_tk04 = explode(',', $project['data_tk04']['id_file_04']);
+                    foreach ($id_file_tk04 as $tk04_key => $tk04_value) {
+                        $project['data_tk04']['file_04'][$tk04_key] = $FileModels->where('id_file', $tk04_value)->first();
+                    }
+                }
+
+                $project['data_tk05'] = $TK05_Models->where('id_tk_05', $value['id_tk05'])->first();
+                $email_students = explode(',', $project['email_student']);
+                foreach ($email_students as $student_key => $value_student) {
+                    $project['students'][$student_key] = $UserTempModels->where('email_user', $value_student)->first();
+                    if ($project['students'][$student_key] == null) {
+                        $project['students'][$student_key] = $UserModels->where('email_user', $value_student)->first();
+                    }
+                }
+                $project['teacher'] = $UserModels->where('email_user', $project['email_teacher'])->first();
+                $data[] = $project;
+            }
         }
 
         // Prepare the response

@@ -53,339 +53,22 @@
                                     </li>
                                 </ul>
                             </div>
+                            <?php $count_tk01 = 0; ?>
+                            <?php $count_tk02 = 0; ?>
+                            <?php $count_tk03 = 0; ?>
+                            <?php $count_tk04 = 0; ?>
+                            <?php $count_tk05 = 0; ?>
+
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-tabContent">
                                     <div class="tab-pane fade show active" id="custom-tabs-tk01" role="tabpanel"
                                         aria-labelledby="custom-tabs-tk01-tab">
                                         <?php foreach ($data_project_tk as $key => $value): ?>
                                             <?php if ($value['data_tk01'] != null): ?>
-                                                <div class="card card-info">
-                                                    <div class="card-header">
-                                                        <h3 class="card-title">ชื่อโครงงานพิเศษ :
-                                                            <?= $value['data_project']['name_project_th'] ?>
-                                                        </h3>
-                                                        <div class="card-tools">
-                                                            <button type="button" class="btn btn-tool"
-                                                                data-card-widget="collapse">
-                                                                <i class="fas fa-minus"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <label class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
-                                                        <div class="row">
-                                                            <?php $count = 0; ?>
-                                                            <?php foreach ($value['data_student'] as $index => $value_student): ?>
-                                                                <?php $count++; ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $index + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        <?= $value_student['name_user'] . ' ' . $value_student['lastname_user'] ?>
-                                                                    </h6>
-                                                                </div>
-                                                            <?php endforeach; ?>
-                                                            <?php if ($count == 1): ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                            <?php elseif ($count == 2): ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                            <div class="col-2">
-                                                            </div>
-                                                            <div class="col-1">
-                                                                <a class="btn btn-app bg-danger" data-toggle="modal"
-                                                                    data-target="#modal-default"
-                                                                    onclick="load_modal(2 , '<?= $key ?>')">
-                                                                    <i class="fas fa-file-pdf"></i> ไฟล์ ทก.01
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer clearfix">
-                                                        <button type="button" class="btn btn-danger float-right">
-                                                            แจ้งให้ติดต่อ</button>
-                                                        <button type="button" class="btn btn-warning float-right mr-3">
-                                                            ส่งกลับไปแก้ไข</button>
-                                                        <button type="button" class="btn btn-success float-right mr-3">
-                                                            ผ่าน</button>
-                                                    </div>
-                                                </div>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </div>
-                                    <div class="tab-pane fade" id="custom-tabs-tk02" role="tabpanel"
-                                        aria-labelledby="custom-tabs-tk02-tab">
-                                        <?php foreach ($data_project_tk as $key => $value): ?>
-                                            <?php if ($value['data_tk02'] != null): ?>
-                                                <div class="card card-info">
-                                                    <div class="card-header">
-                                                        <h3 class="card-title">ชื่อโครงงานพิเศษ :
-                                                            <?= $value['data_project']['name_project_th'] ?>
-                                                        </h3>
-                                                        <div class="card-tools">
-                                                            <button type="button" class="btn btn-tool"
-                                                                data-card-widget="collapse">
-                                                                <i class="fas fa-minus"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <label class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
-                                                        <div class="row">
-                                                            <?php $count = 0; ?>
-                                                            <?php foreach ($value['data_student'] as $index => $value_student): ?>
-                                                                <?php $count++; ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $index + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        <?= $value_student['name_user'] . ' ' . $value_student['lastname_user'] ?>
-                                                                    </h6>
-                                                                </div>
-                                                            <?php endforeach; ?>
-                                                            <?php if ($count == 1): ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                            <?php elseif ($count == 2): ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                            <div class="col-2">
-                                                            </div>
-                                                            <div class="col-1">
-                                                                <a class="btn btn-app bg-danger" data-toggle="modal"
-                                                                    data-target="#modal-default"
-                                                                    onclick="load_modal(3 , '<?= $key ?>')">
-                                                                    <i class="fas fa-file-pdf"></i> ไฟล์ ทก.02
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer clearfix">
-                                                        <button type="button" class="btn btn-danger float-right">
-                                                            แจ้งให้ติดต่อ</button>
-                                                        <button type="button" class="btn btn-warning float-right mr-3">
-                                                            ส่งกลับไปแก้ไข</button>
-                                                        <button type="button" class="btn btn-success float-right mr-3">
-                                                            ผ่าน</button>
-                                                    </div>
-                                                </div>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </div>
-                                    <div class="tab-pane fade" id="custom-tabs-tk03" role="tabpanel"
-                                        aria-labelledby="custom-tabs-tk03-tab">
-                                        <?php foreach ($data_project_tk as $key => $value): ?>
-                                            <?php if ($value['data_tk03'] != null): ?>
-                                                <div class="card card-info">
-                                                    <div class="card-header">
-                                                        <h3 class="card-title">ชื่อโครงงานพิเศษ :
-                                                            <?= $value['data_project']['name_project_th'] ?>
-                                                        </h3>
-                                                        <div class="card-tools">
-                                                            <button type="button" class="btn btn-tool"
-                                                                data-card-widget="collapse">
-                                                                <i class="fas fa-minus"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <label class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
-                                                        <div class="row">
-                                                            <?php $count = 0; ?>
-                                                            <?php foreach ($value['data_student'] as $index => $value_student): ?>
-                                                                <?php $count++; ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $index + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        <?= $value_student['name_user'] . ' ' . $value_student['lastname_user'] ?>
-                                                                    </h6>
-                                                                </div>
-                                                            <?php endforeach; ?>
-                                                            <?php if ($count == 1): ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                            <?php elseif ($count == 2): ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                            <div class="col-2">
-                                                            </div>
-                                                            <div class="col-1">
-                                                                <a class="btn btn-app bg-danger" data-toggle="modal"
-                                                                    data-target="#modal-default"
-                                                                    onclick="load_modal(4 , '<?= $key ?>')">
-                                                                    <i class="fas fa-file-pdf"></i> ไฟล์ ทก.03
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer clearfix">
-                                                        <button type="button" class="btn btn-danger float-right">
-                                                            แจ้งให้ติดต่อ</button>
-                                                        <button type="button" class="btn btn-warning float-right mr-3">
-                                                            ส่งกลับไปแก้ไข</button>
-                                                        <button type="button" class="btn btn-success float-right mr-3">
-                                                            ผ่าน</button>
-                                                    </div>
-                                                </div>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </div>
-                                    <div class="tab-pane fade" id="custom-tabs-tk04" role="tabpanel"
-                                        aria-labelledby="custom-tabs-tk04-tab">
-                                        <?php foreach ($data_project_tk as $key => $value): ?>
-                                            <?php if ($value['data_tk04'] != null): ?>
-                                                <div class="card card-info">
-                                                    <div class="card-header">
-                                                        <h3 class="card-title">ชื่อโครงงานพิเศษ :
-                                                            <?= $value['data_project']['name_project_th'] ?>
-                                                        </h3>
-                                                        <div class="card-tools">
-                                                            <button type="button" class="btn btn-tool"
-                                                                data-card-widget="collapse">
-                                                                <i class="fas fa-minus"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <label class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
-                                                        <div class="row">
-                                                            <?php $count = 0; ?>
-                                                            <?php foreach ($value['data_student'] as $index => $value_student): ?>
-                                                                <?php $count++; ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $index + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        <?= $value_student['name_user'] . ' ' . $value_student['lastname_user'] ?>
-                                                                    </h6>
-                                                                </div>
-                                                            <?php endforeach; ?>
-                                                            <?php if ($count == 1): ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                            <?php elseif ($count == 2): ?>
-                                                                <div class="col-3">
-                                                                    <label>นักศึกษาคนที่
-                                                                        <?= $count + 1 ?>
-                                                                    </label>
-                                                                    <h6>
-                                                                        ไม่มี
-                                                                    </h6>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                            <div class="col-2">
-                                                            </div>
-                                                            <div class="col-1">
-                                                                <a class="btn btn-app bg-danger" data-toggle="modal"
-                                                                    data-target="#modal-default"
-                                                                    onclick="load_modal(5 , '<?= $key ?>')">
-                                                                    <i class="fas fa-file-pdf"></i> ไฟล์ ทก.04
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer clearfix">
-                                                        <button type="button" class="btn btn-danger float-right">
-                                                            แจ้งให้ติดต่อ</button>
-                                                        <button type="button" class="btn btn-warning float-right mr-3">
-                                                            ส่งกลับไปแก้ไข</button>
-                                                        <button type="button" class="btn btn-success float-right mr-3">
-                                                            ผ่าน</button>
-                                                    </div>
-                                                </div>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </div>
-                                    <div class="tab-pane fade" id="custom-tabs-tk05" role="tabpanel"
-                                        aria-labelledby="custom-tabs-tk05-tab">
-                                        <?php foreach ($data_project_tk as $key => $value): ?>
-                                            <?php if ($value['data_tk05'] != null): ?>
-                                                <?php if ($value['data_tk05']['status_tk_05'] == 2): ?>
+                                                <?php $count_tk01++; ?>
+                                                <?php if ($value['data_tk01']['status_tk_01'] == 2): ?>
                                                     <div class="card card-info">
-                                                    <?php elseif ($value['data_tk05']['status_tk_05'] == 7): ?>
+                                                    <?php elseif ($value['data_tk01']['status_tk_01'] == 7): ?>
                                                         <div class="card card-danger">
                                                         <?php endif; ?>
                                                         <div class="card-header">
@@ -393,7 +76,7 @@
                                                                 <?= $value['data_project']['name_project_th'] ?>
                                                             </h3>
                                                             <div class="card-tools">
-                                                                <?php if ($value['data_tk05']['status_tk_05'] == 7): ?>
+                                                                <?php if ($value['data_tk01']['status_tk_01'] == 7): ?>
                                                                     <span class="badge badge-warning">รอการติดต่อกลับ</span>
                                                                 <?php endif; ?>
                                                                 <button type="button" class="btn btn-tool"
@@ -449,34 +132,425 @@
                                                                 <div class="col-1">
                                                                     <a class="btn btn-app bg-danger" data-toggle="modal"
                                                                         data-target="#modal-default"
-                                                                        onclick="load_modal(6 , '<?= $key ?>')">
-                                                                        <i class="fas fa-file-pdf"></i> ไฟล์ ทก.05
+                                                                        onclick="load_modal(2 , '<?= $key ?>')">
+                                                                        <i class="fas fa-file-pdf"></i> ไฟล์ ทก.01
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="card-footer clearfix">
                                                             <button type="button" class="btn btn-danger float-right"
-                                                                onclick="confirm_Alert('ต้องการให้ติดต่อเจ้าหน้าที่หรือไม่?','<?= $value['data_tk05']['id_tk_05'] ?>/5/7')">
+                                                                onclick="confirm_Alert('ต้องการให้ติดต่อเจ้าหน้าที่หรือไม่?','<?= $value['data_tk01']['id_tk_01'] ?>/1/7')">
                                                                 แจ้งให้ติดต่อ</button>
                                                             <button type="button" class="btn btn-warning float-right mr-3"
-                                                                onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk05']['id_tk_05'] ?>/5/3')">
+                                                                onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk01']['id_tk_01'] ?>/1/3')">
                                                                 ส่งกลับไปแก้ไข</button>
                                                             <button type="button" class="btn btn-success float-right mr-3"
-                                                                onclick="confirm_Alert('ต้องการให้ผ่านหรือไม่?','<?= $value['data_tk05']['id_tk_05'] ?>/5/3')">
+                                                                onclick="confirm_Alert('ต้องการให้ผ่านหรือไม่?','<?= $value['data_tk01']['id_tk_01'] ?>/1/4')">
                                                                 ผ่าน</button>
                                                         </div>
                                                     </div>
                                                 <?php endif; ?>
                                             <?php endforeach; ?>
+                                            <?php if ($count_tk01 == 0): ?>
+                                                <h3>ยังไม่มีคำร้อง</h3>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="tab-pane fade" id="custom-tabs-tk02" role="tabpanel"
+                                            aria-labelledby="custom-tabs-tk02-tab">
+                                            <?php foreach ($data_project_tk as $key => $value): ?>
+                                                <?php if ($value['data_tk02'] != null): ?>
+                                                    <?php if ($value['data_tk02']['status_tk_02'] == 2): ?>
+                                                        <div class="card card-info">
+                                                        <?php elseif ($value['data_tk02']['status_tk_02'] == 7): ?>
+                                                            <div class="card card-danger">
+                                                            <?php endif; ?>
+                                                            <div class="card-header">
+                                                                <h3 class="card-title">ชื่อโครงงานพิเศษ :
+                                                                    <?= $value['data_project']['name_project_th'] ?>
+                                                                </h3>
+                                                                <div class="card-tools">
+                                                                    <?php if ($value['data_tk02']['status_tk_02'] == 7): ?>
+                                                                        <span class="badge badge-warning">รอการติดต่อกลับ</span>
+                                                                    <?php endif; ?>
+                                                                    <button type="button" class="btn btn-tool"
+                                                                        data-card-widget="collapse">
+                                                                        <i class="fas fa-minus"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <label class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
+                                                                <div class="row">
+                                                                    <?php $count = 0; ?>
+                                                                    <?php foreach ($value['data_student'] as $index => $value_student): ?>
+                                                                        <?php $count++; ?>
+                                                                        <div class="col-3">
+                                                                            <label>นักศึกษาคนที่
+                                                                                <?= $index + 1 ?>
+                                                                            </label>
+                                                                            <h6>
+                                                                                <?= $value_student['name_user'] . ' ' . $value_student['lastname_user'] ?>
+                                                                            </h6>
+                                                                        </div>
+                                                                    <?php endforeach; ?>
+                                                                    <?php if ($count == 1): ?>
+                                                                        <div class="col-3">
+                                                                            <label>นักศึกษาคนที่
+                                                                                <?= $count ?>
+                                                                            </label>
+                                                                            <h6>
+                                                                                ไม่มี
+                                                                            </h6>
+                                                                        </div>
+                                                                        <div class="col-3">
+                                                                            <label>นักศึกษาคนที่
+                                                                                <?= $count + 1 ?>
+                                                                            </label>
+                                                                            <h6>
+                                                                                ไม่มี
+                                                                            </h6>
+                                                                        </div>
+                                                                    <?php elseif ($count == 2): ?>
+                                                                        <div class="col-3">
+                                                                            <label>นักศึกษาคนที่
+                                                                                <?= $count + 1 ?>
+                                                                            </label>
+                                                                            <h6>
+                                                                                ไม่มี
+                                                                            </h6>
+                                                                        </div>
+                                                                    <?php endif; ?>
+                                                                    <div class="col-2">
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <a class="btn btn-app bg-danger" data-toggle="modal"
+                                                                            data-target="#modal-default"
+                                                                            onclick="load_modal(3 , '<?= $key ?>')">
+                                                                            <i class="fas fa-file-pdf"></i> ไฟล์ ทก.02
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer clearfix">
+                                                                <button type="button" class="btn btn-danger float-right"
+                                                                    onclick="confirm_Alert('ต้องการให้ติดต่อเจ้าหน้าที่หรือไม่?','<?= $value['data_tk02']['id_tk_02'] ?>/2/7')">
+                                                                    แจ้งให้ติดต่อ</button>
+                                                                <button type="button" class="btn btn-warning float-right mr-3"
+                                                                    onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk02']['id_tk_02'] ?>/2/3')">
+                                                                    ส่งกลับไปแก้ไข</button>
+                                                                <button type="button" class="btn btn-success float-right mr-3"
+                                                                    onclick="confirm_Alert('ต้องการให้ผ่านหรือไม่?','<?= $value['data_tk02']['id_tk_02'] ?>/2/4')">
+                                                                    ผ่าน</button>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                                <?php if ($count_tk02 == 0): ?>
+                                                    <h3>ยังไม่มีคำร้อง</h3>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="tab-pane fade" id="custom-tabs-tk03" role="tabpanel"
+                                                aria-labelledby="custom-tabs-tk03-tab">
+                                                <?php foreach ($data_project_tk as $key => $value): ?>
+                                                    <?php if ($value['data_tk03'] != null): ?>
+                                                        <?php if ($value['data_tk03']['status_tk_03'] == 2): ?>
+                                                            <div class="card card-info">
+                                                            <?php elseif ($value['data_tk03']['status_tk_03'] == 7): ?>
+                                                                <div class="card card-danger">
+                                                                <?php endif; ?>
+                                                                <div class="card-header">
+                                                                    <h3 class="card-title">ชื่อโครงงานพิเศษ :
+                                                                        <?= $value['data_project']['name_project_th'] ?>
+                                                                    </h3>
+                                                                    <div class="card-tools">
+                                                                        <?php if ($value['data_tk03']['status_tk_03'] == 7): ?>
+                                                                            <span class="badge badge-warning">รอการติดต่อกลับ</span>
+                                                                        <?php endif; ?>
+                                                                        <button type="button" class="btn btn-tool"
+                                                                            data-card-widget="collapse">
+                                                                            <i class="fas fa-minus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <label class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
+                                                                    <div class="row">
+                                                                        <?php $count = 0; ?>
+                                                                        <?php foreach ($value['data_student'] as $index => $value_student): ?>
+                                                                            <?php $count++; ?>
+                                                                            <div class="col-3">
+                                                                                <label>นักศึกษาคนที่
+                                                                                    <?= $index + 1 ?>
+                                                                                </label>
+                                                                                <h6>
+                                                                                    <?= $value_student['name_user'] . ' ' . $value_student['lastname_user'] ?>
+                                                                                </h6>
+                                                                            </div>
+                                                                        <?php endforeach; ?>
+                                                                        <?php if ($count == 1): ?>
+                                                                            <div class="col-3">
+                                                                                <label>นักศึกษาคนที่
+                                                                                    <?= $count ?>
+                                                                                </label>
+                                                                                <h6>
+                                                                                    ไม่มี
+                                                                                </h6>
+                                                                            </div>
+                                                                            <div class="col-3">
+                                                                                <label>นักศึกษาคนที่
+                                                                                    <?= $count + 1 ?>
+                                                                                </label>
+                                                                                <h6>
+                                                                                    ไม่มี
+                                                                                </h6>
+                                                                            </div>
+                                                                        <?php elseif ($count == 2): ?>
+                                                                            <div class="col-3">
+                                                                                <label>นักศึกษาคนที่
+                                                                                    <?= $count + 1 ?>
+                                                                                </label>
+                                                                                <h6>
+                                                                                    ไม่มี
+                                                                                </h6>
+                                                                            </div>
+                                                                        <?php endif; ?>
+                                                                        <div class="col-2">
+                                                                        </div>
+                                                                        <div class="col-1">
+                                                                            <a class="btn btn-app bg-danger" data-toggle="modal"
+                                                                                data-target="#modal-default"
+                                                                                onclick="load_modal(4 , '<?= $key ?>')">
+                                                                                <i class="fas fa-file-pdf"></i> ไฟล์ ทก.03
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-footer clearfix">
+                                                                    <button type="button" class="btn btn-danger float-right"
+                                                                        onclick="confirm_Alert('ต้องการให้ติดต่อเจ้าหน้าที่หรือไม่?','<?= $value['data_tk03']['id_tk_03'] ?>/3/7')">
+                                                                        แจ้งให้ติดต่อ</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-warning float-right mr-3"
+                                                                        onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk03']['id_tk_03'] ?>/3/3')">
+                                                                        ส่งกลับไปแก้ไข</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-success float-right mr-3"
+                                                                        onclick="confirm_Alert('ต้องการให้ผ่านหรือไม่?','<?= $value['data_tk03']['id_tk_03'] ?>/3/4')">
+                                                                        ผ่าน</button>
+                                                                </div>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                    <?php if ($count_tk03 == 0): ?>
+                                                        <h3>ยังไม่มีคำร้อง</h3>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <div class="tab-pane fade" id="custom-tabs-tk04" role="tabpanel"
+                                                    aria-labelledby="custom-tabs-tk04-tab">
+                                                    <?php foreach ($data_project_tk as $key => $value): ?>
+                                                        <?php if ($value['data_tk04'] != null): ?>
+                                                            <?php if ($value['data_tk04']['status_tk_04'] == 2): ?>
+                                                                <div class="card card-info">
+                                                                <?php elseif ($value['data_tk04']['status_tk_04'] == 7): ?>
+                                                                    <div class="card card-danger">
+                                                                    <?php endif; ?>
+                                                                    <div class="card-header">
+                                                                        <h3 class="card-title">ชื่อโครงงานพิเศษ :
+                                                                            <?= $value['data_project']['name_project_th'] ?>
+                                                                        </h3>
+                                                                        <div class="card-tools">
+                                                                            <?php if ($value['data_tk04']['status_tk_04'] == 7): ?>
+                                                                                <span
+                                                                                    class="badge badge-warning">รอการติดต่อกลับ</span>
+                                                                            <?php endif; ?>
+                                                                            <button type="button" class="btn btn-tool"
+                                                                                data-card-widget="collapse">
+                                                                                <i class="fas fa-minus"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <label class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
+                                                                        <div class="row">
+                                                                            <?php $count = 0; ?>
+                                                                            <?php foreach ($value['data_student'] as $index => $value_student): ?>
+                                                                                <?php $count++; ?>
+                                                                                <div class="col-3">
+                                                                                    <label>นักศึกษาคนที่
+                                                                                        <?= $index + 1 ?>
+                                                                                    </label>
+                                                                                    <h6>
+                                                                                        <?= $value_student['name_user'] . ' ' . $value_student['lastname_user'] ?>
+                                                                                    </h6>
+                                                                                </div>
+                                                                            <?php endforeach; ?>
+                                                                            <?php if ($count == 1): ?>
+                                                                                <div class="col-3">
+                                                                                    <label>นักศึกษาคนที่
+                                                                                        <?= $count ?>
+                                                                                    </label>
+                                                                                    <h6>
+                                                                                        ไม่มี
+                                                                                    </h6>
+                                                                                </div>
+                                                                                <div class="col-3">
+                                                                                    <label>นักศึกษาคนที่
+                                                                                        <?= $count + 1 ?>
+                                                                                    </label>
+                                                                                    <h6>
+                                                                                        ไม่มี
+                                                                                    </h6>
+                                                                                </div>
+                                                                            <?php elseif ($count == 2): ?>
+                                                                                <div class="col-3">
+                                                                                    <label>นักศึกษาคนที่
+                                                                                        <?= $count + 1 ?>
+                                                                                    </label>
+                                                                                    <h6>
+                                                                                        ไม่มี
+                                                                                    </h6>
+                                                                                </div>
+                                                                            <?php endif; ?>
+                                                                            <div class="col-2">
+                                                                            </div>
+                                                                            <div class="col-1">
+                                                                                <a class="btn btn-app bg-danger"
+                                                                                    data-toggle="modal"
+                                                                                    data-target="#modal-default"
+                                                                                    onclick="load_modal(5 , '<?= $key ?>')">
+                                                                                    <i class="fas fa-file-pdf"></i> ไฟล์ ทก.04
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-footer clearfix">
+                                                                        <button type="button" class="btn btn-danger float-right"
+                                                                            onclick="confirm_Alert('ต้องการให้ติดต่อเจ้าหน้าที่หรือไม่?','<?= $value['data_tk04']['id_tk_04'] ?>/4/7')">
+                                                                            แจ้งให้ติดต่อ</button>
+                                                                        <button type="button"
+                                                                            class="btn btn-warning float-right mr-3"
+                                                                            onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk04']['id_tk_04'] ?>/4/3')">
+                                                                            ส่งกลับไปแก้ไข</button>
+                                                                        <button type="button"
+                                                                            class="btn btn-success float-right mr-3"
+                                                                            onclick="confirm_Alert('ต้องการให้ผ่านหรือไม่?','<?= $value['data_tk04']['id_tk_04'] ?>/4/4')">
+                                                                            ผ่าน</button>
+                                                                    </div>
+                                                                </div>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                        <?php if ($count_tk04 == 0): ?>
+                                                            <h3>ยังไม่มีคำร้อง</h3>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="custom-tabs-tk05" role="tabpanel"
+                                                        aria-labelledby="custom-tabs-tk05-tab">
+                                                        <?php foreach ($data_project_tk as $key => $value): ?>
+                                                            <?php if ($value['data_tk05'] != null): ?>
+                                                                <?php if ($value['data_tk05']['status_tk_05'] == 2): ?>
+                                                                    <div class="card card-info">
+                                                                    <?php elseif ($value['data_tk05']['status_tk_05'] == 7): ?>
+                                                                        <div class="card card-danger">
+                                                                        <?php endif; ?>
+                                                                        <div class="card-header">
+                                                                            <h3 class="card-title">ชื่อโครงงานพิเศษ :
+                                                                                <?= $value['data_project']['name_project_th'] ?>
+                                                                            </h3>
+                                                                            <div class="card-tools">
+                                                                                <?php if ($value['data_tk05']['status_tk_05'] == 7): ?>
+                                                                                    <span
+                                                                                        class="badge badge-warning">รอการติดต่อกลับ</span>
+                                                                                <?php endif; ?>
+                                                                                <button type="button" class="btn btn-tool"
+                                                                                    data-card-widget="collapse">
+                                                                                    <i class="fas fa-minus"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <label
+                                                                                class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
+                                                                            <div class="row">
+                                                                                <?php $count = 0; ?>
+                                                                                <?php foreach ($value['data_student'] as $index => $value_student): ?>
+                                                                                    <?php $count++; ?>
+                                                                                    <div class="col-3">
+                                                                                        <label>นักศึกษาคนที่
+                                                                                            <?= $index + 1 ?>
+                                                                                        </label>
+                                                                                        <h6>
+                                                                                            <?= $value_student['name_user'] . ' ' . $value_student['lastname_user'] ?>
+                                                                                        </h6>
+                                                                                    </div>
+                                                                                <?php endforeach; ?>
+                                                                                <?php if ($count == 1): ?>
+                                                                                    <div class="col-3">
+                                                                                        <label>นักศึกษาคนที่
+                                                                                            <?= $count ?>
+                                                                                        </label>
+                                                                                        <h6>
+                                                                                            ไม่มี
+                                                                                        </h6>
+                                                                                    </div>
+                                                                                    <div class="col-3">
+                                                                                        <label>นักศึกษาคนที่
+                                                                                            <?= $count + 1 ?>
+                                                                                        </label>
+                                                                                        <h6>
+                                                                                            ไม่มี
+                                                                                        </h6>
+                                                                                    </div>
+                                                                                <?php elseif ($count == 2): ?>
+                                                                                    <div class="col-3">
+                                                                                        <label>นักศึกษาคนที่
+                                                                                            <?= $count + 1 ?>
+                                                                                        </label>
+                                                                                        <h6>
+                                                                                            ไม่มี
+                                                                                        </h6>
+                                                                                    </div>
+                                                                                <?php endif; ?>
+                                                                                <div class="col-2">
+                                                                                </div>
+                                                                                <div class="col-1">
+                                                                                    <a class="btn btn-app bg-danger"
+                                                                                        data-toggle="modal"
+                                                                                        data-target="#modal-default"
+                                                                                        onclick="load_modal(6 , '<?= $key ?>')">
+                                                                                        <i class="fas fa-file-pdf"></i> ไฟล์
+                                                                                        ทก.05
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="card-footer clearfix">
+                                                                            <button type="button"
+                                                                                class="btn btn-danger float-right"
+                                                                                onclick="confirm_Alert('ต้องการให้ติดต่อเจ้าหน้าที่หรือไม่?','<?= $value['data_tk05']['id_tk_05'] ?>/5/7')">
+                                                                                แจ้งให้ติดต่อ</button>
+                                                                            <button type="button"
+                                                                                class="btn btn-warning float-right mr-3"
+                                                                                onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk05']['id_tk_05'] ?>/5/3')">
+                                                                                ส่งกลับไปแก้ไข</button>
+                                                                            <button type="button"
+                                                                                class="btn btn-success float-right mr-3"
+                                                                                onclick="confirm_Alert('ต้องการให้ผ่านหรือไม่?','<?= $value['data_tk05']['id_tk_05'] ?>/5/4')">
+                                                                                ผ่าน</button>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                            <?php if ($count_tk05 == 0): ?>
+                                                                <h3>ยังไม่มีคำร้อง</h3>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.card -->
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- /.card -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
         </section>
     </div>
     <div class="modal fade" id="modal-default">

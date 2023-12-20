@@ -64,8 +64,29 @@ class PageController extends BaseController
     }
     public function index_submitpage()
     {
+        $ProjectModels = new ProjectModels();
+        $TK01_Models = new TK01_Models();
+        $UserModels = new UserModels();
+        $UserTempModels = new UserTempModels();
+        
+        $data['data_project'] = $ProjectModels->where('email_teacher', session()->get('email'))->where('status_project', 1)->findAll();
+        foreach ($data['data_project'] as $key => $value) {
+            $data['data_project'][$key]['data_tk01'] = $TK01_Models->where('id_tk_01', $value['id_tk01'])->whereIn('status_tk_01', [4])->first();
+            $email_students = explode(',', $value['email_student']);
+            foreach ($email_students as $index => $email) {
+                $data['data_project'][$key]['data_student'][$index] = $UserTempModels->where('email_user', $email)->first();
+                if ($data['data_project'][$key]['data_student'][$index] == null) {
+                    $data['data_project'][$key]['data_student'][$index] = $UserModels->where('email_user', $email)->first();
+                }
+            }
+            $data['data_project'][$key]['data_teacher'] = $UserModels->where('email_user', $value['email_teacher'])->first();
+            $data['data_project'][$key]['data_teacher']['project_count'] = $ProjectModels
+                ->where('email_teacher', $value['email_teacher'])
+                ->where('status_project', 1)
+                ->countAllResults();
+        }
         echo view('layout/header');
-        echo view('teacher/project_submit');
+        echo view('teacher/project_submit' , $data);
     }
 
     public function index_progress()
@@ -117,7 +138,7 @@ class PageController extends BaseController
             $data['data_project_tk'][$key]['data_tk03'] = $TK03_Models->where('id_tk_03', $value['id_tk03'])->whereIn('status_tk_03', [2, 7])->first();
             $data['data_project_tk'][$key]['data_tk04'] = $TK04_Models->where('id_tk_04', $value['id_tk04'])->whereIn('status_tk_04', [2, 7])->first();
             if ($data['data_project_tk'][$key]['data_tk04']) {
-                $id_file_tk04 = explode(',',  $data['data_project_tk'][$key]['data_tk04']['id_file_04']);
+                $id_file_tk04 = explode(',', $data['data_project_tk'][$key]['data_tk04']['id_file_04']);
                 foreach ($id_file_tk04 as $key_file => $value_file) {
                     $data['data_project_tk'][$key]['data_tk04']['data_file_04'][$key_file] = $FileModels->where('id_file', $value_file)->first();
                 }

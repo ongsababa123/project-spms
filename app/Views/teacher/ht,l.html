@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-2 text-center mt-2">
+        p>${index + 1}</p>
+    </div>
+    <div class="col-md-2 text-center">
+        <a class="btn btn-app bg-danger" href="<?= site_url('openfile/') ?>${data_file_04.id_file}" target="_blank">
+            <i class="fas fa-file-pdf"></i> ไฟล์รายงานความก้าวหน้า
+        </a>
+    </div>
+    <div class="col-md-3 text-center mt-2">
+        <p>${data_file_04.date_uploade}</p>
+    </div>
+    <div class="col-md-3 text-center">
+        ${statusButtonHtml}
+    </div>
+</div>

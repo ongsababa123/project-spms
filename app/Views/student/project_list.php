@@ -142,7 +142,6 @@
                                 $(".modal-body #select_teacher").append(newOption);
                             }
                         });
-                        console.log(data['students']);
                         if (data['students'][1] == null) {
                             $(".modal-body #name_student_2").val('');
                             $(".modal-body #lastname_student_2").val('');
@@ -353,7 +352,11 @@
                             $(".modal-body #director_2").prop('disabled', true);
                             $(".modal-footer #submit").prop('disabled', true);
                             if (data['data_tk05'] != null) {
-                                $(".modal-body #score_tk05").show();
+                                if (data['data_tk05']['id_score'] != null) {
+                                    $(".modal-body #score_tk05").show();
+                                }else{
+                                    $(".modal-body #score_tk05").hide();
+                                }
                                 $(".modal-body #chairman").val(data['data_tk05']['email_director1']);
                                 $(".modal-body #director_1").val(data['data_tk05']['email_director2']);
                                 data_teacher.forEach(element => {
