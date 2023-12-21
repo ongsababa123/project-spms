@@ -160,6 +160,7 @@
                                             aria-labelledby="custom-tabs-tk02-tab">
                                             <?php foreach ($data_project_tk as $key => $value): ?>
                                                 <?php if ($value['data_tk02'] != null): ?>
+                                                    <?php $count_tk02++; ?>
                                                     <?php if ($value['data_tk02']['status_tk_02'] == 2): ?>
                                                         <div class="card card-info">
                                                         <?php elseif ($value['data_tk02']['status_tk_02'] == 7): ?>
@@ -254,6 +255,7 @@
                                                 aria-labelledby="custom-tabs-tk03-tab">
                                                 <?php foreach ($data_project_tk as $key => $value): ?>
                                                     <?php if ($value['data_tk03'] != null): ?>
+                                                        <?php $count_tk03++; ?>
                                                         <?php if ($value['data_tk03']['status_tk_03'] == 2): ?>
                                                             <div class="card card-info">
                                                             <?php elseif ($value['data_tk03']['status_tk_03'] == 7): ?>
@@ -350,6 +352,7 @@
                                                     aria-labelledby="custom-tabs-tk04-tab">
                                                     <?php foreach ($data_project_tk as $key => $value): ?>
                                                         <?php if ($value['data_tk04'] != null): ?>
+                                                            <?php $count_tk04++; ?>
                                                             <?php if ($value['data_tk04']['status_tk_04'] == 2): ?>
                                                                 <div class="card card-info">
                                                                 <?php elseif ($value['data_tk04']['status_tk_04'] == 7): ?>
@@ -448,6 +451,7 @@
                                                         aria-labelledby="custom-tabs-tk05-tab">
                                                         <?php foreach ($data_project_tk as $key => $value): ?>
                                                             <?php if ($value['data_tk05'] != null): ?>
+                                                                <?php $count_tk05++; ?>
                                                                 <?php if ($value['data_tk05']['status_tk_05'] == 2): ?>
                                                                     <div class="card card-info">
                                                                     <?php elseif ($value['data_tk05']['status_tk_05'] == 7): ?>
@@ -561,6 +565,7 @@
     <script>
         var data_project_tk = <?php echo json_encode($data_project_tk); ?>;
         function load_modal(load_check, data_encode) {
+            $(".modal-body #submit_btn_teacher").hide();
             main_tk = document.getElementById("main_tk");
             main_tk.style.display = "block";
             console.log(data_project_tk[data_encode]);
@@ -629,7 +634,12 @@
                 //edit tk03
                 $(".modal-body #file_tk03").hide();
                 $("#tk_03_file_read_1").click(() => window.open('<?php echo site_url('openfile/') ?>' + data_project_tk[data_encode]['data_tk03']['id_file_03'], '_blank'));
-                $("#tk_03_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + data_project_tk[data_encode]['data_tk03']['id_file_present'], '_blank'));
+                if (data_project_tk[data_encode]['data_tk03']['id_file_present'] != null) {
+                    $(".modal-body #tk_03_file_present").show();
+                    $("#tk_03_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + data_project_tk[data_encode]['data_tk03']['id_file_present'], '_blank'));
+                }else{
+                    $(".modal-body #tk_03_file_present").hide();
+                }
                 if (data_project_tk[data_encode]['data_tk03']['id_score'] != null) {
                     $(".modal-body #tk_03_score").show();
                     // $("#tk_03_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + data['data_tk03']['id_file_present'], '_blank'));
@@ -696,12 +706,19 @@
                 $(".modal-body #chairman").val(data_project_tk[data_encode]['data_tk05']['email_director1']);
                 $(".modal-body #director_1").val(data_project_tk[data_encode]['data_tk05']['email_director2']);
                 $(".modal-body #director_2").val(data_project_tk[data_encode]['data_teacher']['name_user'] + ' ' + data_project_tk[data_encode]['data_teacher']['lastname_user']);
-                if (data_project_tk[data_encode]['data_tk05']['id_score'] != null) {
-                    $(".modal-body #score_tk05").show();
-                } else {
-                    $(".modal-body #score_tk05").hide();
+                $(".modal-body #file_tk05").hide();
+                $("#tk_05_file_read_1").click(() => window.open('<?php echo site_url('openfile/') ?>' + data_project_tk[data_encode]['data_tk05']['id_file_05'], '_blank'));
+                if (data_project_tk[data_encode]['data_tk05']['id_file_present'] != null) {
+                    $(".modal-body #tk_05_file_present").show();
+                    $("#tk_05_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + data_project_tk[data_encode]['data_tk05']['id_file_present'], '_blank'));
+                }else{
+                    $(".modal-body #tk_05_file_present").hide();
                 }
-
+                if (data_project_tk[data_encode]['data_tk05']['id_score'] != null) {
+                    $(".modal-body #tk_05_score").show();
+                } else {
+                    $(".modal-body #tk_05_score").hide();
+                }
                 $(".modal-header #title_modal").text('ข้อมูล ทก.05');
                 $(".modal-body #tk_01").hide();
                 $(".modal-body #tk_02").hide();

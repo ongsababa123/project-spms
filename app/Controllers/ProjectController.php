@@ -498,6 +498,116 @@ class ProjectController extends BaseController
         return $this->response->setJSON($response);
     }
 
+    public function create_project_tk05($id_project = null)
+    {
+        $ProjectModels = new ProjectModels();
+        $TK05_Models = new TK05_Models();
+        $FileModels = new FileModels();
+        $id_file_present = null;
+        $id_file_project = null;
+        $file_project_tk05 = $this->request->getFile('file_project_tk05');
+        if ($file_project_tk05->isValid() && !$file_project_tk05->hasMoved()) {
+            $newName = $file_project_tk05->getClientName();
+            $currentDateTime = Time::now();
+            $FileModels->insert([
+                'name_file' => $newName,
+                'date_uploade' => $currentDateTime,
+            ]);
+            $id_file_project = $FileModels->insertID();
+            $file_project_tk05->move(ROOTPATH . 'public/uploads/' . $id_file_project, $newName);
+        } else {
+            $response = [
+                'success' => false,
+                'message' => 'โปรดอัปโหลดไฟล์ บทที่ 1-5 ก่อน',
+                'reload' => false,
+            ];
+            return $this->response->setJSON($response);
+        }
+
+        $file_present_tk05 = $this->request->getFile('file_present_tk05');
+        if ($file_present_tk05->isValid() && !$file_present_tk05->hasMoved()) {
+            $newName = $file_present_tk05->getClientName();
+            $currentDateTime = Time::now();
+            $FileModels->insert([
+                'name_file' => $newName,
+                'date_uploade' => $currentDateTime,
+            ]);
+            $id_file_present = $FileModels->insertID();
+            $file_present_tk05->move(ROOTPATH . 'public/uploads/' . $id_file_present, $newName);
+        }
+        $TK05_Models->insert([
+            'id_file_05' => $id_file_project,
+            'id_file_present' => $id_file_present,
+            'status_tk_05' => 2,
+            'id_score' => null,
+        ]);
+        $id_tk05 = $TK05_Models->insertID();
+        $data = [
+            'id_tk05' => $id_tk05,
+        ];
+        $ProjectModels->update($id_project, $data);
+        $response = [
+            'success' => true,
+            'message' => 'เสร็จสิ้น',
+            'reload' => true,
+        ];
+        return $this->response->setJSON($response);
+    }
+
+    public function edit_project_tk05($id_tk05 = null, $id_file = null, $id_file_present = null)
+    {
+        helper(['form']);
+        helper('filesystem');
+        $TK05_Models = new TK05_Models();
+        $FileModels = new FileModels();
+
+        $file_project = $this->request->getFile('file_project_tk05');
+        if ($file_project->isValid() && !$file_project->hasMoved()) {
+            $del_path = 'public/uploads/' . $id_file . '/';
+            delete_files($del_path, false); // Delete files into the folder
+            $newName = $file_project->getClientName();
+            $currentDateTime = Time::now();
+            $data_file = [
+                'name_file' => $newName,
+                'date_uploade' => $currentDateTime,
+            ];
+            $FileModels->update($id_file, $data_file);
+            $file_project->move(ROOTPATH . 'public/uploads/' . $id_file, $newName);
+        }
+
+        $file_present = $this->request->getFile('file_present_tk05');
+        if ($file_present->isValid() && !$file_present->hasMoved()) {
+            $newName = $file_present->getClientName();
+            $currentDateTime = Time::now();
+            if ($id_file_present == 'null') {
+                $FileModels->insert([
+                    'name_file' => $newName,
+                    'date_uploade' => $currentDateTime,
+                ]);
+                $id_file_present = $FileModels->insertID();
+                $file_present->move(ROOTPATH . 'public/uploads/' . $id_file_present, $newName);
+                $TK05_Models->update($id_tk05, ['id_file_present' => $id_file_present]);
+            } else {
+                $del_path_present = 'public/uploads/' . $id_file_present . '/';
+                delete_files($del_path_present, false); // Delete files into the folder
+
+                $data_file_present = [
+                    'name_file' => $newName,
+                    'date_uploade' => $currentDateTime,
+                ];
+                $FileModels->update($id_file_present, $data_file_present);
+                $file_present->move(ROOTPATH . 'public/uploads/' . $id_file_present, $newName);
+            }
+        }
+        $TK05_Models->update($id_tk05, ['status_tk_05' => '2']);
+
+        $response = [
+            'success' => true,
+            'message' => 'เสร็จสิ้น',
+            'reload' => true,
+        ];
+        return $this->response->setJSON($response);
+    }
     public function get_data_table_project()
     {
         $ProjectModels = new ProjectModels();

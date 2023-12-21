@@ -83,7 +83,7 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center">1</td>
-                                            <td>ความสำคัญ วัตถุประสงต์ ขอบเขต</td>
+                                            <td><strong>ความสำคัญ วัตถุประสงต์ ขอบเขต</strong></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -96,35 +96,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_1_1" name="r1_1" value="1">
+                                                        <input type="radio" class="score-radio" id="answer1_1_1"
+                                                            name="r1_1" value="1">
                                                         <label for="answer1_1_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_1_2" name="r1_1" value="2">
+                                                        <input type="radio" class="score-radio" id="answer1_1_2"
+                                                            name="r1_1" value="2">
                                                         <label for="answer1_1_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_1_3" name="r1_1" value="3">
+                                                        <input type="radio" class="score-radio" id="answer1_1_3"
+                                                            name="r1_1" value="3">
                                                         <label for="answer1_1_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_1_4" name="r1_1" value="4">
+                                                        <input type="radio" class="score-radio" id="answer1_1_4"
+                                                            name="r1_1" value="4">
                                                         <label for="answer1_1_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_1_5" name="r1_1" value="5">
+                                                        <input type="radio" class="score-radio" id="answer1_1_5"
+                                                            name="r1_1" value="5">
                                                         <label for="answer1_1_5">
                                                         </label>
                                                     </div>
@@ -137,35 +142,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_2_1" name="r1_2" value="1">
+                                                        <input type="radio" class="score-radio" id="answer1_2_1"
+                                                            name="r1_2" value="1">
                                                         <label for="answer1_2_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_2_2" name="r1_2" value="2">
+                                                        <input type="radio" class="score-radio" id="answer1_2_2"
+                                                            name="r1_2" value="2">
                                                         <label for="answer1_2_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_2_3" name="r1_2" value="3">
+                                                        <input type="radio" class="score-radio" id="answer1_2_3"
+                                                            name="r1_2" value="3">
                                                         <label for="answer1_2_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_2_4" name="r1_2" value="4">
+                                                        <input type="radio" class="score-radio" id="answer1_2_4"
+                                                            name="r1_2" value="4">
                                                         <label for="answer1_2_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer1_2_5" name="r1_2" value="5">
+                                                        <input type="radio" class="score-radio" id="answer1_2_5"
+                                                            name="r1_2" value="5">
                                                         <label for="answer1_2_5">
                                                         </label>
                                                     </div>
@@ -174,7 +184,7 @@
                                         </tr>
                                         <tr>
                                             <td class="text-center">2</td>
-                                            <td>ทฤษฏีและงานวิจัยที่เกี่ยวข้อง</td>
+                                            <td><strong>ทฤษฏีและงานวิจัยที่เกี่ยวข้อง</strong></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -187,35 +197,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_1_1" name="r2_1" value="1">
+                                                        <input type="radio" class="score-radio" id="answer2_1_1"
+                                                            name="r2_1" value="1">
                                                         <label for="answer2_1_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_1_2" name="r2_1" value="2">
+                                                        <input type="radio" class="score-radio" id="answer2_1_2"
+                                                            name="r2_1" value="2">
                                                         <label for="answer2_1_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_1_3" name="r2_1" value="3">
+                                                        <input type="radio" class="score-radio" id="answer2_1_3"
+                                                            name="r2_1" value="3">
                                                         <label for="answer2_1_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_1_4" name="r2_1" value="4">
+                                                        <input type="radio" class="score-radio" id="answer2_1_4"
+                                                            name="r2_1" value="4">
                                                         <label for="answer2_1_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_1_5" name="r2_1" value="5">
+                                                        <input type="radio" class="score-radio" id="answer2_1_5"
+                                                            name="r2_1" value="5">
                                                         <label for="answer2_1_5">
                                                         </label>
                                                     </div>
@@ -228,35 +243,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_2_1" name="r2_2" value="1">
+                                                        <input type="radio" class="score-radio" id="answer2_2_1"
+                                                            name="r2_2" value="1">
                                                         <label for="answer2_2_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_2_2" name="r2_2" value="2">
+                                                        <input type="radio" class="score-radio" id="answer2_2_2"
+                                                            name="r2_2" value="2">
                                                         <label for="answer2_2_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_2_3" name="r2_2" value="3">
+                                                        <input type="radio" class="score-radio" id="answer2_2_3"
+                                                            name="r2_2" value="3">
                                                         <label for="answer2_2_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_2_4" name="r2_2" value="4">
+                                                        <input type="radio" class="score-radio" id="answer2_2_4"
+                                                            name="r2_2" value="4">
                                                         <label for="answer2_2_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer2_2_5" name="r2_2" value="5">
+                                                        <input type="radio" class="score-radio" id="answer2_2_5"
+                                                            name="r2_2" value="5">
                                                         <label for="answer2_2_5">
                                                         </label>
                                                     </div>
@@ -265,7 +285,7 @@
                                         </tr>
                                         <tr>
                                             <td class="text-center">3</td>
-                                            <td>วิธีการดำเนินงาน</td>
+                                            <td><strong>วิธีการดำเนินงาน</strong></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -278,35 +298,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_1_1" name="r3_1" value="1">
+                                                        <input type="radio" class="score-radio" id="answer3_1_1"
+                                                            name="r3_1" value="1">
                                                         <label for="answer3_1_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_1_2" name="r3_1" value="2">
+                                                        <input type="radio" class="score-radio" id="answer3_1_2"
+                                                            name="r3_1" value="2">
                                                         <label for="answer3_1_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_1_3" name="r3_1" value="3">
+                                                        <input type="radio" class="score-radio" id="answer3_1_3"
+                                                            name="r3_1" value="3">
                                                         <label for="answer3_1_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_1_4" name="r3_1" value="4">
+                                                        <input type="radio" class="score-radio" id="answer3_1_4"
+                                                            name="r3_1" value="4">
                                                         <label for="answer3_1_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_1_5" name="r3_1" value="5">
+                                                        <input type="radio" class="score-radio" id="answer3_1_5"
+                                                            name="r3_1" value="5">
                                                         <label for="answer3_1_5">
                                                         </label>
                                                     </div>
@@ -319,35 +344,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_2_1" name="r3_2" value="1">
+                                                        <input type="radio" class="score-radio" id="answer3_2_1"
+                                                            name="r3_2" value="1">
                                                         <label for="answer3_2_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_2_2" name="r3_2" value="2">
+                                                        <input type="radio" class="score-radio" id="answer3_2_2"
+                                                            name="r3_2" value="2">
                                                         <label for="answer3_2_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_2_3" name="r3_2" value="3">
+                                                        <input type="radio" class="score-radio" id="answer3_2_3"
+                                                            name="r3_2" value="3">
                                                         <label for="answer3_2_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_2_4" name="r3_2" value="4">
+                                                        <input type="radio" class="score-radio" id="answer3_2_4"
+                                                            name="r3_2" value="4">
                                                         <label for="answer3_2_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_2_5" name="r3_2" value="5">
+                                                        <input type="radio" class="score-radio" id="answer3_2_5"
+                                                            name="r3_2" value="5">
                                                         <label for="answer3_2_5">
                                                         </label>
                                                     </div>
@@ -360,35 +390,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_3_1" name="r3_3" value="1">
+                                                        <input type="radio" class="score-radio" id="answer3_3_1"
+                                                            name="r3_3" value="1">
                                                         <label for="answer3_3_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_3_2" name="r3_3" value="2">
+                                                        <input type="radio" class="score-radio" id="answer3_3_2"
+                                                            name="r3_3" value="2">
                                                         <label for="answer3_3_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_3_3" name="r3_3" value="3">
+                                                        <input type="radio" class="score-radio" id="answer3_3_3"
+                                                            name="r3_3" value="3">
                                                         <label for="answer3_3_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_3_4" name="r3_3" value="4">
+                                                        <input type="radio" class="score-radio" id="answer3_3_4"
+                                                            name="r3_3" value="4">
                                                         <label for="answer3_3_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer3_3_5" name="r3_3" value="5">
+                                                        <input type="radio" class="score-radio" id="answer3_3_5"
+                                                            name="r3_3" value="5">
                                                         <label for="answer3_3_5">
                                                         </label>
                                                     </div>
@@ -397,7 +432,7 @@
                                         </tr>
                                         <tr>
                                             <td class="text-center">4</td>
-                                            <td>ผลการดำเนินงานวิจัย</td>
+                                            <td><strong>ผลการดำเนินงานวิจัย</strong></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -410,35 +445,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_1_1" name="r4_1" value="1">
+                                                        <input type="radio" class="score-radio" id="answer4_1_1"
+                                                            name="r4_1" value="1">
                                                         <label for="answer4_1_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_1_2" name="r4_1" value="2">
+                                                        <input type="radio" class="score-radio" id="answer4_1_2"
+                                                            name="r4_1" value="2">
                                                         <label for="answer4_1_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_1_3" name="r4_1" value="3">
+                                                        <input type="radio" class="score-radio" id="answer4_1_3"
+                                                            name="r4_1" value="3">
                                                         <label for="answer4_1_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_1_4" name="r4_1" value="4">
+                                                        <input type="radio" class="score-radio" id="answer4_1_4"
+                                                            name="r4_1" value="4">
                                                         <label for="answer4_1_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_1_5" name="r4_1" value="5">
+                                                        <input type="radio" class="score-radio" id="answer4_1_5"
+                                                            name="r4_1" value="5">
                                                         <label for="answer4_1_5">
                                                         </label>
                                                     </div>
@@ -451,35 +491,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_2_1" name="r4_2" value="1">
+                                                        <input type="radio" class="score-radio" id="answer4_2_1"
+                                                            name="r4_2" value="1">
                                                         <label for="answer4_2_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_2_2" name="r4_2" value="2">
+                                                        <input type="radio" class="score-radio" id="answer4_2_2"
+                                                            name="r4_2" value="2">
                                                         <label for="answer4_2_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_2_3" name="r4_2" value="3">
+                                                        <input type="radio" class="score-radio" id="answer4_2_3"
+                                                            name="r4_2" value="3">
                                                         <label for="answer4_2_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_2_4" name="r4_2" value="4">
+                                                        <input type="radio" class="score-radio" id="answer4_2_4"
+                                                            name="r4_2" value="4">
                                                         <label for="answer4_2_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_2_5" name="r4_2" value="5">
+                                                        <input type="radio" class="score-radio" id="answer4_2_5"
+                                                            name="r4_2" value="5">
                                                         <label for="answer4_2_5">
                                                         </label>
                                                     </div>
@@ -492,35 +537,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_3_1" name="r4_3" value="1">
+                                                        <input type="radio" class="score-radio" id="answer4_3_1"
+                                                            name="r4_3" value="1">
                                                         <label for="answer4_3_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_3_2" name="r4_3" value="2">
+                                                        <input type="radio" class="score-radio" id="answer4_3_2"
+                                                            name="r4_3" value="2">
                                                         <label for="answer4_3_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_3_3" name="r4_3" value="3">
+                                                        <input type="radio" class="score-radio" id="answer4_3_3"
+                                                            name="r4_3" value="3">
                                                         <label for="answer4_3_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_3_4" name="r4_3" value="4">
+                                                        <input type="radio" class="score-radio" id="answer4_3_4"
+                                                            name="r4_3" value="4">
                                                         <label for="answer4_3_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_3_5" name="r4_3" value="5">
+                                                        <input type="radio" class="score-radio" id="answer4_3_5"
+                                                            name="r4_3" value="5">
                                                         <label for="answer4_3_5">
                                                         </label>
                                                     </div>
@@ -533,35 +583,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_4_1" name="r4_4" value="1">
+                                                        <input type="radio" class="score-radio" id="answer4_4_1"
+                                                            name="r4_4" value="1">
                                                         <label for="answer4_4_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_4_2" name="r4_4" value="2">
+                                                        <input type="radio" class="score-radio" id="answer4_4_2"
+                                                            name="r4_4" value="2">
                                                         <label for="answer4_4_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_4_3" name="r4_4" value="3">
+                                                        <input type="radio" class="score-radio" id="answer4_4_3"
+                                                            name="r4_4" value="3">
                                                         <label for="answer4_4_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_4_4" name="r4_4" value="4">
+                                                        <input type="radio" class="score-radio" id="answer4_4_4"
+                                                            name="r4_4" value="4">
                                                         <label for="answer4_4_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_4_5" name="r4_4" value="5">
+                                                        <input type="radio" class="score-radio" id="answer4_4_5"
+                                                            name="r4_4" value="5">
                                                         <label for="answer4_4_5">
                                                         </label>
                                                     </div>
@@ -574,35 +629,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_5_1" name="r4_5" value="1">
+                                                        <input type="radio" class="score-radio" id="answer4_5_1"
+                                                            name="r4_5" value="1">
                                                         <label for="answer4_5_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_5_2" name="r4_5" value="2">
+                                                        <input type="radio" class="score-radio" id="answer4_5_2"
+                                                            name="r4_5" value="2">
                                                         <label for="answer4_5_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_5_3" name="r4_5" value="3">
+                                                        <input type="radio" class="score-radio" id="answer4_5_3"
+                                                            name="r4_5" value="3">
                                                         <label for="answer4_5_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_5_4" name="r4_5" value="4">
+                                                        <input type="radio" class="score-radio" id="answer4_5_4"
+                                                            name="r4_5" value="4">
                                                         <label for="answer4_5_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_5_5" name="r4_5" value="5">
+                                                        <input type="radio" class="score-radio" id="answer4_5_5"
+                                                            name="r4_5" value="5">
                                                         <label for="answer4_5_5">
                                                         </label>
                                                     </div>
@@ -615,35 +675,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_6_1" name="r4_6" value="1">
+                                                        <input type="radio" class="score-radio" id="answer4_6_1"
+                                                            name="r4_6" value="1">
                                                         <label for="answer4_6_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_6_2" name="r4_6" value="2">
+                                                        <input type="radio" class="score-radio" id="answer4_6_2"
+                                                            name="r4_6" value="2">
                                                         <label for="answer4_6_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_6_3" name="r4_6" value="3">
+                                                        <input type="radio" class="score-radio" id="answer4_6_3"
+                                                            name="r4_6" value="3">
                                                         <label for="answer4_6_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_6_4" name="r4_6" value="4">
+                                                        <input type="radio" class="score-radio" id="answer4_6_4"
+                                                            name="r4_6" value="4">
                                                         <label for="answer4_6_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer4_6_5" name="r4_6" value="5">
+                                                        <input type="radio" class="score-radio" id="answer4_6_5"
+                                                            name="r4_6" value="5">
                                                         <label for="answer4_6_5">
                                                         </label>
                                                     </div>
@@ -652,7 +717,7 @@
                                         </tr>
                                         <tr>
                                             <td class="text-center">5</td>
-                                            <td>การนำเสนอ</td>
+                                            <td><strong>การนำเสนอ</strong></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -665,35 +730,40 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_1_1" name="r5_1" value="1">
+                                                        <input type="radio" class="score-radio" id="answer5_1_1"
+                                                            name="r5_1" value="1">
                                                         <label for="answer5_1_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_1_2" name="r5_1" value="2">
+                                                        <input type="radio" class="score-radio" id="answer5_1_2"
+                                                            name="r5_1" value="2">
                                                         <label for="answer5_1_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_1_3" name="r5_1" value="3">
+                                                        <input type="radio" class="score-radio" id="answer5_1_3"
+                                                            name="r5_1" value="3">
                                                         <label for="answer5_1_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_1_4" name="r5_1" value="4" >
+                                                        <input type="radio" class="score-radio" id="answer5_1_4"
+                                                            name="r5_1" value="4">
                                                         <label for="answer5_1_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_1_5" name="r5_1" value="5">
+                                                        <input type="radio" class="score-radio" id="answer5_1_5"
+                                                            name="r5_1" value="5">
                                                         <label for="answer5_1_5">
                                                         </label>
                                                     </div>
@@ -706,36 +776,280 @@
                                             <div class="form-group clearfix">
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_2_1" name="r5_2" value="1">
+                                                        <input type="radio" class="score-radio" id="answer5_2_1"
+                                                            name="r5_2" value="1">
                                                         <label for="answer5_2_1">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_2_2" name="r5_2" value="2">
+                                                        <input type="radio" class="score-radio" id="answer5_2_2"
+                                                            name="r5_2" value="2">
                                                         <label for="answer5_2_2">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_2_3" name="r5_2" value="3">
+                                                        <input type="radio" class="score-radio" id="answer5_2_3"
+                                                            name="r5_2" value="3">
                                                         <label for="answer5_2_3">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_2_4" name="r5_2" value="4">
+                                                        <input type="radio" class="score-radio" id="answer5_2_4"
+                                                            name="r5_2" value="4">
                                                         <label for="answer5_2_4">
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" class="score-radio" id="answer5_2_5" name="r5_2" value="5" class="score-radio">
+                                                        <input type="radio" class="score-radio" id="answer5_2_5"
+                                                            name="r5_2" value="5" class="score-radio">
                                                         <label for="answer5_2_5">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </div>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"></td>
+                                            <td>- Power point</td>
+                                            <div class="form-group clearfix">
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_3_1"
+                                                            name="r5_3" value="1">
+                                                        <label for="answer5_3_1">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_3_2"
+                                                            name="r5_3" value="2">
+                                                        <label for="answer5_3_2">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_3_3"
+                                                            name="r5_3" value="3">
+                                                        <label for="answer5_3_3">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_3_4"
+                                                            name="r5_3" value="4">
+                                                        <label for="answer5_3_4">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_3_5"
+                                                            name="r5_3" value="5" class="score-radio">
+                                                        <label for="answer5_3_5">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </div>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"></td>
+                                            <td>- การแต่งกายถูกต้องตามระเบียบ</td>
+                                            <div class="form-group clearfix">
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_4_1"
+                                                            name="r5_4" value="1">
+                                                        <label for="answer5_4_1">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_4_2"
+                                                            name="r5_4" value="2">
+                                                        <label for="answer5_4_2">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_4_3"
+                                                            name="r5_4" value="3">
+                                                        <label for="answer5_4_3">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_4_4"
+                                                            name="r5_4" value="4">
+                                                        <label for="answer5_4_4">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_4_5"
+                                                            name="r5_4" value="5" class="score-radio">
+                                                        <label for="answer5_4_5">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </div>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"></td>
+                                            <td>- การตอบคำถาม</td>
+                                            <div class="form-group clearfix">
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_5_1"
+                                                            name="r5_5" value="1">
+                                                        <label for="answer5_5_1">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_5_2"
+                                                            name="r5_5" value="2">
+                                                        <label for="answer5_5_2">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_5_3"
+                                                            name="r5_5" value="3">
+                                                        <label for="answer5_5_3">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_5_4"
+                                                            name="r5_5" value="4">
+                                                        <label for="answer5_5_4">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer5_5_5"
+                                                            name="r5_5" value="5" class="score-radio">
+                                                        <label for="answer5_5_5">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </div>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">6</td>
+                                            <td><strong>รูปเล่ม</strong></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"></td>
+                                            <td>- ความถูกต้องในการจัดรูปเล่ม</td>
+                                            <div class="form-group clearfix">
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_1_1"
+                                                            name="r6_1" value="1">
+                                                        <label for="answer6_1_1">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_1_2"
+                                                            name="r6_1" value="2">
+                                                        <label for="answer6_1_2">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_1_3"
+                                                            name="r6_1" value="3">
+                                                        <label for="answer6_1_3">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_1_4"
+                                                            name="r6_1" value="4">
+                                                        <label for="answer6_1_4">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_1_5"
+                                                            name="r6_1" value="5">
+                                                        <label for="answer6_1_5">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </div>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"></td>
+                                            <td>- ความถูกต้องด้านภาษาที่ใช้</td>
+                                            <div class="form-group clearfix">
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_2_1"
+                                                            name="r6_2" value="1">
+                                                        <label for="answer6_2_1">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_2_2"
+                                                            name="r6_2" value="2">
+                                                        <label for="answer6_2_2">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_2_3"
+                                                            name="r6_2" value="3">
+                                                        <label for="answer6_2_3">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_2_4"
+                                                            name="r6_2" value="4">
+                                                        <label for="answer6_2_4">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" class="score-radio" id="answer6_2_5"
+                                                            name="r6_2" value="5" class="score-radio">
+                                                        <label for="answer6_2_5">
                                                         </label>
                                                     </div>
                                                 </td>
@@ -749,6 +1063,29 @@
                                         </tr>
                                     </tfoot>
                                 </table>
+                            </div>
+
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-3">
+                            </div>
+                            <div class="col-1">
+                                <p>A(85-100)</p>
+                            </div>
+                            <div class="col-1">
+                                <p>B+(80-84)</p>
+                            </div>
+                            <div class="col-1">
+                                <p>B(70-74)</p>
+                            </div>
+                            <div class="col-1">
+                                <p>C+(70-74)</p>
+                            </div>
+                            <div class="col-1">
+                                <p>C(65-69)</p>
+                            </div>
+                            <div class="col-1">
+                                <p>D+(60-64)</p>
                             </div>
                         </div>
                         <!-- /.card-body -->

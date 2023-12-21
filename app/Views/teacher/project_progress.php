@@ -314,6 +314,9 @@
     </script>
     <script>
         function load_modal(load_check, data_encode) {
+            $(".modal-footer #submit_btn").hide();
+            $(".modal-footer #submit_btn_teacher").show();
+
             const rowData = JSON.parse(decodeURIComponent(data_encode));
             console.log(rowData);
             $(".modal-body #tk_04_file_1").empty();
@@ -380,6 +383,19 @@
             if (load_check == 2) {
                 //edit tk01
                 $("#tk_01_file_read_btn").click(() => window.open('<?php echo site_url('openfile/') ?>' + rowData['data_tk01']['id_file_01'], '_blank'));
+                if (rowData['data_tk01']['status_tk_01'] == 4) {
+                    $(".modal-footer #submit_success").prop('disabled', false);
+                    $(".modal-footer #submit_back_edit").prop('disabled', false);
+                    $(".modal-footer #submit_danger").prop('disabled', false);
+                } else {
+                    $(".modal-footer #submit_success").prop('disabled', true);
+                    $(".modal-footer #submit_back_edit").prop('disabled', true);
+                    $(".modal-footer #submit_danger").prop('disabled', true);
+                }
+
+                $("#submit_success").click(() => confirm_Alert('ต้องการให้ผ่านหรือไม่?', rowData['data_tk01']['id_tk_01'] + '/1/6'));
+                $("#submit_back_edit").click(() => confirm_Alert('ต้องการให้กลับแก้ไปไขหรือไม่?', rowData['data_tk01']['id_tk_01'] + '/1/3'));
+                $("#submit_danger").click(() => confirm_Alert('ต้องการยกเลิกเอกสารหรือไม่?', rowData['data_tk01']['id_tk_01'] + '/1/5'));
                 $(".modal-header #title_modal").text('ข้อมูล ทก.01');
                 $(".modal-body #tk_01_file_upload").hide();
                 $(".modal-body #tk_01").show();
@@ -387,6 +403,8 @@
                 $(".modal-body #tk_03").hide();
                 $(".modal-body #tk_04").hide();
                 $(".modal-body #tk_05").hide();
+                $(".modal-footer #submit_btn_teacher").hide();
+
             } else if (load_check == 3) {
                 //edit tk02
                 $("#tk_02_file_read_1").click(() => window.open('<?php echo site_url('openfile/') ?>' + rowData['data_tk02']['id_file_02'], '_blank'));
@@ -396,6 +414,18 @@
                 } else {
                     $(".modal-body #tk_02_file_present").hide();
                 }
+                if (rowData['data_tk02']['status_tk_02'] == 4) {
+                    $(".modal-footer #submit_success").prop('disabled', false);
+                    $(".modal-footer #submit_back_edit").prop('disabled', false);
+                    $(".modal-footer #submit_danger").prop('disabled', false);
+                } else {
+                    $(".modal-footer #submit_success").prop('disabled', true);
+                    $(".modal-footer #submit_back_edit").prop('disabled', true);
+                    $(".modal-footer #submit_danger").prop('disabled', true);
+                }
+                $("#submit_success").click(() => confirm_Alert('ต้องการให้ผ่านหรือไม่?', rowData['data_tk02']['id_tk_02'] + '/2/6'));
+                $("#submit_back_edit").click(() => confirm_Alert('ต้องการให้กลับแก้ไปไขหรือไม่?', rowData['data_tk02']['id_tk_02'] + '/2/3'));
+                $("#submit_danger").click(() => confirm_Alert('ต้องการยกเลิกเอกสารหรือไม่?', rowData['data_tk02']['id_tk_02'] + '/2/5'));
                 $(".modal-body #tk_02_file").hide();
                 $(".modal-header #title_modal").text('ข้อมูล ทก.02');
                 $(".modal-body #tk_01").hide();
@@ -419,6 +449,19 @@
                 } else {
                     $(".modal-body #tk_03_score").hide();
                 }
+                if (rowData['data_tk03']['status_tk_03'] == 4) {
+                    $(".modal-footer #submit_success").prop('disabled', false);
+                    $(".modal-footer #submit_back_edit").prop('disabled', false);
+                    $(".modal-footer #submit_danger").prop('disabled', false);
+                } else {
+                    $(".modal-footer #submit_success").prop('disabled', true);
+                    $(".modal-footer #submit_back_edit").prop('disabled', true);
+                    $(".modal-footer #submit_danger").prop('disabled', true);
+                }
+
+                $("#submit_success").click(() => confirm_Alert('ต้องการให้ผ่านหรือไม่?', rowData['data_tk03']['id_tk_03'] + '/3/6'));
+                $("#submit_back_edit").click(() => confirm_Alert('ต้องการให้กลับแก้ไปไขหรือไม่?', rowData['data_tk03']['id_tk_03'] + '/3/3'));
+                $("#submit_danger").click(() => confirm_Alert('ต้องการยกเลิกเอกสารหรือไม่?', rowData['data_tk03']['id_tk_03'] + '/3/5'));
                 $(".modal-header #title_modal").text('ข้อมูล ทก.03');
                 $(".modal-body #tk_01").hide();
                 $(".modal-body #tk_02").hide();
@@ -431,17 +474,11 @@
                 rowData['data_tk04']['file_04'].forEach((data_file_04, index) => {
                     var statusButtonHtml = '';
                     if (data_file_04.status_file == 0) {
-                        statusButtonHtml = `
-                                                    <button type="button" class="btn btn-block btn-warning btn-sm">กำลังตรวจสอบ</button>
-                                            `;
+                        statusButtonHtml = `<button type="button" class="btn btn-block btn-warning btn-sm" onclick="confirm_check_file(${data_file_04.id_file}, ${rowData['data_tk04']['id_tk_04']})" >กำลังตรวจสอบ</button>`;
                     } else if (data_file_04.status_file == 1) {
-                        statusButtonHtml = `
-                                                    <button type="button" class="btn btn-block btn-success btn-sm">ตรวจสอบแล้ว</button>
-                                            `;
+                        statusButtonHtml = ` <button type="button" class="btn btn-block btn-success btn-sm">ตรวจสอบแล้ว</button>`;
                     } else {
-                        statusButtonHtml = `
-                                                <button type="button" class="btn btn-block btn-danger btn-sm">ไม่ผ่านการตรวจสอบ</button>
-                                            `;
+                        statusButtonHtml = `<button type="button" class="btn btn-block btn-danger btn-sm">ไม่ผ่านการตรวจสอบ</button>`;
                     }
                     var newHtml = `
                     <div class="row">
@@ -463,6 +500,7 @@
                     // Append the new HTML code to the tk_04_file_1 element
                     $("#tk_04_file_1").append(newHtml);
                 });
+                $(".modal-footer #submit_btn_teacher").hide();
                 $(".modal-header #title_modal").text('ข้อมูล ทก.04');
                 $(".modal-body #tk_01").hide();
                 $(".modal-body #tk_02").hide();
@@ -475,7 +513,35 @@
                 $(".modal-body #director_1").prop('disabled', true);
                 $(".modal-body #director_2").prop('disabled', true);
                 $(".modal-body #score_tk05").show();
+                $(".modal-body #chairman").val(rowData['data_tk05']['email_director1']);
+                $(".modal-body #director_1").val(rowData['data_tk05']['email_director2']);
+                $(".modal-body #director_2").val(rowData['teacher']['name_user'] + ' ' + rowData['teacher']['lastname_user']);
+                $(".modal-body #file_tk05").hide();
+                $("#tk_05_file_read_1").click(() => window.open('<?php echo site_url('openfile/') ?>' + rowData['data_tk05']['id_file_05'], '_blank'));
+                if (rowData['data_tk05']['id_file_present'] != null) {
+                    $(".modal-body #tk_05_file_present").show();
+                    $("#tk_05_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + rowData['data_tk05']['id_file_present'], '_blank'));
+                } else {
+                    $(".modal-body #tk_05_file_present").hide();
+                }
+                if (rowData['data_tk05']['id_score'] != null) {
+                    $(".modal-body #tk_05_score").show();
+                } else {
+                    $(".modal-body #tk_05_score").hide();
+                }
+                if (rowData['data_tk05']['status_tk_05'] == 4) {
+                    $(".modal-footer #submit_success").prop('disabled', false);
+                    $(".modal-footer #submit_back_edit").prop('disabled', false);
+                    $(".modal-footer #submit_danger").prop('disabled', false);
+                } else {
+                    $(".modal-footer #submit_success").prop('disabled', true);
+                    $(".modal-footer #submit_back_edit").prop('disabled', true);
+                    $(".modal-footer #submit_danger").prop('disabled', true);
+                }
 
+                $("#submit_success").click(() => confirm_Alert('ต้องการให้ผ่านหรือไม่?', rowData['data_tk05']['id_tk_05'] + '/5/6'));
+                $("#submit_back_edit").click(() => confirm_Alert('ต้องการให้กลับแก้ไปไขหรือไม่?', rowData['data_tk05']['id_tk_05'] + '/5/3'));
+                $("#submit_danger").click(() => confirm_Alert('ต้องการยกเลิกเอกสารหรือไม่?', rowData['data_tk05']['id_tk_05'] + '/5/5'));
                 $(".modal-header #title_modal").text('ข้อมูล ทก.05');
                 $(".modal-body #tk_01").hide();
                 $(".modal-body #tk_02").hide();
@@ -483,5 +549,108 @@
                 $(".modal-body #tk_04").hide();
                 $(".modal-body #tk_05").show();
             }
+        }
+    </script>
+    <script>
+        function confirm_Alert(text, url) {
+            Swal.fire({
+                title: text,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: "#28a745",
+                confirmButtonText: "submit",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Show loading indicator
+                    Swal.showLoading();
+
+                    $.ajax({
+                        url: '<?= base_url('/teacher/progress/changestatus/tk/') ?>' + url,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        beforeSend: function () {
+                            // Code to execute before the request is sent
+                        },
+                        complete: function () {
+                            // Hide loading indicator after the request is complete
+                            Swal.hideLoading();
+                        }
+                    }).done(function (response) {
+                        if (response.success) {
+                            Swal.fire({
+                                title: response.message,
+                                icon: 'success',
+                                showConfirmButton: false
+                            });
+                            setTimeout(() => {
+                                if (response.reload) {
+                                    window.location.reload();
+                                }
+                            }, 2000);
+                        } else {
+                            Swal.fire({
+                                title: response.message,
+                                icon: 'error',
+                                showConfirmButton: true
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+    <script>
+        function confirm_check_file(id_file, id_tk_04) {
+            Swal.fire({
+                title: "ต้องการให้เอกสารผ่านหรือไม่?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "เอกสารผ่าน",
+                denyButtonText: `เอกสารไม่ผ่าน`,
+                cancelButtonText: "ยกเลิก", // Set the cancel button text
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    var url = id_file + '/1/' + id_tk_04;
+                } else if (result.isDenied) {
+                    var url = id_file + '/2/' + id_tk_04;
+                }
+                // Show loading indicator
+                Swal.showLoading();
+                console.log(url);
+                $.ajax({
+                    url: '<?= base_url('/teacher/progress/changestatus/file/') ?>' + url,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    beforeSend: function () {
+                        // Code to execute before the request is sent
+                    },
+                    complete: function () {
+                        // Hide loading indicator after the request is complete
+                        Swal.hideLoading();
+                    }
+                }).done(function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            title: response.message,
+                            icon: 'success',
+                            showConfirmButton: false
+                        });
+                        setTimeout(() => {
+                            if (response.reload) {
+                                window.location.reload();
+                            }
+                        }, 2000);
+                    } else {
+                        Swal.fire({
+                            title: response.message,
+                            icon: 'error',
+                            showConfirmButton: true
+                        });
+                    }
+                });
+            });
         }
     </script>
