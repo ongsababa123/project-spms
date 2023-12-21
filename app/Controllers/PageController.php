@@ -26,8 +26,14 @@ class PageController extends BaseController
     //student page
     public function index_timelist_student()
     {
+        $ProjectModels = new ProjectModels();
+        $email = session()->get('email');
+        $allData = $ProjectModels->where('status_project', 1)->findAll();
+        $data['data_project'] = array_filter($allData, function ($row) use ($email) {
+            return strpos($row['email_student'], $email) !== false;
+        });
         echo view('layout/header');
-        echo view('time_list');
+        echo view('student/time_list' , $data);
     }
     public function index_projectlist()
     {
