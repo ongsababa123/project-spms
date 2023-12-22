@@ -7,6 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->group("student/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'timelist', 'PageController::index_timelist_student');
+    $routes->match(['get', 'post'], 'timelist/create/(:num)', 'TimelistContoller::create_timelist/$1');
+    $routes->match(['get', 'post'], 'timelist/getdata/(:num)', 'TimelistContoller::get_data_time/$1');
 
     $routes->match(['get', 'post'], 'projectlist', 'PageController::index_projectlist');
     $routes->match(['get', 'post'], 'projectlist/create/tk01', 'ProjectController::create_project_tk01');
@@ -32,6 +34,8 @@ $routes->group("student/", ['filter' => ['AuthGuard']], function ($routes) {
 
 $routes->group("teacher/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'timelist', 'PageController::index_timelist_teacher');
+    $routes->match(['get', 'post'], 'timelist/create', 'TimelistContoller::create_timelist_teacher');
+    $routes->match(['get', 'post'], 'timelist/getdata', 'TimelistContoller::get_data_time_teacher');
 
     $routes->match(['get', 'post'], 'submitpage', 'PageController::index_submitpage');
     $routes->match(['get', 'post'], 'submitpage/changestatus/tk/(:num)/(:num)/(:num)', 'ProjectController::changestatus_request/$1/$2/$3');

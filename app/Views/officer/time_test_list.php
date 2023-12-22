@@ -28,8 +28,8 @@
                         <div class="card-tools">
                             <a href="<?= site_url('/officer/historytest'); ?>"
                                 class="btn btn-xs btn-primary">ประวัติการสอบ</a>
-                            <button type="button" class="btn btn-xs btn-dark" data-toggle="modal" data-target="#modal-default"
-                                onclick="load_modal(1)">เพิ่มการสอบ</button>
+                            <button type="button" class="btn btn-xs btn-dark" data-toggle="modal"
+                                data-target="#modal-default" onclick="load_modal(1)">เพิ่มการสอบ</button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -94,4 +94,10 @@
 
             }
         }
+    </script>
+    <script>
+        var teacher = <?php echo json_encode($teacher); ?>;
+        var data_timelist_teacher = <?php echo json_encode($data_timelist_teacher); ?>;
+        console.log(teacher);
+        console.log(data_timelist_teacher);
     </script>

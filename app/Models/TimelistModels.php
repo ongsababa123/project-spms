@@ -10,6 +10,6 @@ class TimelistModels extends Model
 
     protected $primaryKey = 'id_time_list';
 
-    protected $allowedFields = ['id_project', 'date_number', 'time_number'];
+    protected $allowedFields = ['id_project','email_user', 'date_', 'time_number'];
 
 }
