@@ -120,17 +120,19 @@ class PageController extends BaseController
         $ProjectModels = new ProjectModels();
         $TimelistModels = new TimelistModels();
         $UserModels = new UserModels();
+
         $data['data_project'] = $ProjectModels->where('status_project', 1)->findAll();
         foreach ($data['data_project'] as $key => $value) {
-            $data['data_timelist_project'][$key] = $TimelistModels->where('id_project', $value['id_project'])->findAll();
+            $data['data_project'][$key]['data_timelist_project'] = $TimelistModels->where('id_project', $value['id_project'])->findAll();
+            $data['data_project'][$key]['data_teacher'] = $UserModels->where('email_user', $value['email_teacher'])->first();
         }
-        $data['teacher'] = $UserModels->where('type_user', 2)->where('status_user', 2)->orWhere('status_user', 1)->findAll();
-        foreach ($data['teacher'] as $key => $value) {
-            $data['teacher'][$key]['project_count'] = $ProjectModels
+        $data['teacher_data'] = $UserModels->where('type_user', 2)->where('status_user', 2)->orWhere('status_user', 1)->findAll();
+        foreach ($data['teacher_data'] as $key => $value) {
+            $data['teacher_data'][$key]['project_count'] = $ProjectModels
                 ->where('email_teacher', $value['email_user'])
                 ->where('status_project', 1)
                 ->countAllResults();
-            $data['data_timelist_teacher'][$key] = $TimelistModels->where('email_user', $value['email_user'])->findAll();
+            $data['teacher_data'][$key]['data_timelist_teacher'] = $TimelistModels->where('email_user', $value['email_user'])->findAll();
         }
         echo view('layout/header');
         echo view('officer/time_test_list' , $data);

@@ -55,22 +55,26 @@
                                     for ($i = 9; $i <= 16; $i++):
                                         ?>
                                         <tr>
-                                            <td class="text-center">
-                                                <?= $i ?>:00 -
-                                                <?= ($i + 1) ?>:00
-                                            </td>
+                                            <?php if ($i != 12): ?>
+                                                <td class="text-center">
+                                                    <?= $i ?>:00 -
+                                                    <?= ($i + 1) ?>:00
+                                                </td>
+                                            <?php endif; ?>
                                             <?php
                                             // Loop for each day
                                             foreach ($dayNames as $day):
                                                 $temp_name = $day . ',' . $i;
                                                 ?>
-                                                <td class="text-center">
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="checkbox" id="<?= $temp_name ?>" name="<?= $temp_name ?>"
-                                                            onclick="handleCheckboxClick(this)">
-                                                        <label for="<?= $temp_name ?>"></label>
-                                                    </div>
-                                                </td>
+                                                <?php if ($i != 12): ?>
+                                                    <td class="text-center">
+                                                        <div class="icheck-primary d-inline">
+                                                            <input type="checkbox" id="<?= $temp_name ?>" name="<?= $temp_name ?>"
+                                                                onclick="handleCheckboxClick(this)">
+                                                            <label for="<?= $temp_name ?>"></label>
+                                                        </div>
+                                                    </td>
+                                                <?php endif; ?>
                                             <?php endforeach; ?>
                                         </tr>
                                     <?php endfor; ?>

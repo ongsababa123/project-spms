@@ -19,12 +19,12 @@
                         </div>
                         <div class="col-sm-2 mr-2">
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;">
-                                <option selected="selected">จันทร์</option>
-                                <option>อังคาร</option>
-                                <option>พุธ</option>
-                                <option>พฤหัสบดี</option>
-                                <option>ศุกร์</option>
+                                style="width: 100%;" id="day_select" name="day_select">
+                                <option selected="selected" value="monday">จันทร์</option>
+                                <option value="tuesday">อังคาร</option>
+                                <option value="wednesday">พุธ</option>
+                                <option value="thursday">พฤหัสบดี</option>
+                                <option value="friday">ศุกร์</option>
                             </select>
                         </div>
                         <div>
@@ -32,25 +32,21 @@
                         </div>
                         <div class="col-sm-2 mr-2">
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;">
-                                <option selected="selected">09:00 - 10:00</option>
-                                <option>10:00 - 11:00</option>
-                                <option>11:00 - 12:00</option>
-                                <option>13:00 - 14:00</option>
-                                <option>14:00 - 15:00</option>
-                                <option>15:00 - 16:00</option>
-                                <option>16:00 - 17:00</option>
+                                style="width: 100%;" id="time_select" name="time_select">
+                                <option selected="selected" value="9">09:00 - 10:00</option>
+                                <option value="10">10:00 - 11:00</option>
+                                <option value="11">11:00 - 12:00</option>
+                                <option value="13">13:00 - 14:00</option>
+                                <option value="14">14:00 - 15:00</option>
+                                <option value="15">15:00 - 16:00</option>
+                                <option value="16">16:00 - 17:00</option>
                             </select>
                         </div>
                         <div>
                             <p>สถานที่ : </p>
                         </div>
-                        <div class="col-sm-2 mr-3">
-                            <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;">
-                                <option selected="selected">ห้องประชุม</option>
-                                <option>ห้องนอน</option>
-                            </select>
+                        <div class="col-sm-3 mr-3">
+                            <input type="text" class="form-control" placeholder="สถานที่" id="location" name="location">
                         </div>
                         <div>
                             <p>ประเภทการสอบ : </p>
@@ -58,9 +54,9 @@
                         <div class="col-sm-2">
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
                                 style="width: 100%;">
-                                <option selected="selected">สอบหัวข้อ</option>
-                                <option>สอบ 70</option>
-                                <option>สอบ 100</option>
+                                <option selected="selected" value="1">สอบหัวข้อ</option>
+                                <option value="2">สอบ 70</option>
+                                <option value="3">สอบ 100</option>
                             </select>
                         </div>
                     </div>
@@ -72,9 +68,7 @@
                         <p>เลือกโครงงานพิเศษ</p>
                         <div class="col-sm-9">
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;">
-                                <option selected="selected">โครงงานที่ 1</option>
-                                <option>โครงงานที่ 2</option>
+                                style="width: 100%;" id="project_select" name="project_select">
                             </select>
                         </div>
                     </div>
@@ -122,8 +116,8 @@
                             <p>กรรมการคนที่ 2 </p>
                         </div>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" placeholder="กรรมการคนที่ 2"
-                                id="name_project_thai" name="name_project_thai" disabled>
+                            <input type="text" class="form-control" placeholder="กรรมการคนที่ 2" id="name_teacher_3"
+                                name="name_teacher_3" disabled>
                         </div>
                     </div>
                 </div>
@@ -155,4 +149,28 @@
     $(function () {
         bsCustomFileInput.init();
     });
+</script>
+<script>
+    document.getElementById('project_select').addEventListener('change', function () {
+        // ทำสิ่งที่คุณต้องการเมื่อมีการเลือก
+        var selectedValue = this.value;
+        var data_project = <?php echo json_encode($data_project); ?>;
+        data_project.forEach(element => {
+            if (element.id_project == selectedValue) {
+                document.getElementById('name_teacher_3').value = element.data_teacher.name_user + ' ' + element.data_teacher.lastname_user;
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        // ทำสิ่งที่คุณต้องการเมื่อมีการเลือก
+        var selectedValue = document.getElementById('project_select').value;
+        var data_project = <?php echo json_encode($data_project); ?>;
+        data_project.forEach(element => {
+            if (element.id_project == selectedValue) {
+                document.getElementById('name_teacher_3').value = element.data_teacher.name_user + ' ' + element.data_teacher.lastname_user;
+            }
+        })
+    })
 </script>
