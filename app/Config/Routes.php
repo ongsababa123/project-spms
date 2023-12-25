@@ -52,6 +52,8 @@ $routes->group("teacher/", ['filter' => ['AuthGuard']], function ($routes) {
 
 $routes->group("officer/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'testtime', 'PageController::index_testtime');
+    $routes->match(['get', 'post'], 'testtime/create', 'TESTController::create_test');
+
     $routes->match(['get', 'post'], 'historytest', 'PageController::index_history_test');
 
     $routes->match(['get', 'post'], 'request', 'PageController::index_project_request');

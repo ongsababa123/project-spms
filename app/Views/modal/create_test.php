@@ -10,7 +10,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <form class="mb-3" id="form_tk" action="javascript:void(0)" method="post" enctype="multipart/form-data">
+            <form class="mb-3" id="form_test" action="javascript:void(0)" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>1. รายละเอียดสถานที่ เวลา และประเภทการสอบ</label>
                     <div class="row">
@@ -18,42 +18,29 @@
                             <p>วัน : </p>
                         </div>
                         <div class="col-sm-2 mr-2">
-                            <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;" id="day_select" name="day_select">
-                                <option selected="selected" value="monday">จันทร์</option>
-                                <option value="tuesday">อังคาร</option>
-                                <option value="wednesday">พุธ</option>
-                                <option value="thursday">พฤหัสบดี</option>
-                                <option value="friday">ศุกร์</option>
-                            </select>
+                            <input type="text" class="form-control" placeholder="วันที่สอบ" id="day_test"
+                                name="day_test" disabled>
                         </div>
                         <div>
                             <p>ช่วงเวลา : </p>
                         </div>
                         <div class="col-sm-2 mr-2">
-                            <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;" id="time_select" name="time_select">
-                                <option selected="selected" value="9">09:00 - 10:00</option>
-                                <option value="10">10:00 - 11:00</option>
-                                <option value="11">11:00 - 12:00</option>
-                                <option value="13">13:00 - 14:00</option>
-                                <option value="14">14:00 - 15:00</option>
-                                <option value="15">15:00 - 16:00</option>
-                                <option value="16">16:00 - 17:00</option>
-                            </select>
+                            <input type="text" class="form-control" placeholder="วันที่สอบ" id="time_test"
+                                name="time_test" disabled>
                         </div>
                         <div>
                             <p>สถานที่ : </p>
                         </div>
                         <div class="col-sm-3 mr-3">
-                            <input type="text" class="form-control" placeholder="สถานที่" id="location" name="location">
+                            <input type="text" class="form-control" placeholder="สถานที่" id="location" name="location"
+                                required>
                         </div>
                         <div>
                             <p>ประเภทการสอบ : </p>
                         </div>
                         <div class="col-sm-2">
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;">
+                                style="width: 100%;" id="type_test" name="type_test">
                                 <option selected="selected" value="1">สอบหัวข้อ</option>
                                 <option value="2">สอบ 70</option>
                                 <option value="3">สอบ 100</option>
@@ -74,8 +61,8 @@
                     </div>
 
                 </div>
-                <hr>
-                <div class="form-group">
+                <div class="form-group" id="data_teacher" name="data_teacher">
+                    <hr>
                     <label>3. คณะกรรมการประเมิน</label>
                     <div class="row">
                         <div class="col-sm-2">
@@ -83,14 +70,7 @@
                         </div>
                         <div class="col-sm-8">
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;">
-                                <option selected="selected">Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
+                                style="width: 100%;" id="name_teacher_1" name="name_teacher_1">
                             </select>
                         </div>
                     </div>
@@ -100,14 +80,7 @@
                         </div>
                         <div class="col-sm-8">
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;">
-                                <option selected="selected">Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
+                                style="width: 100%;" id="name_teacher_2" name="name_teacher_2">>
                             </select>
                         </div>
                     </div>
@@ -121,8 +94,10 @@
                         </div>
                     </div>
                 </div>
+                <input type="text" id="url_route" name="url_route" hidden>
+                <input type="text" id="day_test_value" name="day_test_value" hidden>
+                <input type="text" id="time_test_value" name="time_test_value" hidden>
         </div>
-        <input type="text" id="url_route" name="url_route" hidden>
         <div class="modal-footer">
             <button type="submit" class="btn btn-success" name="submit" value="Submit" id="submit">สร้างการสอบ</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
@@ -137,10 +112,10 @@
         $(".overlay").hide();
     });
 
-    $("#form_tk").on('submit', function (e) {
+    $("#form_test").on('submit', function (e) {
         e.preventDefault();
         const urlRouteInput = document.getElementById("url_route");
-        // action_(urlRouteInput.value, 'form_tk');
+        action_(urlRouteInput.value, 'form_test');
     });
 </script>
 <!-- bs-custom-file-input -->
@@ -161,10 +136,8 @@
             }
         });
     });
-</script>
-<script>
     $(document).ready(function () {
-        // ทำสิ่งที่คุณต้องการเมื่อมีการเลือก
+        $(".modal-body #data_teacher").hide();
         var selectedValue = document.getElementById('project_select').value;
         var data_project = <?php echo json_encode($data_project); ?>;
         data_project.forEach(element => {
@@ -173,4 +146,16 @@
             }
         })
     })
+</script>
+<script>
+    document.getElementById('type_test').addEventListener('change', function () {
+        // ทำสิ่งที่คุณต้องการเมื่อมีการเลือก
+        var selectedTest = this.value;
+        if (selectedTest == 1 || selectedTest == 2) {
+            $(".modal-body #data_teacher").hide();
+        } else {
+            $(".modal-body #data_teacher").show();
+
+        }
+    });
 </script>

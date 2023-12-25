@@ -10,6 +10,6 @@ class TK03_Models extends Model
 
     protected $primaryKey = 'id_tk_03';
 
-    protected $allowedFields = ['id_file_03' , 'id_file_present', 'status_tk_03', 'id_score'];
+    protected $allowedFields = ['id_file_03' , 'id_file_present', 'status_tk_03'];
 
 }
