@@ -77,5 +77,37 @@ class TESTController extends BaseController
         return false;
     }
 
+    public function get_data_test_type1($date = null, $time = null, $type = null)
+    {
+        $TESTModels = new TESTModels();
+        $UserModels = new UserModels();
+        $ProjectModels = new ProjectModels();
+        
+        $data['test_type1'] = $TESTModels->where('type_test', $type)->where('date_test', $date)->where('time_test', $time)->findAll();
+        foreach ($data['test_type1'] as $key => $value) {
+            $data['test_type1'][$key]['project'] = $ProjectModels->where('id_project', $value['id_project'])->first();
+            $email_students = explode(',', $data['test_type1'][$key]['project']['email_student']);
+            foreach ($email_students as $key2 => $value2) {
+                $data['test_type1'][$key]['students'][$key2] = $UserModels->where('email_user', $value2)->first();
+            }
+            $data['test_type1'][$key]['teachers'] = $UserModels->where('email_user', $data['test_type1'][$key]['project']['email_teacher'])->first();
+        }
+
+
+        return $this->response->setJSON($data);
+    }
+
+    public function delete_test($id_test_list = null){
+
+        $TESTModels = new TESTModels();
+        $check = $TESTModels->where('id_test_list', $id_test_list)->delete();
+        $response = [
+            'success' => $check,
+            'message' => $check ? 'ยกเลิกเสร็จสิ้น' : 'ไม่สามารถยกเลิกได้',
+            'reload' => $check,
+        ];
+        return $this->response->setJSON($response);
+    }
+
 }
 

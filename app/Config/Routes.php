@@ -55,6 +55,8 @@ $routes->group("officer/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'testtime/create', 'TESTController::create_test');
 
     $routes->match(['get', 'post'], 'historytest', 'PageController::index_history_test');
+    $routes->match(['get', 'post'], 'historytest/delete/(:num)', 'TESTController::delete_test/$1');
+    $routes->match(['get', 'post'], 'historytest/getdata/type/(:any)/(:num)/(:num)', 'TESTController::get_data_test_type1/$1/$2/$3');
 
     $routes->match(['get', 'post'], 'request', 'PageController::index_project_request');
     $routes->match(['get', 'post'], 'request/changestatus/tk/(:num)/(:num)/(:num)', 'ProjectController::changestatus_request/$1/$2/$3');

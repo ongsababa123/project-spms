@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-12-25T09:59:44.103Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="N5-FNyZLBUAlEMF8YyPw" version="22.1.11" type="device" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-12-26T10:04:17.341Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="NilAdNluchnn_W3I5aW4" version="22.1.11" type="device" pages="3">
   <diagram name="หน้า-1" id="DMUz9sBse3PZV6IZHQLu">
-    <mxGraphModel dx="2273" dy="1985" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1148" dy="1385" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2011,12 +2011,12 @@
         <mxCell id="lYeDw-1d_6ovAgjdI4WK-6" value="0 = ระหว่างตรวจสอบ&lt;br&gt;1 = ตรวจสอบแล้ว&amp;nbsp;&lt;br&gt;2 = ไม่ผ่าน" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="3092" y="323" width="149" height="51" as="geometry" />
         </mxCell>
-        <mxCell id="Mu2VJD__Ud6SR3DJ6WDu-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="owYO2NVTtKDaZ3U2VoSd-9">
+        <mxCell id="Mu2VJD__Ud6SR3DJ6WDu-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="owYO2NVTtKDaZ3U2VoSd-9" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-152.4357655843096" y="-270.0256017049153" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Mu2VJD__Ud6SR3DJ6WDu-2" value="1 กำลังสอบ&lt;br&gt;2 ผ่าน&lt;br&gt;3 ไม่ผ่าน&amp;nbsp;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Mu2VJD__Ud6SR3DJ6WDu-2" value="1 กำลังสอบ&lt;br&gt;2 ผ่าน&lt;br&gt;3 ไม่ผ่าน&amp;nbsp;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-213" y="-269" width="120" height="54" as="geometry" />
         </mxCell>
       </root>
