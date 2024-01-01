@@ -660,7 +660,7 @@ class ProjectController extends BaseController
         return $this->response->setJSON($response);
     }
 
-    public function get_data_table_project_teacher()
+    public function get_data_table_project_teacher($status_project = null)
     {
         $ProjectModels = new ProjectModels();
         $TK01_Models = new TK01_Models();
@@ -673,7 +673,7 @@ class ProjectController extends BaseController
         $FileModels = new FileModels();
 
         $email = session()->get('email');
-        $allData = $ProjectModels->findAll();
+        $allData = $ProjectModels->where('status_project', $status_project)->findAll();
 
         // Filter data based on the email condition
         $filteredData = array_filter($allData, function ($row) use ($email) {

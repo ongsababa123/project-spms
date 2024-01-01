@@ -34,8 +34,14 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill"
                                             href="#custom-tabs-one-profile" role="tab"
-                                            aria-controls="custom-tabs-one-profile"
-                                            aria-selected="false">โครงงานพิเศษที่จบแล้ว</a>
+                                            aria-controls="custom-tabs-one-profile" aria-selected="false"
+                                            onclick="getTableData_status2()">โครงงานพิเศษที่จบแล้ว</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-one-display3-tab" data-toggle="pill"
+                                            href="#custom-tabs-one-display3" role="tab"
+                                            aria-controls="custom-tabs-one-display3" aria-selected="false"
+                                            onclick="getTableData_status3()">โครงงานพิเศษที่ยกเลิก</a>
                                     </li>
                                 </ul>
                             </div>
@@ -62,7 +68,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel"
                                         aria-labelledby="custom-tabs-one-profile-tab">
-                                        <table class="table table-bordered">
+                                        <table id="example2" class="table table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th style="width: 10px" class="text-center">ลำดับ</th>
@@ -76,50 +82,32 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-one-display3" role="tabpanel"
+                                        aria-labelledby="custom-tabs-one-display3-tab">
+                                        <table id="example3" class="table table-bordered">
+                                            <thead>
                                                 <tr>
-                                                    <td class="text-center">1.</td>
-                                                    <td>
-                                                        <p>โครงงานพิเศษที่ 1asdsadsadasdasdas</p>
-                                                        <p>โครงงานพิเศษที่ 1</p>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                                            data-target="#modal-default" onclick="load_modal(2)">
-                                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                                            data-target="#modal-default" onclick="load_modal(3)">
-                                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                                            data-target="#modal-default" onclick="load_modal(4)">
-                                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                                            data-target="#modal-default" onclick="load_modal(5)">
-                                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-app bg-secondary" data-toggle="modal"
-                                                            data-target="#modal-default" onclick="load_modal(6)">
-                                                            <i class="fas fa-pencil-ruler"></i> ร่างเอกสาร
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center"><span
-                                                            class="badge bg-success mt-3">จบโครงงานพิเศษ</span>
-                                                    </td>
+                                                    <th style="width: 10px" class="text-center">ลำดับ</th>
+                                                    <th>ชื่อโครงงานพิเศษ</th>
+                                                    <th class="text-center">ทก.01</th>
+                                                    <th class="text-center">ทก.02</th>
+                                                    <th class="text-center">ทก.03</th>
+                                                    <th class="text-center">ทก.04</th>
+                                                    <th class="text-center">ทก.05</th>
+                                                    <th class="text-center">สถานะ</th>
                                                 </tr>
+                                            </thead>
+                                            <tbody>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="overlay dark" id="overlay" name="overlay">
+                                <i class="fas fa-2x fa-sync-alt fa-spin"></i>
                             </div>
                             <!-- /.card -->
                         </div>
@@ -135,11 +123,13 @@
     </div>
     <script>
         $(document).ready(function () {
-            getTableData();
+            getTableData_status1();
+
         });
     </script>
     <script>
-        function getTableData() {
+        function getTableData_status1() {
+            $("#overlay").show()
             if ($.fn.DataTable.isDataTable('#example1')) {
                 $('#example1').DataTable().destroy();
             }
@@ -149,7 +139,7 @@
                 "pagingType": "full_numbers", // Display pagination as 1, 2, 3... instead of Previous, Next buttons
                 'serverSide': true,
                 'ajax': {
-                    'url': "<?php echo site_url('teacher/progress/getdata'); ?>",
+                    'url': "<?php echo site_url('teacher/progress/getdata/1'); ?>",
                     'type': 'GET',
                     'dataSrc': 'data',
                 },
@@ -157,6 +147,7 @@
                 "lengthChange": false,
                 "autoWidth": false,
                 "drawCallback": function (settings) {
+                    $("#overlay").hide()
                     var daData = settings.json.data;
                     if (daData.length == 0) {
                         $('#example1 tbody').html(`<tr><td colspan="8" class="text-center"> ไม่พบข้อมูล</td></tr>`);
@@ -255,6 +246,256 @@
                 ]
             });
             $('[data-toggle="tooltip"]').tooltip();
+        }
+    </script>
+    <script>
+        var display2 = 0;
+        function getTableData_status2() {
+            if (display2 === 0) {
+                display2++;
+                $("#overlay").show()
+                if ($.fn.DataTable.isDataTable('#example2')) {
+                    $('#example2').DataTable().destroy();
+                }
+                $('#example2').DataTable({
+                    "processing": true,
+                    "pageLength": 10,
+                    "pagingType": "full_numbers", // Display pagination as 1, 2, 3... instead of Previous, Next buttons
+                    'serverSide': true,
+                    'ajax': {
+                        'url': "<?php echo site_url('teacher/progress/getdata/0'); ?>",
+                        'type': 'GET',
+                        'dataSrc': 'data',
+                    },
+                    "responsive": true,
+                    "lengthChange": false,
+                    "autoWidth": false,
+                    "drawCallback": function (settings) {
+                        $("#overlay").hide()
+                        var daData = settings.json.data;
+                        if (daData.length == 0) {
+                            $('#example2 tbody').html(`<tr><td colspan="8" class="text-center"> ไม่พบข้อมูล</td></tr>`);
+                        }
+                    },
+                    'columns': [
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                return meta.settings.oAjaxData.start += 1;
+
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                return data.name_project_th + '<br>' + data.name_project_eng;
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk01 == null) {
+                                    return 'ยังไม่มีข้อมูล'
+                                } else {
+                                    return create_button(data.data_tk01.status_tk_01, 2, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk02 == null) {
+                                    return create_button(1, 3, encodedRowData);
+                                } else {
+                                    return create_button(data.data_tk02.status_tk_02, 3, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk03 == null) {
+                                    return create_button(1, 4, encodedRowData);
+                                } else {
+                                    return create_button(data.data_tk03.status_tk_03, 4, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk04 == null) {
+                                    return create_button(1, 5, encodedRowData);
+                                } else {
+                                    return create_button(data.data_tk04.status_tk_04, 5, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk05 == null) {
+                                    return create_button(1, 6, encodedRowData);
+                                } else {
+                                    return create_button(data.data_tk05.status_tk_05, 6, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.status_project == 0) {
+                                    return `<span class="badge bg-success">ปิดโครงงานพิเศษ</span>`
+                                } else if (data.status_project == 1) {
+                                    return `<span class="badge bg-warning">กำลังดำเนินการ</span>`
+                                } else {
+                                    return `<span class="badge bg-danger">ยกเลิกโครงงานพิเศษ</span>`
+                                }
+                            }
+                        },
+                    ]
+                });
+                $('[data-toggle="tooltip"]').tooltip();
+            }
+        }
+    </script>
+    <script>
+        var display3 = 0;
+        function getTableData_status3() {
+            if (display3 === 0) {
+                display3++;
+                $("#overlay").show()
+                if ($.fn.DataTable.isDataTable('#example3')) {
+                    $('#example3').DataTable().destroy();
+                }
+                $('#example3').DataTable({
+                    "processing": true,
+                    "pageLength": 10,
+                    "pagingType": "full_numbers", // Display pagination as 1, 2, 3... instead of Previous, Next buttons
+                    'serverSide': true,
+                    'ajax': {
+                        'url': "<?php echo site_url('teacher/progress/getdata/2'); ?>",
+                        'type': 'GET',
+                        'dataSrc': 'data',
+                    },
+                    "responsive": true,
+                    "lengthChange": false,
+                    "autoWidth": false,
+                    "drawCallback": function (settings) {
+                        $("#overlay").hide()
+                        var daData = settings.json.data;
+                        if (daData.length == 0) {
+                            $('#example3 tbody').html(`<tr><td colspan="8" class="text-center"> ไม่พบข้อมูล</td></tr>`);
+                        }
+                    },
+                    'columns': [
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                return meta.settings.oAjaxData.start += 1;
+
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                return data.name_project_th + '<br>' + data.name_project_eng;
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk01 == null) {
+                                    return 'ยังไม่มีข้อมูล'
+                                } else {
+                                    return create_button(data.data_tk01.status_tk_01, 2, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk02 == null) {
+                                    return create_button(1, 3, encodedRowData);
+                                } else {
+                                    return create_button(data.data_tk02.status_tk_02, 3, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk03 == null) {
+                                    return create_button(1, 4, encodedRowData);
+                                } else {
+                                    return create_button(data.data_tk03.status_tk_03, 4, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk04 == null) {
+                                    return create_button(1, 5, encodedRowData);
+                                } else {
+                                    return create_button(data.data_tk04.status_tk_04, 5, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.data_tk05 == null) {
+                                    return create_button(1, 6, encodedRowData);
+                                } else {
+                                    return create_button(data.data_tk05.status_tk_05, 6, encodedRowData);
+                                }
+                            }
+                        },
+                        {
+                            'data': null,
+                            'class': 'text-center',
+                            'render': function (data, type, row, meta) {
+                                const encodedRowData = encodeURIComponent(JSON.stringify(row));
+                                if (data.status_project == 0) {
+                                    return `<span class="badge bg-success">ปิดโครงงานพิเศษ</span>`
+                                } else if (data.status_project == 1) {
+                                    return `<span class="badge bg-warning">กำลังดำเนินการ</span>`
+                                } else {
+                                    return `<span class="badge bg-danger">ยกเลิกโครงงานพิเศษ</span>`
+                                }
+                            }
+                        },
+                    ]
+                });
+                $('[data-toggle="tooltip"]').tooltip();
+            }
         }
     </script>
     <script>

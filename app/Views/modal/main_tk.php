@@ -217,15 +217,18 @@
                 </div>
                 <input type="text" id="url_route" name="url_route" hidden>
                 <div class="modal-footer">
-                    <div id="submit_btn">
-                        <button type="submit" class="btn btn-success" name="submit" value="Submit"
-                            id="submit">ส่ง</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-                    </div>
-                    <div id="submit_btn_teacher">
-                        <button class="btn btn-success" name="submit_success" id="submit_success">ผ่าน</button>
-                        <button class="btn btn-warning" name="submit_back_edit" id="submit_back_edit">ส่งกลับแก้ไข</button>
-                        <button class="btn btn-danger"  name="submit_danger" id="submit_danger">เอกสารไม่ผ่าน</button>
+                    <div id="btn_modal" name="btn_modal">
+                        <div id="submit_btn">
+                            <button type="submit" class="btn btn-success" name="submit" value="Submit"
+                                id="submit">ส่ง</button>
+                        </div>
+                        <div id="submit_btn_teacher">
+                            <button class="btn btn-success" name="submit_success" id="submit_success">ผ่าน</button>
+                            <button class="btn btn-warning" name="submit_back_edit"
+                                id="submit_back_edit">ส่งกลับแก้ไข</button>
+                            <button class="btn btn-danger" name="submit_danger"
+                                id="submit_danger">เอกสารไม่ผ่าน</button>
+                        </div>
                     </div>
                     <button type="button" class="btn btn-info" data-dismiss="modal">ปิดหน้าต่าง</button>
                 </div>

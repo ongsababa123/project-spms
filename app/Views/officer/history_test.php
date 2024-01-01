@@ -87,8 +87,8 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill"
                                             href="#custom-tabs-one-messages" role="tab"
-                                            aria-controls="custom-tabs-one-messages" aria-selected="false">สอบ
-                                            100</a>
+                                            aria-controls="custom-tabs-one-messages" aria-selected="false"
+                                            onclick="get_display_Type3(false)">สอบ100</a>
                                     </li>
                                 </ul>
                             </div>
@@ -102,96 +102,6 @@
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel"
                                         aria-labelledby="custom-tabs-one-messages-tab">
-                                        <div class="card card-danger">
-                                            <div class="card-header">
-                                                <h3 class="card-title">ชื่อโครงงานพิเศษ </h3>
-                                                <div class="card-tools">
-                                                    <button type="button" class="btn btn-tool"
-                                                        data-card-widget="collapse">
-                                                        <i class="fas fa-minus"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <label class="text-muted">รายละเอียดสถานที่และเวลา</label>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                        <label>วัน</label>
-                                                        <h6>จันทร์</h6>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <label>เวลา</label>
-                                                        <h6>16:00 - 17:00</h6>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <label>สถานที่</label>
-                                                        <h6>ห้องประชุมพวงเส็ด</h6>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <label>ประเภทการสอบ</label>
-                                                        <br>
-                                                        <h6>สอบ100</h6>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <label>สถานะ</label>
-                                                        <br>
-                                                        <span class="badge bg-danger">ไม่ผ่าน</span>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <label class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <label>นักศึกษาคนที่ 1</label>
-                                                        <h6>นาย หฟกฟหกฟหกฟ</h6>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <label>นักศึกษาคนที่ 1</label>
-                                                        <h6>นาย หฟกฟหกฟหกฟ</h6>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <label>นักศึกษาคนที่ 1</label>
-                                                        <h6>นาย หฟกฟหกฟหกฟ</h6>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <label class="text-muted">ที่ปรึกษาโครงงานพิเศษ</label>
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <label>อาจารย์ที่ปรึกษา</label>
-                                                        <h6>อาจารย์ หฟกฟหกฟหกฟ</h6>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <label>อาจารย์ที่ปรึกษาร่วม ท่านที่ 1</label>
-                                                        <h6>อาจารย์ หฟกฟหกฟหกฟ</h6>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <label>อาจารย์ที่ปรึกษาร่วม ท่านที่ 2</label>
-                                                        <h6>อาจารย์ หฟกฟหกฟหกฟ</h6>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <label class="text-muted">คณะกรรมการประเมิน</label>
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <label>ประธานกรรมการ</label>
-                                                        <h6>อาจารย์ หฟกฟหกฟหกฟ</h6>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <label>กรรมการ ท่านที่ 1</label>
-                                                        <h6>อาจารย์ หฟกฟหกฟหกฟ</h6>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <label>กรรมการ ท่านที่ 2</label>
-                                                        <h6>อาจารย์ หฟกฟหกฟหกฟ</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer clearfix">
-                                                <button type="button" class="btn btn-primary float-right">
-                                                    ดูคะแนน</button>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -204,20 +114,6 @@
             </div>
         </section>
     </div>
-    <!-- <div class="modal fade" id="modal-default">
-        <div id="create_test">
-        </div>
-    </div>
-    <script>
-        function load_modal(load_check, data_encode) {
-            create_test = document.getElementById("create_test");
-            create_test.style.display = "block";
-
-            if (load_check == 1) {
-
-            } 
-        }
-    </script> -->
     <script>
         $(document).ready(function () {
             var time_select = document.getElementById('time_select').value;
@@ -229,6 +125,7 @@
         function onclick_search() {
             get_display_Type1();
             get_display_Type2(true);
+            get_display_Type3(true);
         }
     </script>
     <script>
@@ -241,21 +138,25 @@
                 type: "POST",
                 url: "<?= site_url('officer/historytest/getdata/type/') ?>" + day_select + "/" + time_select + "/" + 1,
                 success: function (data) {
+                    console.log(data);
                     $("#overlay").hide()
-                    data['test_type1'].forEach(element => {
-                        var day = getDayThai(element.date_test);
-                        var statusInfo = getStatusInfo(element.status_test);
-                        var students1 = getStudentName(element['students'][1]);
-                        var students2 = getStudentName(element['students'][2]);
-                        var consultantsInfo = getConsultantsInfo(element['project']['name_consult']);
-                        var timeInfo = getTimeInfo(element.time_test);
-                        console.log(element.status_test);
-                        if (element.status_test != '1') {
-                            var status_button = "disabled";
-                        } else {
-                            var status_button = "";
-                        }
-                        var display_type1 = `
+                    if (data['test_type1'].length == 0) {
+                        var display_type1 = `<h1 class="text-center">ไม่พบข้อมูล</h1> `;
+                        $("#custom-tabs-one-home").append(display_type1);
+                    } else {
+                        data['test_type1'].forEach(element => {
+                            var day = getDayThai(element.date_test);
+                            var statusInfo = getStatusInfo(element.status_test);
+                            var students1 = getStudentName(element['students'][1]);
+                            var students2 = getStudentName(element['students'][2]);
+                            var consultantsInfo = getConsultantsInfo(element['project']['name_consult']);
+                            var timeInfo = getTimeInfo(element.time_test);
+                            if (element.status_test != '1') {
+                                var status_button = "disabled";
+                            } else {
+                                var status_button = "";
+                            }
+                            var display_type1 = `
                     <div class="card card-${statusInfo.color}">
                         <div class="card-header">
                             <h3 class="card-title">ชื่อโครงงานพิเศษ : ${element['project'].name_project_th}</h3>
@@ -307,8 +208,9 @@
                         </div>
                     </div>
                 `;
-                        $("#custom-tabs-one-home").append(display_type1);
-                    });
+                            $("#custom-tabs-one-home").append(display_type1);
+                        });
+                    }
                 }
             });
         }
@@ -327,20 +229,24 @@
                     url: "<?= site_url('officer/historytest/getdata/type/') ?>" + day_select + "/" + time_select + "/" + 2,
                     success: function (data) {
                         $("#overlay").hide()
-                        data['test_type1'].forEach(element => {
-                            var day = getDayThai(element.date_test);
-                            var statusInfo = getStatusInfo(element.status_test);
-                            var students1 = getStudentName(element['students'][1]);
-                            var students2 = getStudentName(element['students'][2]);
-                            var consultantsInfo = getConsultantsInfo(element['project']['name_consult']);
-                            var timeInfo = getTimeInfo(element.time_test);
-                            console.log(element.status_test);
-                            if (element.status_test != '1') {
-                                var status_button = "disabled";
-                            } else {
-                                var status_button = "";
-                            }
-                            var display_type2 = `
+                        if (data['test_type1'].length == 0) {
+                            var display_type2 = `<h1 class="text-center">ไม่พบข้อมูล</h1> `;
+                            $("#custom-tabs-one-profile").append(display_type2);
+                        } else {
+                            data['test_type1'].forEach(element => {
+                                var day = getDayThai(element.date_test);
+                                var statusInfo = getStatusInfo(element.status_test);
+                                var students1 = getStudentName(element['students'][1]);
+                                var students2 = getStudentName(element['students'][2]);
+                                var consultantsInfo = getConsultantsInfo(element['project']['name_consult']);
+                                var timeInfo = getTimeInfo(element.time_test);
+                                console.log(element);
+                                if (element.status_test != '1') {
+                                    var status_button = "disabled";
+                                } else {
+                                    var status_button = "";
+                                }
+                                var display_type2 = `
                     <div class="card card-${statusInfo.color}">
                         <div class="card-header">
                             <h3 class="card-title">ชื่อโครงงานพิเศษ : ${element['project'].name_project_th}</h3>
@@ -386,18 +292,125 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                        <button type="button" class="btn btn-info float-right ml-2"  onclick="confirm_Alert('ต้องการยกเลิกการสอบหรือไม่', '${element.id_test_list}')">
+                        <button type="button" class="btn btn-info float-right ml-2">
                             ดูคะแนน
                         </button>
-                        
                         <button type="button" class="btn btn-danger float-right" ${status_button} onclick="confirm_Alert('ต้องการยกเลิกการสอบหรือไม่', '${element.id_test_list}')">
                             ยกเลิก
                         </button>
                         </div>
                     </div>
                 `;
-                            $("#custom-tabs-one-profile").append(display_type2);
+                                $("#custom-tabs-one-profile").append(display_type2);
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+    <script>
+        var display3 = 0;
+        function get_display_Type3(search_end) {
+            var time_select = document.getElementById('time_select').value;
+            var day_select = document.getElementById('day_select').value;
+            if (display3 == 0 || search_end == true) {
+                display3++;
+                $("#custom-tabs-one-messages").empty();
+                $("#overlay").show()
+                $.ajax({
+                    type: "POST",
+                    url: "<?= site_url('officer/historytest/getdata/type/') ?>" + day_select + "/" + time_select + "/" + 3,
+                    success: function (data) {
+                        $("#overlay").hide()
+                        if (data['test_type1'].length == 0) {
+                            var display_type3 = `<h1 class="text-center">ไม่พบข้อมูล</h1> `;
+                            $("#custom-tabs-one-messages").append(display_type3);
+                        } else {
+                        data['test_type1'].forEach(element => {
+                            var day = getDayThai(element.date_test);
+                            var statusInfo = getStatusInfo(element.status_test);
+                            var students1 = getStudentName(element['students'][1]);
+                            var students2 = getStudentName(element['students'][2]);
+                            var consultantsInfo = getConsultantsInfo(element['project']['name_consult']);
+                            var timeInfo = getTimeInfo(element.time_test);
+                            if (element.status_test != '1') {
+                                var status_button = "disabled";
+                            } else {
+                                var status_button = "";
+                            }
+                            var display_type3 = `
+                            <div class="card card-${statusInfo.color}">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        ชื่อโครงงานพิเศษ : ${element['project'].name_project_th}
+                                    </h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <label class="text-muted">รายละเอียดสถานที่และเวลา</label>
+                                    <div class="row">
+                                        ${day} ${timeInfo}
+                                        <div class="col-4">
+                                            <label>สถานที่</label>
+                                            <h6>${element.location}</h6>
+                                        </div>
+                                        <div class="col-2">
+                                            <label>ประเภทการสอบ</label>
+                                            <br />
+                                            <h6>สอบ 100</h6>
+                                        </div>
+                                        <div class="col-2">
+                                            <label>สถานะ</label>
+                                            <br />
+                                            ${statusInfo.badge}
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <label class="text-muted">ผู้จัดทำโครงงานพิเศษ</label>
+                                    <div class="row">
+                                        ${getStudentInfo(element['students'][0], "คนที่ 1")}
+                                        ${getStudentInfo(element['students'][1], "คนที่ 2")}
+                                        ${getStudentInfo(element['students'][2], "คนที่ 3")}
+                                    </div>
+                                    <hr />
+                                    <label class="text-muted">ที่ปรึกษาโครงงานพิเศษ</label>
+                                    <div class="row">
+                                        ${getTeacherInfo(element['teachers'], "ที่ปรึกษา")}
+                                        ${getConsultantInfo(consultantsInfo[0], "ที่ปรึกษาร่วม ท่านที่ 1")}
+                                        ${getConsultantInfo(consultantsInfo[1], "ที่ปรึกษาร่วม ท่านที่ 2")}
+                                    </div>
+                                    <hr />
+                                <label class="text-muted">คณะกรรมการประเมิน</label>
+                                    <div class="row">
+                                    <div class="col-3">
+                                        <label>ประธานกรรม</label>
+                                        <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['teachers'].name_user + " " + element['teachers'].lastname_user}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="button" class="btn btn-info float-right ml-2">ดูคะแนน</button>
+                                    <button type="button" class="btn btn-danger float-right" ${status_button}
+                                        onclick="confirm_Alert('ต้องการยกเลิกการสอบหรือไม่', '${element.id_test_list}')">
+                                        ยกเลิก
+                                    </button>
+                                </div>
+                            </div>`;
+                            $("#custom-tabs-one-messages").append(display_type3);
                         });
+                    }
                     }
                 });
             }
@@ -460,8 +473,15 @@
         }
 
         function getConsultantsInfo(consultants) {
-            if (consultants) {
-                return consultants.split(',');
+            if (consultants != null) {
+                var name_consultants = consultants.split(',')
+                if (name_consultants.length === 1) {
+                    return [name_consultants[0], "ไม่มีที่ปรึกษาร่วม"];
+                } else if (name_consultants.length === 2) {
+                    return [name_consultants[0], name_consultants[1]];
+                } else {
+                    return ["ไม่มีที่ปรึกษาร่วม", "ไม่มีที่ปรึกษาร่วม"];
+                }
             } else {
                 return ["ไม่มีที่ปรึกษาร่วม", "ไม่มีที่ปรึกษาร่วม"];
             }

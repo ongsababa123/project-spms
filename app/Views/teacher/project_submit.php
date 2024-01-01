@@ -141,6 +141,7 @@
     </script>
     <script>
         function load_modal(load_check, data_encode) {
+            $(".modal-footer #btn_modal").hide();
             $(".modal-body #select_teacher").empty();
             const fieldsToReset = [
                 '#name_project', '#name_project_eng', '#department', '#subject_group',
@@ -181,7 +182,6 @@
             });
             $(".modal-footer #submit").prop('disabled', true);
             fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', true));
-            console.log(data_project[data_encode]);
 
             if (load_check == 2) {
                 //edit tk01

@@ -42,7 +42,7 @@
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
                                 style="width: 100%;" id="type_test" name="type_test">
                                 <option selected="selected" value="1">สอบหัวข้อ</option>
-                                <option value="2">สอบ 70</option>
+                                <option value="2">สอบ 60</option>
                                 <option value="3">สอบ 100</option>
                             </select>
                         </div>
@@ -79,9 +79,8 @@
                             <p>กรรมการคนที่ 1 </p>
                         </div>
                         <div class="col-sm-8">
-                            <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;" id="name_teacher_2" name="name_teacher_2">>
-                            </select>
+                            <input type="text" class="form-control" placeholder="กรรมการคนที่ 2" id="name_teacher_3"
+                                name="name_teacher_3" disabled>
                         </div>
                     </div>
                     <div class="row">
@@ -89,8 +88,9 @@
                             <p>กรรมการคนที่ 2 </p>
                         </div>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" placeholder="กรรมการคนที่ 2" id="name_teacher_3"
-                                name="name_teacher_3" disabled>
+                            <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
+                                style="width: 100%;" id="name_teacher_2" name="name_teacher_2">>
+                            </select>
                         </div>
                     </div>
                 </div>

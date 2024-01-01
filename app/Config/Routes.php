@@ -30,6 +30,7 @@ $routes->group("student/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'projectlist/getdata/tk/(:num)', 'ProjectController::get_data_default/$1');
 
     $routes->match(['get', 'post'], 'testlist', 'PageController::index_testlist');
+    $routes->match(['get', 'post'], 'testlist/getdata/(:num)', 'TESTController::get_data_test_type_student/$1');
 });
 
 $routes->group("teacher/", ['filter' => ['AuthGuard']], function ($routes) {
@@ -41,12 +42,15 @@ $routes->group("teacher/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'submitpage/changestatus/tk/(:num)/(:num)/(:num)', 'ProjectController::changestatus_request/$1/$2/$3');
 
     $routes->match(['get', 'post'], 'progress', 'PageController::index_progress');
-    $routes->match(['get', 'post'], 'progress/getdata', 'ProjectController::get_data_table_project_teacher');
+    $routes->match(['get', 'post'], 'progress/getdata/(:num)', 'ProjectController::get_data_table_project_teacher/$1');
     $routes->match(['get', 'post'], 'progress/changestatus/tk/(:num)/(:num)/(:num)', 'ProjectController::changestatus_request/$1/$2/$3');
     $routes->match(['get', 'post'], 'progress/changestatus/file/(:num)/(:num)/(:num)', 'FileController::change_status/$1/$2/$3');
 
     $routes->match(['get', 'post'], 'scorepage', 'PageController::index_scorepage');
+
     $routes->match(['get', 'post'], 'testlist', 'PageController::index_testlist_teacher');
+    $routes->match(['get', 'post'], 'testlist/getdata/(:num)', 'TESTController::get_data_test_type_teacher/$1');
+    $routes->match(['get', 'post'], 'testlist/changestatus/(:num)/(:num)/(:num)', 'TESTController::change_status/$1/$2/$3');
 
 });
 
