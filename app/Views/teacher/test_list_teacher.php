@@ -327,7 +327,7 @@
                                     </div>
                             </div>
                             <div class="card-footer clearfix">
-                                <button type="button" class="btn btn-info float-right">ลงคะแนน</button>
+                                <a href="<?= site_url('teacher/scorepage/') ?>${element.id_test_list + "/" + element.id_project}" target="_blank" class="btn btn-info float-right">ลงคะแนน</a>
                         </div>
                     </div>`;
                                 $("#custom-tabs-one-messages").append(display_type3);

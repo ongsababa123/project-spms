@@ -47,6 +47,9 @@ $routes->group("teacher/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'progress/changestatus/file/(:num)/(:num)/(:num)', 'FileController::change_status/$1/$2/$3');
 
     $routes->match(['get', 'post'], 'scorepage', 'PageController::index_scorepage');
+    $routes->match(['get', 'post'], 'scorepage/(:num)/(:num)', 'ScoreController::index_scorepage/$1/$2');
+    $routes->match(['get', 'post'], 'scorepage/create/(:num)/(:num)', 'ScoreController::create_scorepage/$1/$2');
+
 
     $routes->match(['get', 'post'], 'testlist', 'PageController::index_testlist_teacher');
     $routes->match(['get', 'post'], 'testlist/getdata/(:num)', 'TESTController::get_data_test_type_teacher/$1');

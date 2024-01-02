@@ -196,8 +196,7 @@ class TESTController extends BaseController
         if ($type == '1') {
             $TK02_Models->update($data_project[0]['id_tk02'], ['status_tk_02' => $status_tk]);
         } elseif ($type == '2') {
-            $id_tk03 = $TK03_Models->find($ProjectModels->find($project_id)['id_tk_03']);
-            $TK03_Models->update($id_tk03[0]['id_tk03'], ['status_tk_03' => $status_tk]);
+            $TK03_Models->update($data_project[0]['id_tk03'], ['status_tk_03' => $status_tk]);
         } elseif ($type == '3') {
             $id_tk05 = $TK05_Models->find($ProjectModels->find($project_id)['id_tk_05']);
             $TK05_Models->update($id_tk05[0]['id_tk05'], ['status_tk_05' => $status_tk]);

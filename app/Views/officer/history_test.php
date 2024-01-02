@@ -13,6 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">หน้าหลัก</a></li>
+                            <li class="breadcrumb-item"><a href="<?= site_url('/officer/testtime'); ?>">จัดตารางสอบ</a></li>
                             <li class="breadcrumb-item active">ประวัติการสอบ</li>
                         </ol>
                     </div>

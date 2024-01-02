@@ -115,7 +115,58 @@
     $("#form_test").on('submit', function (e) {
         e.preventDefault();
         const urlRouteInput = document.getElementById("url_route");
-        action_(urlRouteInput.value, 'form_test');
+        const id_project = document.getElementById("project_select");
+        const type_test = document.getElementById("type_test");
+        const name_teacher_1 = document.getElementById("name_teacher_1");
+        var data_project = <?php echo json_encode($data_project); ?>;
+        data_project.forEach(element => {
+            if (element.id_project == id_project.value) {
+                console.log(element);
+                if (type_test.value == '1') {
+                    if (element.id_tk02 != null) {
+                        action_(urlRouteInput.value, 'form_test');
+                    } else {
+                        Swal.fire({
+                            title: "โครงงานนี้ยังไม่ได้สร้างข้อมูล ทก.02",
+                            icon: 'error',
+                            showConfirmButton: true,
+                            allowOutsideClick: false
+                        });
+                    }
+                } else if (type_test.value == '2') {
+                    if (element.id_tk03 != null) {
+                        action_(urlRouteInput.value, 'form_test');
+                    } else {
+                        Swal.fire({
+                            title: "โครงงานนี้ยังไม่ได้สร้างข้อมูล ทก.03",
+                            icon: 'error',
+                            showConfirmButton: true,
+                            allowOutsideClick: false
+                        });
+                    }
+                } else if (type_test.value == '3') {
+                    if (element.id_tk05 != null) {
+                        if (name_teacher_1.value != null) {
+                            action_(urlRouteInput.value, 'form_test');
+                        }else{
+                            Swal.fire({
+                                title: "กรุณาเลือกประธานกรรมการ",
+                                icon: 'error',
+                                showConfirmButton: true,
+                                allowOutsideClick: false
+                            })
+                        }
+                    } else {
+                        Swal.fire({
+                            title: "โครงงานนี้ยังไม่ได้สร้างข้อมูล ทก.05",
+                            icon: 'error',
+                            showConfirmButton: true,
+                            allowOutsideClick: false
+                        });
+                    }
+                }
+            }
+        });
     });
 </script>
 <!-- bs-custom-file-input -->

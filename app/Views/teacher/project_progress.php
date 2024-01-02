@@ -504,8 +504,7 @@
             const rowDataString = JSON.stringify(rowData);
             const encodedRowData = encodeURIComponent(rowDataString);
             if (status == 1) {
-                return '<a class="btn btn-app bg-secondary" data-toggle="modal" ' +
-                    'data-target="#modal-default" onclick="load_modal(' + index_modal + ',\'' + encodedRowData + '\')">' +
+                return '<a class="btn btn-app bg-secondary" >' +
                     '<i class="fas fa-pencil-ruler"></i> ร่างเอกสาร' +
                     '</a>';
             } else if (status == 2) {
