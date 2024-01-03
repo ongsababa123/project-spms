@@ -800,5 +800,17 @@ class ProjectController extends BaseController
         ];
         return $this->response->setJSON($response);
     }
+
+    public function cancel_project($id_project = null)
+    {
+        $ProjectModels = new ProjectModels();
+        $ProjectModels->update($id_project, ['status_project' => 2]);
+        $response = [
+            'success' => true,
+            'message' => 'เสร็จสิ้น',
+            'reload' => true,
+        ];
+        return $this->response->setJSON($response);
+    }
 }
 

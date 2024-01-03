@@ -29,6 +29,9 @@
                                 onclick="load_modal(1)">
                                 <i class="fas fa-plus-square"></i> เพิ่มโครงงานพิเศษพิเศษ (ทก.01)
                             </a>
+                            <a class="btn btn-app bg-danger" onclick="cancel_project()">
+                                <i class="fas fa-window-close"></i> ยกเลิกโครงงานพิเศษ
+                            </a>
                         </div>
                         <!-- /.card-tools -->
                     </div>
@@ -115,6 +118,12 @@
                     contentType: false,
                     dataType: "JSON",
                     success: function (data) {
+                        console.log(data['project']['status_project']);
+                        if (data['project']['status_project'] == 2 || data['project']['status_project'] == 0) {
+                            $(".modal-footer #btn_modal").hide();
+                        } else {
+                            $(".modal-footer #btn_modal").show();
+                        }
                         $(".modal-content #overlay").hide();
                         $(".modal-body #name_project").val(data['project']['name_project_th']);
                         $(".modal-body #name_project_eng").val(data['project']['name_project_eng']);
@@ -356,7 +365,7 @@
                                     $(".modal-footer #submit").prop('disabled', true);
                                     $(".modal-footer #file_project_tk05").prop('disabled', true);
                                     $(".modal-footer #file_present_tk05").prop('disabled', true);
-                                }else{
+                                } else {
                                     $(".modal-footer #submit").prop('disabled', false);
                                     $(".modal-footer #file_project_tk05").prop('disabled', false);
                                     $(".modal-footer #file_present_tk05").prop('disabled', false);
@@ -370,7 +379,7 @@
                                 }
                                 if (data['data_tk05']['id_score'] != null) {
                                     $(".modal-body #tk_05_score").show();
-                                }else{
+                                } else {
                                     $(".modal-body #tk_05_score").hide();
                                 }
                                 $(".modal-body #chairman").val(data['data_tk05']['email_director1']);
@@ -475,6 +484,7 @@
         } 
     </script>
     <script>
+        var data_project = [];
         function getTableData() {
             if ($.fn.DataTable.isDataTable('#example1')) {
                 $('#example1').DataTable().destroy();
@@ -496,6 +506,7 @@
                 "ordering": false,
                 "drawCallback": function (settings) {
                     var daData = settings.json.data;
+                    data_project = daData;
                     if (daData.length == 0) {
                         $('#example1 tbody').html(`<tr><td colspan="8" class="text-center"> ไม่พบข้อมูล</td></tr>`);
                     }
@@ -577,9 +588,9 @@
                         'render': function (data, type, row, meta) {
                             if (data.status_project == 0) {
                                 return `<span class="badge bg-success">ปิดโครงงานพิเศษ</span>`
-                            }else if (data.status_project == 1) {
+                            } else if (data.status_project == 1) {
                                 return `<span class="badge bg-warning">กำลังดำเนินการ</span>`
-                            }else{
+                            } else {
                                 return `<span class="badge bg-danger">ยกเลิกโครงงานพิเศษ</span>`
                             }
                         }
@@ -639,5 +650,95 @@
                     '</a>' +
                     '</td>';
             }
+        }
+    </script>
+    <script>
+        function cancel_project() {
+            // Create an options object for inputOptions
+            var options = {};
+            data_project.forEach(element => {
+                if (element.status_project != 0) {
+                    options[element.id_project] = element.name_project_th;
+                }
+            });
+
+            Swal.fire({
+                title: "เลือกโครงงานพิเศษที่ต้องการยกเลิก",
+                input: "select",
+                inputOptions: options,
+                inputPlaceholder: "เลือกโครงงาน",
+                showCancelButton: true,
+                confirmButtonColor: "#dc3545",
+                confirmButtonText: "ตกลง",
+                cancelButtonText: "ปิด",
+                inputValidator: (value) => {
+                    return new Promise((resolve) => {
+                        if (value) {
+                            var loadingIndicator = Swal.fire({
+                                title: 'กำลังโหลด...',
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                                onBeforeOpen: () => {
+                                    Swal.showLoading();
+                                }
+                            });
+                            console.log(value);
+                            $.ajax({
+                                url: '<?= base_url('/student/projectlist/cancelproject/') ?>' + value,
+                                type: "POST",
+                                cache: false,
+                                processData: false,
+                                contentType: false,
+                                dataType: "JSON",
+                                xhr: function () {
+                                    var xhr = new window.XMLHttpRequest();
+                                    xhr.upload.addEventListener("progress", function (evt) {
+                                        if (evt.lengthComputable) {
+                                            var percentComplete = (evt.loaded / evt.total) * 100;
+                                            // You can update a progress bar or any other loading indicator here
+                                        }
+                                    }, false);
+                                    return xhr;
+                                },
+                                beforeSend: function () {
+                                    // Show loading indicator
+                                    loadingIndicator;
+                                },
+                                success: function (response) {
+                                    console.log(response);
+                                    if (response.success) {
+                                        Swal.fire({
+                                            title: response.message,
+                                            icon: 'success',
+                                            showConfirmButton: false,
+                                            allowOutsideClick: false
+                                        });
+                                        setTimeout(() => {
+                                            if (response.reload) {
+                                                window.location.reload();
+                                            }
+                                        }, 2000);
+                                    } else {
+                                        // Handle error response
+                                        handleErrorResponse(response);
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                    // Handle error
+                                    handleErrorResponse({
+                                        message: "เกิดข้อผิดพลาด"
+                                    });
+                                },
+                                complete: function () {
+                                    // Hide loading indicator on completion
+                                    loadingIndicator.close();
+                                }
+                            });
+                        } else {
+                            resolve("คุณต้องเลือกโครงงานก่อน :)");
+                        }
+                    });
+                }
+            });
         }
     </script>

@@ -13,7 +13,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">หน้าหลัก</a></li>
-                            <li class="breadcrumb-item"><a href="<?= site_url('/officer/testtime'); ?>">จัดตารางสอบ</a></li>
+                            <li class="breadcrumb-item"><a href="<?= site_url('/officer/testtime'); ?>">จัดตารางสอบ</a>
+                            </li>
                             <li class="breadcrumb-item active">ประวัติการสอบ</li>
                         </ol>
                     </div>
@@ -328,19 +329,19 @@
                             var display_type3 = `<h1 class="text-center">ไม่พบข้อมูล</h1> `;
                             $("#custom-tabs-one-messages").append(display_type3);
                         } else {
-                        data['test_type1'].forEach(element => {
-                            var day = getDayThai(element.date_test);
-                            var statusInfo = getStatusInfo(element.status_test);
-                            var students1 = getStudentName(element['students'][1]);
-                            var students2 = getStudentName(element['students'][2]);
-                            var consultantsInfo = getConsultantsInfo(element['project']['name_consult']);
-                            var timeInfo = getTimeInfo(element.time_test);
-                            if (element.status_test != '1') {
-                                var status_button = "disabled";
-                            } else {
-                                var status_button = "";
-                            }
-                            var display_type3 = `
+                            data['test_type1'].forEach(element => {
+                                var day = getDayThai(element.date_test);
+                                var statusInfo = getStatusInfo(element.status_test);
+                                var students1 = getStudentName(element['students'][1]);
+                                var students2 = getStudentName(element['students'][2]);
+                                var consultantsInfo = getConsultantsInfo(element['project']['name_consult']);
+                                var timeInfo = getTimeInfo(element.time_test);
+                                if (element.status_test != '1') {
+                                    var status_button = "disabled";
+                                } else {
+                                    var status_button = "";
+                                }
+                                var display_type3 = `
                             <div class="card card-${statusInfo.color}">
                                 <div class="card-header">
                                     <h3 class="card-title">
@@ -402,16 +403,16 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="button" class="btn btn-info float-right ml-2">ดูคะแนน</button>
+                                <a href="<?= site_url('teacher/scorepage/') ?>${element.id_test_list + "/" + element.id_project}" target="_blank" class="btn btn-info float-right ml-2">ดูคะแนน</a>
                                     <button type="button" class="btn btn-danger float-right" ${status_button}
                                         onclick="confirm_Alert('ต้องการยกเลิกการสอบหรือไม่', '${element.id_test_list}')">
                                         ยกเลิก
                                     </button>
                                 </div>
                             </div>`;
-                            $("#custom-tabs-one-messages").append(display_type3);
-                        });
-                    }
+                                $("#custom-tabs-one-messages").append(display_type3);
+                            });
+                        }
                     }
                 });
             }

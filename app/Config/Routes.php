@@ -11,6 +11,7 @@ $routes->group("student/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'timelist/getdata/(:num)', 'TimelistContoller::get_data_time/$1');
 
     $routes->match(['get', 'post'], 'projectlist', 'PageController::index_projectlist');
+    $routes->match(['get', 'post'], 'projectlist/cancelproject/(:num)', 'ProjectController::cancel_project/$1');
     $routes->match(['get', 'post'], 'projectlist/create/tk01', 'ProjectController::create_project_tk01');
     $routes->match(['get', 'post'], 'projectlist/edit/tk01/(:num)/(:num)/(:num)', 'ProjectController::edit_project_tk01/$1/$2/$3');
 
@@ -49,6 +50,7 @@ $routes->group("teacher/", ['filter' => ['AuthGuard']], function ($routes) {
     $routes->match(['get', 'post'], 'scorepage', 'PageController::index_scorepage');
     $routes->match(['get', 'post'], 'scorepage/(:num)/(:num)', 'ScoreController::index_scorepage/$1/$2');
     $routes->match(['get', 'post'], 'scorepage/create/(:num)/(:num)', 'ScoreController::create_scorepage/$1/$2');
+    $routes->match(['get', 'post'], 'scorepage/update/(:num)/(:num)/(:num)', 'ScoreController::update_scorepage/$1/$2/$3');
 
 
     $routes->match(['get', 'post'], 'testlist', 'PageController::index_testlist_teacher');
