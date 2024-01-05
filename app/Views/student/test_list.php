@@ -242,6 +242,7 @@
                     type: "POST",
                     url: "<?= site_url('student/testlist/getdata/3') ?>",
                     success: function (data) {
+                        console.log(data);
                         $("#overlay").hide()
                         if (data === false) {
                             var display_type3 = `<h1 class="text-center">ไม่พบข้อมูล</h1> `;
@@ -306,18 +307,21 @@
                                     <hr />
                                     <label class="text-muted">คณะกรรมการประเมิน</label>
                                     <div class="row">
-                                    <div class="col-3">
-                                        <label>ประธานกรรม</label>
-                                        <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
+                                        <div class="col-3">
+                                            <label>ประธานกรรม</label>
+                                            <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
+                                        </div>
+                                        <div class="col-3">
+                                            <label>กรรมการคนที่ 1</label>
+                                            <h6>${element['teachers'].name_user + " " + element['teachers'].lastname_user}</h6>
+                                        </div>
+                                        <div class="col-3">
+                                            <label>กรรมการคนที่ 1</label>
+                                            <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
+                                        </div>
                                     </div>
-                                    <div class="col-3">
-                                        <label>กรรมการคนที่ 1</label>
-                                        <h6>${element['teachers'].name_user + " " + element['teachers'].lastname_user}</h6>
-                                    </div>
-                                    <div class="col-3">
-                                        <label>กรรมการคนที่ 1</label>
-                                        <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
-                                    </div>
+                                    <div class="card-footer clearfix">
+                                        <a href="<?= site_url('student/scorepage/') ?>${element.id_test_list + "/" + element.id_project}" target="_blank" class="btn btn-info float-right">ดูคะแนน</a>
                                     </div>
                                 </div>
                             </div>`;

@@ -51,7 +51,7 @@ class UserController extends BaseController
             }
             $check = $userModels->save($data);
             if ($check) {
-                // $this->sendMail($this->request->getVar('email_user'), $number_random);
+                $this->sendMail($this->request->getVar('email_user'), $number_random);
                 $response = [
                     'success' => true,
                     'message' => 'การสร้างข้อมูลเสร็จสมบูรณ์! กรุณาตรวจสอบอีเมล์ของคุณเพื่อรับรหัส 6 หลักสำหรับการเข้าใช้งาน',

@@ -38,6 +38,7 @@
                 <div class="card-body">
                     <form class="mb-3" id="login_form" action="javascript:void(0)" method="post"
                         enctype="multipart/form-data">
+                        <label for="email">อีเมล์</label>
                         <div class="input-group mb-3">
                             <input type="email" class="form-control" placeholder="อีเมล์" id="email" name="email">
                             <div class="input-group-append">
@@ -46,6 +47,7 @@
                                 </div>
                             </div>
                         </div>
+                        <label for="password">รหัสผ่าน</label>
                         <div class="input-group mb-3">
                             <input type="password" class="form-control" placeholder="รหัสผ่าน" id="password"
                                 name="password">
@@ -64,7 +66,7 @@
                         </div>
                     </form>
                     <p class="mb-1">
-                        <a href="forgot-password.html">ลืมรหัสผ่าน</a>
+                        <a href="<?= site_url('login/forgotpassword')?>">ลืมรหัสผ่าน</a>
                     </p>
                 </div>
             </div>
@@ -81,7 +83,6 @@
     <!-- AdminLTE App -->
     <script src="<?= base_url('dist/js/adminlte.js'); ?>"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?= base_url('dist/js/demo.js'); ?>"></script>
     <!-- SweetAlert2 -->
     <script src="<?= base_url('dist/sweetalert/sweetalert2.js'); ?>"></script>
     <!-- DataTables  & Plugins -->

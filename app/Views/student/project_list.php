@@ -118,7 +118,7 @@
                     contentType: false,
                     dataType: "JSON",
                     success: function (data) {
-                        console.log(data['project']['status_project']);
+                        console.log(data['project']);
                         if (data['project']['status_project'] == 2 || data['project']['status_project'] == 0) {
                             $(".modal-footer #btn_modal").hide();
                         } else {

@@ -12,6 +12,7 @@ use App\Models\TK03_Models;
 use App\Models\TK04_Models;
 use App\Models\TK05_Models;
 use App\Models\FileModels;
+use App\Models\File_EXModels;
 use App\Models\TimelistModels;
 
 class PageController extends BaseController
@@ -55,6 +56,19 @@ class PageController extends BaseController
         }
         echo view('layout/header');
         echo view('student/project_list', $data);
+    }
+
+    public function index_ex_document()
+    {
+        $filemodel = new FileModels();
+        $File_EXModels = new File_EXModels();
+
+        $data['file_ex'] = $File_EXModels->findAll();
+        foreach ($data['file_ex'] as $key => $value) {
+            $data['file_ex'][$key]['file'] = $filemodel->find($value['id_file']);
+        }
+        echo view('layout/header');
+        echo view('student/ex_doc', $data);
     }
 
     public function index_testlist()
@@ -135,7 +149,7 @@ class PageController extends BaseController
             $data['teacher_data'][$key]['data_timelist_teacher'] = $TimelistModels->where('email_user', $value['email_user'])->findAll();
         }
         echo view('layout/header');
-        echo view('officer/time_test_list' , $data);
+        echo view('officer/time_test_list', $data);
     }
     public function index_history_test()
     {
@@ -155,36 +169,40 @@ class PageController extends BaseController
         $UserTempModels = new UserTempModels();
         $FileModels = new FileModels();
         $data['data_project'] = $ProjectModels->where('status_project', 1)->findAll();
-
-        foreach ($data['data_project'] as $key => $value) {
-            $data['data_project_tk'][$key]['data_tk01'] = $TK01_Models->where('id_tk_01', $value['id_tk01'])->whereIn('status_tk_01', [2, 7])->first();
-            $data['data_project_tk'][$key]['data_tk02'] = $TK02_Models->where('id_tk_02', $value['id_tk02'])->whereIn('status_tk_02', [2, 7])->first();
-            $data['data_project_tk'][$key]['data_tk03'] = $TK03_Models->where('id_tk_03', $value['id_tk03'])->whereIn('status_tk_03', [2, 7])->first();
-            $data['data_project_tk'][$key]['data_tk04'] = $TK04_Models->where('id_tk_04', $value['id_tk04'])->whereIn('status_tk_04', [2, 7])->first();
-            if ($data['data_project_tk'][$key]['data_tk04']) {
-                $id_file_tk04 = explode(',', $data['data_project_tk'][$key]['data_tk04']['id_file_04']);
-                foreach ($id_file_tk04 as $key_file => $value_file) {
-                    $data['data_project_tk'][$key]['data_tk04']['data_file_04'][$key_file] = $FileModels->where('id_file', $value_file)->first();
-                }
-            }
-            $data['data_project_tk'][$key]['data_tk05'] = $TK05_Models->where('id_tk_05', $value['id_tk05'])->whereIn('status_tk_05', [2, 7])->first();
-            if ($data['data_project_tk'][$key]['data_tk01'] != null || $data['data_project_tk'][$key]['data_tk02'] != null || $data['data_project_tk'][$key]['data_tk03'] != null || $data['data_project_tk'][$key]['data_tk04'] != null || $data['data_project_tk'][$key]['data_tk05'] != null) {
-                $data['data_project_tk'][$key]['data_teacher'] = $UserModels->where('email_user', $value['email_teacher'])->first();
-                $data['data_project_tk'][$key]['data_teacher']['project_count'] = $ProjectModels
-                    ->where('email_teacher', $value['email_teacher'])
-                    ->where('status_project', 1)
-                    ->countAllResults();
-
-                $email_students = explode(',', $value['email_student']);
-                foreach ($email_students as $index => $email) {
-                    $data['data_project_tk'][$key]['data_student'][$index] = $UserTempModels->where('email_user', $email)->first();
-                    if ($data['data_project_tk'][$key]['data_student'][$index] == null) {
-                        $data['data_project_tk'][$key]['data_student'][$index] = $UserModels->where('email_user', $email)->first();
+        if ($data['data_project'] == null) {
+            $data['data_project_tk'] = [];
+        } else {
+            foreach ($data['data_project'] as $key => $value) {
+                $data['data_project_tk'][$key]['data_tk01'] = $TK01_Models->where('id_tk_01', $value['id_tk01'])->whereIn('status_tk_01', [2, 7])->first();
+                $data['data_project_tk'][$key]['data_tk02'] = $TK02_Models->where('id_tk_02', $value['id_tk02'])->whereIn('status_tk_02', [2, 7])->first();
+                $data['data_project_tk'][$key]['data_tk03'] = $TK03_Models->where('id_tk_03', $value['id_tk03'])->whereIn('status_tk_03', [2, 7])->first();
+                $data['data_project_tk'][$key]['data_tk04'] = $TK04_Models->where('id_tk_04', $value['id_tk04'])->whereIn('status_tk_04', [2, 7])->first();
+                if ($data['data_project_tk'][$key]['data_tk04']) {
+                    $id_file_tk04 = explode(',', $data['data_project_tk'][$key]['data_tk04']['id_file_04']);
+                    foreach ($id_file_tk04 as $key_file => $value_file) {
+                        $data['data_project_tk'][$key]['data_tk04']['data_file_04'][$key_file] = $FileModels->where('id_file', $value_file)->first();
                     }
                 }
-                $data['data_project_tk'][$key]['data_project'] = $value;
+                $data['data_project_tk'][$key]['data_tk05'] = $TK05_Models->where('id_tk_05', $value['id_tk05'])->whereIn('status_tk_05', [2, 7])->first();
+                if ($data['data_project_tk'][$key]['data_tk01'] != null || $data['data_project_tk'][$key]['data_tk02'] != null || $data['data_project_tk'][$key]['data_tk03'] != null || $data['data_project_tk'][$key]['data_tk04'] != null || $data['data_project_tk'][$key]['data_tk05'] != null) {
+                    $data['data_project_tk'][$key]['data_teacher'] = $UserModels->where('email_user', $value['email_teacher'])->first();
+                    $data['data_project_tk'][$key]['data_teacher']['project_count'] = $ProjectModels
+                        ->where('email_teacher', $value['email_teacher'])
+                        ->where('status_project', 1)
+                        ->countAllResults();
+
+                    $email_students = explode(',', $value['email_student']);
+                    foreach ($email_students as $index => $email) {
+                        $data['data_project_tk'][$key]['data_student'][$index] = $UserTempModels->where('email_user', $email)->first();
+                        if ($data['data_project_tk'][$key]['data_student'][$index] == null) {
+                            $data['data_project_tk'][$key]['data_student'][$index] = $UserModels->where('email_user', $email)->first();
+                        }
+                    }
+                    $data['data_project_tk'][$key]['data_project'] = $value;
+                }
             }
         }
+
         echo view('layout/header');
         echo view('officer/project_request', $data);
     }
@@ -193,6 +211,20 @@ class PageController extends BaseController
     {
         echo view('layout/header');
         echo view('officer/news_table');
+    }
+
+    public function index_docex_table()
+    {
+        $filemodel = new FileModels();
+        $File_EXModels = new File_EXModels();
+
+        $data['file_ex'] = $File_EXModels->findAll();
+        foreach ($data['file_ex'] as $key => $value) {
+            $data['file_ex'][$key]['file'] = $filemodel->find($value['id_file']);
+        }
+
+        echo view('layout/header');
+        echo view('officer/docex_table', $data);
     }
 
     //admin page

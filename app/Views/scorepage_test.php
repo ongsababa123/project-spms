@@ -1065,19 +1065,21 @@
                                                 <th colspan="6" class="text-center">คะแนนรวม</th>
                                                 <td class="text-center" id="totalScore">0</td>
                                             </tr>
-                                            <tr>
-                                                <th colspan="7" class="text-center" id="editBtn" name="editBtn">
-                                                    <button class="btn btn-info" type="button"
-                                                        onclick="open_edit()">แก้ไขข้อมูล</button>
-                                                </th>
-                                                <th colspan="7" class="text-center" id="submitBtn" name="submitBtn">
-                                                    <button class="btn btn-primary" type="submit">บันทึก</button>
-                                                    <button class="btn btn-danger" type="button"
-                                                        onclick="resetRadioButtons()">รีเซ็ต</button>
-                                                    <button class="btn btn-info" type="button"
-                                                        onclick="close_edit()">ยกเลิก</button>
-                                                </th>
-                                            </tr>
+                                            <?php if (session()->get('type') == '2' || session()->get('type') == '5'): ?>
+                                                <tr>
+                                                    <th colspan="7" class="text-center" id="editBtn" name="editBtn">
+                                                        <button class="btn btn-info" type="button"
+                                                            onclick="open_edit()">แก้ไขข้อมูล</button>
+                                                    </th>
+                                                    <th colspan="7" class="text-center" id="submitBtn" name="submitBtn">
+                                                        <button class="btn btn-primary" type="submit">บันทึก</button>
+                                                        <button class="btn btn-danger" type="button"
+                                                            onclick="resetRadioButtons()">รีเซ็ต</button>
+                                                        <button class="btn btn-info" type="button"
+                                                            onclick="close_edit()">ยกเลิก</button>
+                                                    </th>
+                                                </tr>
+                                            <?php endif; ?>
                                         </tfoot>
                                     </form>
                                 </table>

@@ -26,6 +26,10 @@ class Filters extends BaseConfig
         'invalidchars' => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'AuthGuard' => \App\Filters\AuthGuard::class,
+        'Check_student' => \App\Filters\Check_student::class,
+        'Check_teacher' => \App\Filters\Check_teacher::class,
+        'Check_officer' => \App\Filters\Check_officer::class,
+        'Check_admin' => \App\Filters\Check_admin::class,
     ];
 
     /**
