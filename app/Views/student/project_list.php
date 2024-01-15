@@ -89,6 +89,7 @@
                     var newOption = $('<option></option>').val(element.email_user).text(element.name_user + ' ' + element.lastname_user + ' ' + '[จำนวนโครงงานพิเศษ : ' + element.project_count + ']');
                     $(".modal-body #select_teacher").append(newOption);
                 });
+                $(".modal-footer #btn_modal").show();
                 $(".modal-body #tk_01_file_upload").show();
                 $(".modal-body #tk_01_file_read").hide();
                 $(".modal-body #name_student_1").val(data_user[0]['name_user']);
@@ -118,7 +119,6 @@
                     contentType: false,
                     dataType: "JSON",
                     success: function (data) {
-                        console.log(data['project']);
                         if (data['project']['status_project'] == 2 || data['project']['status_project'] == 0) {
                             $(".modal-footer #btn_modal").hide();
                         } else {
@@ -361,14 +361,14 @@
                             $(".modal-body #director_1").prop('disabled', true);
                             $(".modal-body #director_2").prop('disabled', true);
                             if (data['data_tk05'] != null) {
-                                if (data['data_tk04']['status_tk_04'] == 6 || data['data_tk04']['status_tk_04'] == 2 || data['data_tk04']['status_tk_04'] == 4) {
+                                if (data['data_tk05']['status_tk_05'] == 6 || data['data_tk05']['status_tk_05'] == 2 || data['data_tk05']['status_tk_05'] == 4) {
                                     $(".modal-footer #submit").prop('disabled', true);
-                                    $(".modal-footer #file_project_tk05").prop('disabled', true);
-                                    $(".modal-footer #file_present_tk05").prop('disabled', true);
+                                    $(".modal-body #file_project_tk05").prop('disabled', true);
+                                    $(".modal-body #file_present_tk05").prop('disabled', true);
                                 } else {
                                     $(".modal-footer #submit").prop('disabled', false);
-                                    $(".modal-footer #file_project_tk05").prop('disabled', false);
-                                    $(".modal-footer #file_present_tk05").prop('disabled', false);
+                                    $(".modal-body #file_project_tk05").prop('disabled', false);
+                                    $(".modal-body #file_present_tk05").prop('disabled', false);
                                 }
                                 $("#tk_05_file_read_1").click(() => window.open('<?php echo site_url('openfile/') ?>' + data['data_tk05']['id_file_05'], '_blank'));
                                 if (data['data_tk05']['id_file_present'] != null) {
