@@ -44,10 +44,10 @@ class PageController extends BaseController
 
         $data['data_user'] = $UserModels->where('email_user', session()->get('email'))->findAll();
         $data['data_teacher'] = $UserModels
-            ->where('type_user', 2)
-            ->where('status_user', 2)
-            ->orWhere('status_user', 1)
-            ->findAll();
+        ->where('type_user', (int) 2)  // Cast to integer if needed
+        ->whereIn('status_user', [1, 2])  // Use whereIn for an array of values
+        ->findAll();
+    
         foreach ($data['data_teacher'] as $key => $value) {
             $data['data_teacher'][$key]['project_count'] = $ProjectModels
                 ->where('email_teacher', $value['email_user'])
