@@ -12,6 +12,7 @@ use App\Models\TK03_Models;
 use App\Models\TK04_Models;
 use App\Models\TK05_Models;
 use CodeIgniter\I18n\Time;
+use App\Controllers\SendMailController;
 
 class ProjectController extends BaseController
 {
@@ -98,6 +99,11 @@ class ProjectController extends BaseController
                 'status_project' => 1,
             ];
             $ProjectModels->insert($data);
+            $SendMailController = new SendMailController();
+            $name_project = $this->request->getVar('name_project');
+            $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.01 แล้ว";
+            $subject = "มีคำร้องเข้ามาใหม่";
+            $SendMailController->getEmail_office($text, $subject);
             $response = [
                 'success' => true,
                 'message' => 'เสร็จสิ้น',
@@ -196,7 +202,11 @@ class ProjectController extends BaseController
         ];
         $TK01_Models->update($id_tk01, ['status_tk_01' => '2']);
         $ProjectModels->update($id_project, $data);
-
+        $SendMailController = new SendMailController();
+        $name_project = $this->request->getVar('name_project');
+        $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.01 แล้ว";
+        $subject = "มีคำร้องเข้ามาใหม่";
+        $SendMailController->getEmail_office($text, $subject);
         $response = [
             'success' => true,
             'message' => 'เสร็จสิ้น',
@@ -252,6 +262,12 @@ class ProjectController extends BaseController
             'id_tk02' => $id_tk02,
         ];
         $ProjectModels->update($id_project, $data);
+        $SendMailController = new SendMailController();
+        $name_project_data = $ProjectModels->where('id_project', $id_project)->first();
+        $name_project = $name_project_data['name_project_th'];
+        $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.02 แล้ว";
+        $subject = "มีคำร้องเข้ามาใหม่";
+        $SendMailController->getEmail_office($text, $subject);
         $response = [
             'success' => true,
             'message' => 'เสร็จสิ้น',
@@ -305,6 +321,15 @@ class ProjectController extends BaseController
             }
         }
         $TK02_Models->update($id_tk02, ['status_tk_02' => '2']);
+
+        $SendMailController = new SendMailController();
+        $ProjectModels = new ProjectModels();
+        $name_project_data = $ProjectModels->where('id_tk02', $id_tk02)->first();
+        $name_project = $name_project_data['name_project_th'];
+        $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.02 แล้ว";
+        $subject = "มีคำร้องเข้ามาใหม่";
+        $SendMailController->getEmail_office($text, $subject);
+
         $response = [
             'success' => true,
             'message' => 'เสร็จสิ้น',
@@ -361,6 +386,15 @@ class ProjectController extends BaseController
             'id_tk03' => $id_tk03,
         ];
         $ProjectModels->update($id_project, $data);
+
+        $SendMailController = new SendMailController();
+        $ProjectModels = new ProjectModels();
+        $name_project_data = $ProjectModels->where('id_tk03', $id_tk03)->first();
+        $name_project = $name_project_data['name_project_th'];
+        $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.03 แล้ว";
+        $subject = "มีคำร้องเข้ามาใหม่";
+        $SendMailController->getEmail_office($text, $subject);
+
         $response = [
             'success' => true,
             'message' => 'เสร็จสิ้น',
@@ -416,6 +450,14 @@ class ProjectController extends BaseController
         }
         $TK03_Models->update($id_tk03, ['status_tk_03' => '2']);
 
+        $SendMailController = new SendMailController();
+        $ProjectModels = new ProjectModels();
+        $name_project_data = $ProjectModels->where('id_tk03', $id_tk03)->first();
+        $name_project = $name_project_data['name_project_th'];
+        $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.03 แล้ว";
+        $subject = "มีคำร้องเข้ามาใหม่";
+        $SendMailController->getEmail_office($text, $subject);
+
         $response = [
             'success' => true,
             'message' => 'เสร็จสิ้น',
@@ -458,6 +500,15 @@ class ProjectController extends BaseController
             'id_tk04' => $id_tk04,
         ];
         $ProjectModels->update($id_project, $data);
+
+        $SendMailController = new SendMailController();
+        $ProjectModels = new ProjectModels();
+        $name_project_data = $ProjectModels->where('id_tk04', $id_tk04)->first();
+        $name_project = $name_project_data['name_project_th'];
+        $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.04 แล้ว";
+        $subject = "มีคำร้องเข้ามาใหม่";
+        $SendMailController->getEmail_office($text, $subject);
+
         $response = [
             'success' => true,
             'message' => 'เสร็จสิ้น',
@@ -489,6 +540,14 @@ class ProjectController extends BaseController
             $file_project->move(ROOTPATH . 'public/uploads/' . $id_file_project, $newName);
         }
         $TK04_Models->update($id_tk04, ['status_tk_04' => '2']);
+
+        $SendMailController = new SendMailController();
+        $ProjectModels = new ProjectModels();
+        $name_project_data = $ProjectModels->where('id_tk04', $id_tk04)->first();
+        $name_project = $name_project_data['name_project_th'];
+        $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.04 แล้ว";
+        $subject = "มีคำร้องเข้ามาใหม่";
+        $SendMailController->getEmail_office($text, $subject);
 
         $response = [
             'success' => true,
@@ -546,6 +605,15 @@ class ProjectController extends BaseController
             'id_tk05' => $id_tk05,
         ];
         $ProjectModels->update($id_project, $data);
+
+        $SendMailController = new SendMailController();
+        $ProjectModels = new ProjectModels();
+        $name_project_data = $ProjectModels->where('id_tk05', $id_tk05)->first();
+        $name_project = $name_project_data['name_project_th'];
+        $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.05 แล้ว";
+        $subject = "มีคำร้องเข้ามาใหม่";
+        $SendMailController->getEmail_office($text, $subject);
+
         $response = [
             'success' => true,
             'message' => 'เสร็จสิ้น',
@@ -600,6 +668,14 @@ class ProjectController extends BaseController
             }
         }
         $TK05_Models->update($id_tk05, ['status_tk_05' => '2']);
+
+        $SendMailController = new SendMailController();
+        $ProjectModels = new ProjectModels();
+        $name_project_data = $ProjectModels->where('id_tk05', $id_tk05)->first();
+        $name_project = $name_project_data['name_project_th'];
+        $text = "โครงงาน " . $name_project . " ได้ส่งคำร้อง ทก.05 แล้ว";
+        $subject = "มีคำร้องเข้ามาใหม่";
+        $SendMailController->getEmail_office($text, $subject);
 
         $response = [
             'success' => true,
@@ -773,7 +849,8 @@ class ProjectController extends BaseController
         $TK03_Models = new TK03_Models();
         $TK04_Models = new TK04_Models();
         $TK05_Models = new TK05_Models();
-
+        $ProjectModels = new ProjectModels();
+        $id_tk_where = 'id_tk0' . $type_tk;
         if ($type_tk == 1) {
             $TK01_Models->update($id_tk, ['status_tk_01' => $status]);
         } else if ($type_tk == 2) {
@@ -791,6 +868,59 @@ class ProjectController extends BaseController
                 'reload' => false,
             ];
             return $this->response->setJSON($response);
+        }
+        $project_data = $ProjectModels->where($id_tk_where, $id_tk)->first();
+
+        $SendMailController = new SendMailController();
+        $name_project = $project_data['name_project_th'];
+        $email_student = explode(',', $project_data['email_student']);
+        $email_teacher = $project_data['email_teacher'];
+        if ($status == 3) {
+            //ส่งคืนเพื่อแก้ไข
+            $text = "โครงงาน " . $name_project . " เอกสาร ทก.0" . $type_tk . " ถูกส่งคืนกลับให้แก้ไข";
+            $subject = "อัปเดตสถานะโครงงาน";
+            foreach ($email_student as $key => $value) {
+                $SendMailController->SendMail($value, $text, $subject);
+            }
+        } else if ($status == 4) {
+            //รอยืนยันจากอาจาร
+            $text = "โครงงาน " . $name_project . " เอกสาร ทก.0" . $type_tk . " กำลังอยู่ระหว่างการยืนยันจากอาจารย์ที่ปรึกษา";
+            $subject = "อัปเดตสถานะโครงงาน";
+            foreach ($email_student as $key => $value) {
+                $SendMailController->SendMail($value, $text, $subject);
+            }
+            $text_t = "โครงงาน " . $name_project . " ได้ส่งคำร้องเอกสาร ทก.0" . $type_tk . " มาใหม่";
+            $subject_t = "มีคำร้องเข้ามาใหม่";
+            $SendMailController->SendMail($email_teacher, $text_t, $subject_t);
+
+        } else if ($status == 5) {
+            //ยกเลิกเอกสารจากอาจาร
+            $text = "โครงงาน " . $name_project . " เอกสาร ทก.0" . $type_tk . " ถูกตีกลับจากอาจารย์ที่ปรึกษา";
+            $subject = "อัปเดตสถานะโครงงาน";
+            foreach ($email_student as $key => $value) {
+                $SendMailController->SendMail($value, $text, $subject);
+            }
+        } else if ($status == 6) {
+            //อาจารย์อนุมัติเอกสาร
+            $text = "โครงงาน " . $name_project . " เอกสาร ทก.0" . $type_tk . " ได้รับอนุมัติจากอาจารย์ที่ปรึกษา";
+            $subject = "อัปเดตสถานะโครงงาน";
+            foreach ($email_student as $key => $value) {
+                $SendMailController->SendMail($value, $text, $subject);
+            }
+        } else if ($status == 7) {
+            //ติดต่อเจ้าหน้าที่
+            $text = "โครงงาน " . $name_project . " เอกสาร ทก.0" . $type_tk . " ถูกตีกลับจากเจ้าหน้าที่ กรุณาติดต่อเจ้าหน้าที่";
+            $subject = "อัปเดตสถานะโครงงาน";
+            foreach ($email_student as $key => $value) {
+                $SendMailController->SendMail($value, $text, $subject);
+            }
+        } else if ($status == 8) {
+            //ผ่านการสอบ
+            $text = "โครงงาน " . $name_project . " เอกสาร ทก.0" . $type_tk . " ได้สอบผ่าน";
+            $subject = "อัปเดตสถานะโครงงาน";
+            foreach ($email_student as $key => $value) {
+                $SendMailController->SendMail($value, $text, $subject);
+            }
         }
 
         $response = [

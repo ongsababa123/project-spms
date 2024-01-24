@@ -121,7 +121,6 @@
         var data_project = <?php echo json_encode($data_project); ?>;
         data_project.forEach(element => {
             if (element.id_project == id_project.value) {
-                console.log(element);
                 if (type_test.value == '1') {
                     if (element.id_tk02 != null) {
                         action_(urlRouteInput.value, 'form_test');
@@ -187,26 +186,5 @@
             }
         });
     });
-    $(document).ready(function () {
-        $(".modal-body #data_teacher").hide();
-        var selectedValue = document.getElementById('project_select').value;
-        var data_project = <?php echo json_encode($data_project); ?>;
-        data_project.forEach(element => {
-            if (element.id_project == selectedValue) {
-                document.getElementById('name_teacher_3').value = element.data_teacher.name_user + ' ' + element.data_teacher.lastname_user;
-            }
-        })
-    })
-</script>
-<script>
-    document.getElementById('type_test').addEventListener('change', function () {
-        // ทำสิ่งที่คุณต้องการเมื่อมีการเลือก
-        var selectedTest = this.value;
-        if (selectedTest == 1 || selectedTest == 2) {
-            $(".modal-body #data_teacher").hide();
-        } else {
-            $(".modal-body #data_teacher").show();
 
-        }
-    });
 </script>

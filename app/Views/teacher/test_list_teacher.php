@@ -139,6 +139,22 @@
                                 ${getConsultantInfo(consultantsInfo[0], "ที่ปรึกษาร่วม ท่านที่ 1")}
                                 ${getConsultantInfo(consultantsInfo[1], "ที่ปรึกษาร่วม ท่านที่ 2")}
                             </div>
+                            <hr />
+                            <label class="text-muted">คณะกรรมการประเมิน</label>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>ประธานกรรม</label>
+                                        <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['teachers'].name_user + " " + element['teachers'].lastname_user}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
+                                    </div>
+                                </div>
                             <div class="card-footer clearfix">
                                 <button type="button" class="btn btn-danger float-right ml-1" ${status_button} onclick="confirm_Alert('ต้องการให้ไม่ผ่านใช่หรือไม่', '${element.id_test_list}/3/1')">ไม่ผ่าน</button>
                                 <button type="button" class="btn btn-success float-right" ${status_button} onclick="confirm_Alert('ต้องการให้ผ่านใช่หรือไม่', '${element.id_test_list}/2/1')">ผ่าน</button>
@@ -224,6 +240,22 @@
                                 ${getConsultantInfo(consultantsInfo[0], "ที่ปรึกษาร่วม ท่านที่ 1")}
                                 ${getConsultantInfo(consultantsInfo[1], "ที่ปรึกษาร่วม ท่านที่ 2")}
                             </div>
+                            <hr />
+                            <label class="text-muted">คณะกรรมการประเมิน</label>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>ประธานกรรม</label>
+                                        <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['teachers'].name_user + " " + element['teachers'].lastname_user}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
+                                    </div>
+                                </div>
                             <div class="card-footer clearfix">
                             <button type="button" class="btn btn-danger float-right ml-1" ${status_button} onclick="confirm_Alert('ต้องการให้ไม่ผ่านใช่หรือไม่', '${element.id_test_list}/3/2')">ไม่ผ่าน</button>
                             <button type="button" class="btn btn-success float-right" ${status_button} onclick="confirm_Alert('ต้องการให้ผ่านใช่หรือไม่', '${element.id_test_list}/2/2')">ผ่าน</button>
@@ -311,8 +343,8 @@
                                 ${getConsultantInfo(consultantsInfo[1], "ที่ปรึกษาร่วม ท่านที่ 2")}
                             </div>
                             <hr />
-                                    <label class="text-muted">คณะกรรมการประเมิน</label>
-                                    <div class="row">
+                            <label class="text-muted">คณะกรรมการประเมิน</label>
+                                <div class="row">
                                     <div class="col-3">
                                         <label>ประธานกรรม</label>
                                         <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
@@ -325,7 +357,7 @@
                                         <label>กรรมการคนที่ 1</label>
                                         <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
                                     </div>
-                            </div>
+                                </div>
                             <div class="card-footer clearfix">
                                 <a href="<?= site_url('teacher/scorepage/') ?>${element.id_test_list + "/" + element.id_project}" target="_blank" class="btn btn-info float-right">ลงคะแนน</a>
                         </div>

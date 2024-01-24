@@ -202,6 +202,22 @@
                                 ${getConsultantInfo(consultantsInfo[0], "ที่ปรึกษาร่วม ท่านที่ 1")}
                                 ${getConsultantInfo(consultantsInfo[1], "ที่ปรึกษาร่วม ท่านที่ 2")}
                             </div>
+                            <hr>
+                            <label class="text-muted">คณะกรรมการประเมิน</label>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>ประธานกรรม</label>
+                                        <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['teachers'].name_user + " " + element['teachers'].lastname_user}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
+                                    </div>
+                                </div>
                         </div>
                         <div class="card-footer clearfix">
                         <button type="button" class="btn btn-danger float-right" ${status_button} onclick="confirm_Alert('ต้องการยกเลิกการสอบหรือไม่', '${element.id_test_list}')">
@@ -292,6 +308,22 @@
                                 ${getConsultantInfo(consultantsInfo[0], "ที่ปรึกษาร่วม ท่านที่ 1")}
                                 ${getConsultantInfo(consultantsInfo[1], "ที่ปรึกษาร่วม ท่านที่ 2")}
                             </div>
+                            <hr>
+                            <label class="text-muted">คณะกรรมการประเมิน</label>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>ประธานกรรม</label>
+                                        <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['teachers'].name_user + " " + element['teachers'].lastname_user}</h6>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>กรรมการคนที่ 1</label>
+                                        <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
+                                    </div>
+                                </div>
                         </div>
                         <div class="card-footer">
                         <button type="button" class="btn btn-info float-right ml-2">
@@ -388,7 +420,7 @@
                                     </div>
                                     <hr />
                                 <label class="text-muted">คณะกรรมการประเมิน</label>
-                                    <div class="row">
+                                <div class="row">
                                     <div class="col-3">
                                         <label>ประธานกรรม</label>
                                         <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
@@ -536,13 +568,16 @@
                             'X-Requested-With': 'XMLHttpRequest'
                         },
                         beforeSend: function () {
-                            // Code to execute before the request is sent
+                            // Show loading indicator here
+                            var loadingIndicator = Swal.fire({
+                                title: 'กําลังดําเนินการ...',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            });
                         },
-                        complete: function () {
-                            // Hide loading indicator after the request is complete
-                            Swal.hideLoading();
-                        }
                     }).done(function (response) {
+                        Swal.close();
                         if (response.success) {
                             Swal.fire({
                                 title: response.message,

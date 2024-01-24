@@ -281,15 +281,16 @@
                             'X-Requested-With': 'XMLHttpRequest'
                         },
                         beforeSend: function () {
-                            // Show loading indicator
-                            loadingIndicator;
+                            // Show loading indicator here
+                            var loadingIndicator = Swal.fire({
+                                title: 'กําลังดําเนินการ...',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            });
                         },
-                        complete: function () {
-                            // Hide loading indicator on completion
-                            loadingIndicator.close();
-                        }
                     }).done(function (response) {
-                        // console.log(response);
+                        Swal.close();
                         if (response.success) {
                             Swal.fire({
                                 title: response.message,

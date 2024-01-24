@@ -27,34 +27,24 @@
                             <div class="card-header p-0 pt-1">
                                 <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill"
-                                            href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home"
-                                            aria-selected="true">สอบหัวข้อ</a>
+                                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">สอบหัวข้อ</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill"
-                                            href="#custom-tabs-one-profile" role="tab"
-                                            aria-controls="custom-tabs-one-profile" aria-selected="false"
-                                            onclick="display_type2()">สอบ 60</a>
+                                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false" onclick="display_type2()">สอบ 60</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill"
-                                            href="#custom-tabs-one-messages" role="tab" onclick="display_type3()"
-                                            aria-controls="custom-tabs-one-messages" aria-selected="false">สอบ 100</a>
+                                        <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" onclick="display_type3()" aria-controls="custom-tabs-one-messages" aria-selected="false">สอบ 100</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
-                                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel"
-                                        aria-labelledby="custom-tabs-one-home-tab">
+                                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
 
                                     </div>
-                                    <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel"
-                                        aria-labelledby="custom-tabs-one-profile-tab">
+                                    <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
                                     </div>
-                                    <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel"
-                                        aria-labelledby="custom-tabs-one-messages-tab">
+                                    <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +58,7 @@
         </section>
     </div>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             display_type1();
         });
     </script>
@@ -78,13 +68,14 @@
             $.ajax({
                 type: "POST",
                 url: "<?= site_url('student/testlist/getdata/1') ?>",
-                success: function (data) {
+                success: function(data) {
                     $("#overlay").hide()
                     if (data === false) {
                         var display_type1 = `<h1 class="text-center">ไม่พบข้อมูล</h1> `;
                         $("#custom-tabs-one-home").append(display_type1);
                     } else {
                         data.forEach(element => {
+                            console.log(element);
                             var day = getDayThai(element.date_test);
                             var statusInfo = getStatusInfo(element.status_test);
                             var students1 = getStudentName(element['students'][1]);
@@ -140,9 +131,23 @@
                                 ${getConsultantInfo(consultantsInfo[0], "ที่ปรึกษาร่วม ท่านที่ 1")}
                                 ${getConsultantInfo(consultantsInfo[1], "ที่ปรึกษาร่วม ท่านที่ 2")}
                             </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>ประธานกรรม</label>
+                                    <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
+                                </div>
+                                <div class="col-3">
+                                    <label>กรรมการคนที่ 1</label>
+                                    <h6>${element['teachers'].name_user + " " + element['teachers'].lastname_user}</h6>
+                                </div>
+                                    <div class="col-3">
+                                    <label>กรรมการคนที่ 1</label>
+                                    <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                `;
+                    </div>`;
                             $("#custom-tabs-one-home").append(display_type1);
                         });
                     }
@@ -152,6 +157,7 @@
     </script>
     <script>
         var value_display_type2 = 0;
+
         function display_type2() {
             if (value_display_type2 == 0) {
                 value_display_type2++;
@@ -159,7 +165,7 @@
                 $.ajax({
                     type: "POST",
                     url: "<?= site_url('student/testlist/getdata/2') ?>",
-                    success: function (data) {
+                    success: function(data) {
                         $("#overlay").hide()
                         if (data === false) {
                             var display_type2 = `<h1 class="text-center">ไม่พบข้อมูล</h1> `;
@@ -221,6 +227,21 @@
                                 ${getConsultantInfo(consultantsInfo[0], "ที่ปรึกษาร่วม ท่านที่ 1")}
                                 ${getConsultantInfo(consultantsInfo[1], "ที่ปรึกษาร่วม ท่านที่ 2")}
                             </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>ประธานกรรม</label>
+                                    <h6>${element['chairman'] ? element['chairman'].name_user + " " + element['chairman'].lastname_user : "ไม่มีประธานกรรมการ"}</h6>
+                                </div>
+                                <div class="col-3">
+                                    <label>กรรมการคนที่ 1</label>
+                                    <h6>${element['teachers'].name_user + " " + element['teachers'].lastname_user}</h6>
+                                </div>
+                                    <div class="col-3">
+                                    <label>กรรมการคนที่ 1</label>
+                                    <h6>${element['director'] ? element['director'].name_user + " " + element['director'].lastname_user : "ไม่มีกรรมการ"}</h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -234,6 +255,7 @@
     </script>
     <script>
         var value_display_type3 = 0;
+
         function display_type3() {
             if (value_display_type3 == 0) {
                 value_display_type3++;
@@ -241,7 +263,7 @@
                 $.ajax({
                     type: "POST",
                     url: "<?= site_url('student/testlist/getdata/3') ?>",
-                    success: function (data) {
+                    success: function(data) {
                         console.log(data);
                         $("#overlay").hide()
                         if (data === false) {

@@ -13,6 +13,7 @@ use App\Models\TK04_Models;
 use App\Models\TK05_Models;
 use App\Models\TESTModels;
 use CodeIgniter\I18n\Time;
+use App\Controllers\SendMailController;
 
 class TESTController extends BaseController
 {
@@ -20,13 +21,10 @@ class TESTController extends BaseController
 
     public function create_test()
     {
+        $SendMailController = new SendMailController();
         helper(['form']);
         $type = $this->request->getVar('type_test');
-        if ($type == '1' || $type == '2') {
-            $check = $this->create_test_type1_2();
-        } else if ($type == '3') {
-            $check = $this->create_test_type3();
-        }
+        $check = $this->create_test_type3();
 
         $response = [
             'success' => $check,
@@ -38,7 +36,7 @@ class TESTController extends BaseController
     }
 
     function create_test_type1_2()
-    {     
+    {
         $TESTModels = new TESTModels();
         $data = [
             'id_project' => $this->request->getVar('project_select'),
@@ -55,6 +53,8 @@ class TESTController extends BaseController
     function create_test_type3()
     {
         $TESTModels = new TESTModels();
+        $SendMailController = new SendMailController();
+        $ProjectModels = new ProjectModels();
 
         $email_director1 = $this->request->getVar('name_teacher_1');
         $email_director2 = $this->request->getVar('name_teacher_2');
@@ -70,6 +70,26 @@ class TESTController extends BaseController
                 'time_test' => $this->request->getVar('time_test_value'),
                 'status_test' => 1
             ];
+            $type_test = $this->request->getVar('type_test');
+            $id_project = $this->request->getVar('project_select');
+            $project_data = $ProjectModels->where('id_project', $id_project)->first();
+            $email_student = explode(',', $project_data['email_student']);
+            $email_teacher = $project_data['email_teacher'];
+            $name_project = $project_data['name_project_th'];
+            $subject = "ตารางสอบใหม่";
+            if ($type_test == 1) {
+                $text = "มีตารางสอบของโครงงาน " . $name_project . " ประเภทการสอบ สอบหัวข้อ เข้าใหม่กรุณาตรวจสอบตารางสอบ";
+            } else if ($type_test == 2) {
+                $text = "มีตารางสอบของโครงงาน " . $name_project . " ประเภทการสอบ สอบ 60 เข้าใหม่กรุณาตรวจสอบตารางสอบ";
+            } else if ($type_test == 3) {
+                $text = "มีตารางสอบของโครงงาน " . $name_project . " ประเภทการสอบ สอบ 100 เข้าใหม่กรุณาตรวจสอบตารางสอบ";
+            }
+            foreach ($email_student as $key => $value) {
+                $SendMailController->sendMail($value, $text, $subject);
+            }
+            $SendMailController->sendMail($email_teacher, $text, $subject);
+            $SendMailController->sendMail($email_director1, $text, $subject);
+            $SendMailController->sendMail($email_director2, $text, $subject);
 
             return $TESTModels->insert($data);
         }
@@ -91,10 +111,8 @@ class TESTController extends BaseController
                 $data['test_type1'][$key]['students'][$key2] = $UserModels->where('email_user', $value2)->first();
             }
             $data['test_type1'][$key]['teachers'] = $UserModels->where('email_user', $data['test_type1'][$key]['project']['email_teacher'])->first();
-            if ($type == '3') {
-                $data['test_type1'][$key]['chairman'] = $UserModels->where('email_user', $value['email_director1'])->first();
-                $data['test_type1'][$key]['director'] = $UserModels->where('email_user', $value['email_director2'])->first();
-            }
+            $data['test_type1'][$key]['chairman'] = $UserModels->where('email_user', $value['email_director1'])->first();
+            $data['test_type1'][$key]['director'] = $UserModels->where('email_user', $value['email_director2'])->first();
         }
         return $this->response->setJSON($data);
     }
@@ -116,10 +134,9 @@ class TESTController extends BaseController
             $test['students'] = $UserModels->whereIn('email_user', $email_students)->findAll();
             $test['teachers'] = $UserModels->where('email_user', $test['project']['email_teacher'])->first();
 
-            if ($type == '3') {
-                $test['chairman'] = $UserModels->where('email_user', $test['email_director1'])->first();
-                $test['director'] = $UserModels->where('email_user', $test['email_director2'])->first();
-            }
+            $test['chairman'] = $UserModels->where('email_user', $test['email_director1'])->first();
+            $test['director'] = $UserModels->where('email_user', $test['email_director2'])->first();
+
 
             if (in_array($email, $email_students)) {
                 $data['data_test_'][$num++] = $test;
@@ -149,10 +166,9 @@ class TESTController extends BaseController
             $test['students'] = $UserModels->whereIn('email_user', $email_students)->findAll();
             $test['teachers'] = $UserModels->where('email_user', $test['project']['email_teacher'])->first();
 
-            if ($type === '3') {
-                $test['chairman'] = $UserModels->where('email_user', $test['email_director1'])->first();
-                $test['director'] = $UserModels->where('email_user', $test['email_director2'])->first();
-            }
+            $test['chairman'] = $UserModels->where('email_user', $test['email_director1'])->first();
+            $test['director'] = $UserModels->where('email_user', $test['email_director2'])->first();
+
 
             if ($email === $test['project']['email_teacher']) {
                 $data['data_test_'][$num++] = $test;
@@ -169,6 +185,44 @@ class TESTController extends BaseController
     {
 
         $TESTModels = new TESTModels();
+        $SendMailController = new SendMailController();
+        $ProjectModels = new ProjectModels();
+
+        $data_test = $TESTModels->find($id_test_list);
+        $project_data = $ProjectModels->find($data_test['id_project']);
+        $email_student = explode(',', $project_data['email_student']);
+        $email_teacher = $project_data['email_teacher'];
+        $email_director1 = $data_test['email_director1'];
+        $email_director2 = $data_test['email_director2'];
+        $name_project = $project_data['name_project_th'];
+        $time_test = (int) $data_test['time_test'] . ".00-" . ((int) $data_test['time_test'] + 1) . ".00";
+        $englishToThaiDayMapping = [
+            'monday' => 'วันจันทร์',
+            'tuesday' => 'วันอังคาร',
+            'wednesday' => 'วันพุธ',
+            'thursday' => 'วันพฤหัสบดี',
+            'friday' => 'วันศุกร์',
+            'saturday' => 'วันเสาร์',
+            'sunday' => 'วันอาทิตย์',
+        ];
+        $day_test = strtolower($data_test['date_test']); // Ensure lowercase for case-insensitivity
+        $day_test_thai = isset($englishToThaiDayMapping[$day_test]) ? $englishToThaiDayMapping[$day_test] : 'Invalid Day';
+        $type_test = $data_test['type_test'];
+        $subject = "ตารางสอบถูกยกเลิก";
+        if ($type_test == 1) {
+            $text = "ตารางสอบของโครงงาน " . $name_project . " ประเภทการสอบ สอบหัวข้อ " . $day_test_thai . " เวลา " . $time_test . " ถูกยกเลิก";
+        } else if ($type_test == 2) {
+            $text = "ตารางสอบของโครงงาน " . $name_project . " ประเภทการสอบ สอบ 60 " . $day_test_thai . " เวลา " . $time_test . " ถูกยกเลิก";
+        } else if ($type_test == 3) {
+            $text = "ตารางสอบของโครงงาน " . $name_project . " ประเภทการสอบ สอบ 100 " . $day_test_thai . " เวลา " . $time_test . " ถูกยกเลิก";
+        }
+        foreach ($email_student as $key => $value) {
+            $SendMailController->sendMail($value, $text, $subject);
+        }
+        $SendMailController->sendMail($email_teacher, $text, $subject);
+        $SendMailController->sendMail($email_director1, $text, $subject);
+        $SendMailController->sendMail($email_director2, $text, $subject);
+
         $check = $TESTModels->where('id_test_list', $id_test_list)->delete();
         $response = [
             'success' => $check,

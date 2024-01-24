@@ -810,13 +810,16 @@
                             'X-Requested-With': 'XMLHttpRequest'
                         },
                         beforeSend: function () {
-                            // Code to execute before the request is sent
+                            // Show loading indicator here
+                            var loadingIndicator = Swal.fire({
+                                title: 'กําลังดําเนินการ...',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            });
                         },
-                        complete: function () {
-                            // Hide loading indicator after the request is complete
-                            Swal.hideLoading();
-                        }
                     }).done(function (response) {
+                        Swal.close();
                         if (response.success) {
                             Swal.fire({
                                 title: response.message,
@@ -865,13 +868,16 @@
                         'X-Requested-With': 'XMLHttpRequest'
                     },
                     beforeSend: function () {
-                        // Code to execute before the request is sent
+                        // Show loading indicator here
+                        var loadingIndicator = Swal.fire({
+                            title: 'กําลังดําเนินการ...',
+                            allowEscapeKey: false,
+                            allowOutsideClick: false,
+                            showConfirmButton: false,
+                        });
                     },
-                    complete: function () {
-                        // Hide loading indicator after the request is complete
-                        Swal.hideLoading();
-                    }
                 }).done(function (response) {
+                    Swal.close();
                     if (response.success) {
                         Swal.fire({
                             title: response.message,

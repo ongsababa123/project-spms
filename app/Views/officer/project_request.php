@@ -637,7 +637,7 @@
                 if (data_project_tk[data_encode]['data_tk03']['id_file_present'] != null) {
                     $(".modal-body #tk_03_file_present").show();
                     $("#tk_03_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + data_project_tk[data_encode]['data_tk03']['id_file_present'], '_blank'));
-                }else{
+                } else {
                     $(".modal-body #tk_03_file_present").hide();
                 }
                 if (data_project_tk[data_encode]['data_tk03']['id_score'] != null) {
@@ -711,7 +711,7 @@
                 if (data_project_tk[data_encode]['data_tk05']['id_file_present'] != null) {
                     $(".modal-body #tk_05_file_present").show();
                     $("#tk_05_file_read_2").click(() => window.open('<?php echo site_url('openfile/') ?>' + data_project_tk[data_encode]['data_tk05']['id_file_present'], '_blank'));
-                }else{
+                } else {
                     $(".modal-body #tk_05_file_present").hide();
                 }
                 if (data_project_tk[data_encode]['data_tk05']['id_score'] != null) {
@@ -747,13 +747,16 @@
                             'X-Requested-With': 'XMLHttpRequest'
                         },
                         beforeSend: function () {
-                            // Code to execute before the request is sent
+                            // Show loading indicator here
+                            var loadingIndicator = Swal.fire({
+                                title: 'กําลังดําเนินการ...',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            });
                         },
-                        complete: function () {
-                            // Hide loading indicator after the request is complete
-                            Swal.hideLoading();
-                        }
                     }).done(function (response) {
+                        Swal.close();
                         if (response.success) {
                             Swal.fire({
                                 title: response.message,
