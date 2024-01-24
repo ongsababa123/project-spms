@@ -1181,6 +1181,7 @@
     <script>
         var project = <?php echo json_encode($project); ?>;
         var id_test = <?php echo json_encode($id_test); ?>;
+        var type_tk = <?php echo json_encode($type_tk); ?>;
         $("#form_score").on('submit', function (e) {
             e.preventDefault();
             Swal.fire({
@@ -1203,9 +1204,9 @@
                     });
                     var scores = <?php echo json_encode($score); ?>;
                     if (scores == null) {
-                        var url = '<?= base_url('teacher/scorepage/create/') ?>' + id_test + '/' + project.id_project;
+                        var url = '<?= base_url('teacher/scorepage/create/') ?>' + id_test + '/' + project.id_project + '/' + type_tk;
                     } else {
-                        var url = '<?= base_url('teacher/scorepage/update/') ?>' + id_test + '/' + project.id_project + '/' + scores.id_score;
+                        var url = '<?= base_url('teacher/scorepage/update/') ?>' + id_test + '/' + project.id_project + '/' + scores.id_score + '/' + type_tk;
                     }
                     $.ajax({
                         url: url,

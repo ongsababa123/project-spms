@@ -6,28 +6,32 @@ use App\Models\ProjectModels;
 use App\Models\ScoreModels;
 use App\Models\TESTModels;
 use App\Models\TK05_Models;
+use App\Models\TK03_Models;
+use App\Controllers\SendMailController;
 
 class ScoreController extends BaseController
 {
 
-    public function index_scorepage($id_test = null, $id_project = null)
+    public function index_scorepage($id_test = null, $id_project = null, $type_tk = null)
     {
         $ProjectModels = new ProjectModels();
         $ScoreModels = new ScoreModels();
         $data['project'] = $ProjectModels->where('id_project', $id_project)->first();
         $data['id_test'] = $id_test;
+        $data['type_tk'] = $type_tk;
         $data['score'] = $ScoreModels->where('id_test_list', $id_test)->where('id_project', $id_project)->first();
 
         echo view('layout/header');
         echo view('scorepage_test', $data);
     }
 
-    public function create_scorepage($id_test = null, $id_project = null)
+    public function create_scorepage($id_test = null, $id_project = null, $type_tk = null)
     {
         helper(['form']);
         $ScoreModels = new ScoreModels();
         $TESTModels = new TESTModels();
         $TK05_Models = new TK05_Models();
+        $TK03_Models = new TK03_Models();
         $ProjectModels = new ProjectModels();
 
         $rules = [
@@ -90,14 +94,36 @@ class ScoreController extends BaseController
             if ($totalScore <= 59) {
                 $status_test = 3;
                 $status_tk = '3';
+                $text1 = "ไม่ผ่านการสอบ";
             } else {
                 $status_test = 2;
                 $status_tk = '6';
-                $ProjectModels->update($id_project, ['status_project' => 0]);
+                if ($type_tk == 2) {
+                    $ProjectModels->update($id_project, ['status_project' => 0]);
+                }
+                $text1 = "ผ่านการสอบ";
             }
-            $id_tk05 = $TK05_Models->find($ProjectModels->find($id_project)['id_tk05']);
-            $TK05_Models->update($id_tk05['id_tk_05'], ['status_tk_05' => $status_tk]);
-            $TESTModels->update($id_test, ['status_test' => $status_test]);
+
+            $data_project = $ProjectModels->find($id_project);
+            if ($type_tk == 1) {
+                $TK03_Models->update($data_project['id_tk03'], ['status_tk_03' => $status_tk]);
+                $TESTModels->update($id_test, ['status_test' => $status_test]);
+                $text2 = "ประเภท สอบ 60";
+            } else {
+                $TK05_Models->update($data_project['id_tk05'], ['status_tk_05' => $status_tk]);
+                $TESTModels->update($id_test, ['status_test' => $status_test]);
+                $text2 = "ประเภท สอบ 100";
+            }
+
+
+            $SendMailController = new SendMailController();
+            $name_project = $data_project['name_project_th'];
+            $email_student = explode(',', $data_project['email_student']);
+            $text = "ผลการสอบของ โครงงาน " . $name_project . " " . $text1 . " " . $text2 . " ได้คะแนน " . $totalScore . " คะแนน กรุณาตรวจสอบคะแนนในตารางสอบ";
+            $subject = "ผลการสอบ";
+            foreach ($email_student as $key => $value) {
+                $SendMailController->sendMail($value, $text, $subject);
+            }
 
             $response = [
                 'success' => true,
@@ -117,12 +143,13 @@ class ScoreController extends BaseController
         return $this->response->setJSON($response);
     }
 
-    public function update_scorepage($id_test = null, $id_project = null, $id_score = null)
+    public function update_scorepage($id_test = null, $id_project = null, $id_score = null, $type_tk = null)
     {
         helper(['form']);
         $ScoreModels = new ScoreModels();
         $TESTModels = new TESTModels();
         $TK05_Models = new TK05_Models();
+        $TK03_Models = new TK03_Models();
         $ProjectModels = new ProjectModels();
 
         $rules = [
@@ -185,15 +212,37 @@ class ScoreController extends BaseController
             if ($totalScore <= 59) {
                 $status_test = 3;
                 $status_tk = '3';
+                $text1 = "ไม่ผ่านการสอบ";
             } else {
                 $status_test = 2;
                 $status_tk = '6';
-                $ProjectModels->update($id_project, ['status_project' => 0]);
+                if ($type_tk == 2) {
+                    $ProjectModels->update($id_project, ['status_project' => 0]);
+                }
+                $text1 = "ผ่านการสอบ";
             }
-            $id_tk05 = $TK05_Models->find($ProjectModels->find($id_project)['id_tk05']);
-            $TK05_Models->update($id_tk05['id_tk_05'], ['status_tk_05' => $status_tk]);
 
-            $TESTModels->update($id_test, ['status_test' => $status_test]);
+            $data_project = $ProjectModels->find($id_project);
+            if ($type_tk == 1) {
+                $TK03_Models->update($data_project['id_tk03'], ['status_tk_03' => $status_tk]);
+                $TESTModels->update($id_test, ['status_test' => $status_test]);
+                $text2 = "ประเภท สอบ 60";
+            } else {
+                $TK05_Models->update($data_project['id_tk05'], ['status_tk_05' => $status_tk]);
+                $TESTModels->update($id_test, ['status_test' => $status_test]);
+                $text2 = "ประเภท สอบ 100";
+            }
+
+
+            $SendMailController = new SendMailController();
+            $name_project = $data_project['name_project_th'];
+            $email_student = explode(',', $data_project['email_student']);
+            $text = "ผลการสอบของ โครงงาน " . $name_project . " " . $text1 . " " . $text2 . " ได้คะแนน " . $totalScore . " คะแนน กรุณาตรวจสอบคะแนนในตารางสอบ";
+            $subject = "ผลการสอบ";
+            foreach ($email_student as $key => $value) {
+                $SendMailController->sendMail($value, $text, $subject);
+            }
+
             $response = [
                 'success' => true,
                 'message' => 'บันทึกคะแนนเสร็จสมบูรณ์',

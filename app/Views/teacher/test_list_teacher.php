@@ -257,8 +257,7 @@
                                     </div>
                                 </div>
                             <div class="card-footer clearfix">
-                            <button type="button" class="btn btn-danger float-right ml-1" ${status_button} onclick="confirm_Alert('ต้องการให้ไม่ผ่านใช่หรือไม่', '${element.id_test_list}/3/2')">ไม่ผ่าน</button>
-                            <button type="button" class="btn btn-success float-right" ${status_button} onclick="confirm_Alert('ต้องการให้ผ่านใช่หรือไม่', '${element.id_test_list}/2/2')">ผ่าน</button>
+                            <a href="<?= site_url('teacher/scorepage/') ?>${element.id_test_list + "/" + element.id_project + "/1" }" target="_blank" class="btn btn-info float-right">ลงคะแนน</a>
                         </div>
                     </div>
                 `;
@@ -359,7 +358,7 @@
                                     </div>
                                 </div>
                             <div class="card-footer clearfix">
-                                <a href="<?= site_url('teacher/scorepage/') ?>${element.id_test_list + "/" + element.id_project}" target="_blank" class="btn btn-info float-right">ลงคะแนน</a>
+                                <a href="<?= site_url('teacher/scorepage/') ?>${element.id_test_list + "/" + element.id_project + "/2" }" target="_blank" class="btn btn-info float-right">ลงคะแนน</a>
                         </div>
                     </div>`;
                                 $("#custom-tabs-one-messages").append(display_type3);
@@ -489,13 +488,16 @@
                             'X-Requested-With': 'XMLHttpRequest'
                         },
                         beforeSend: function () {
-                            // Code to execute before the request is sent
+                            // Show loading indicator here
+                            var loadingIndicator = Swal.fire({
+                                title: 'กําลังดําเนินการ...',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            });
                         },
-                        complete: function () {
-                            // Hide loading indicator after the request is complete
-                            Swal.hideLoading();
-                        }
                     }).done(function (response) {
+                        Swal.close();
                         if (response.success) {
                             Swal.fire({
                                 title: response.message,

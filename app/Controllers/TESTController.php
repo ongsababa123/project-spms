@@ -242,22 +242,35 @@ class TESTController extends BaseController
         $TK05_Models = new TK05_Models();
         if ($status == '2') {
             $status_tk = '6';
+            $text1 = "ผ่านการสอบ";
         } else if ($status == '3') {
             $status_tk = '3';
-        }
-        $project_id = $ProjectModels->find($TESTModels->find($id_test_list)['id_project']);
-        $data_project = $ProjectModels->find($project_id);
-        if ($type == '1') {
-            $TK02_Models->update($data_project[0]['id_tk02'], ['status_tk_02' => $status_tk]);
-        } elseif ($type == '2') {
-            $TK03_Models->update($data_project[0]['id_tk03'], ['status_tk_03' => $status_tk]);
-        } elseif ($type == '3') {
-            $id_tk05 = $TK05_Models->find($ProjectModels->find($project_id)['id_tk_05']);
-            $TK05_Models->update($id_tk05[0]['id_tk05'], ['status_tk_05' => $status_tk]);
+            $text1 = "ไม่ผ่านการสอบ";
         }
 
+        $data_test = $TESTModels->find($id_test_list);
+        $data_project = $ProjectModels->find($data_test['id_project']);
+        if ($type == '1') {
+            $TK02_Models->update($data_project['id_tk02'], ['status_tk_02' => $status_tk]);
+            $text2 = "ประเภท สอบหัวข้อ";
+        } elseif ($type == '2') {
+            $TK03_Models->update($data_project['id_tk03'], ['status_tk_03' => $status_tk]);
+            $text2 = "ประเภท สอบ 60";
+        } elseif ($type == '3') {
+            $TK05_Models->update($data_project['id_tk05'], ['status_tk_05' => $status_tk]);
+            $text2 = "ประเภท สอบ 100";
+        }
+
+        $SendMailController = new SendMailController();
+        $email_student = explode(',', $data_project['email_student']);
+        $text = "ผลการสอบของ โครงงาน " . $data_project['name_project_th'] . " " . $text1 . " " . $text2;
+        $subject = "ผลการสอบ";
+        foreach ($email_student as $key => $value) {
+            $SendMailController->sendMail($value, $text, $subject);
+        }
 
         $check = $TESTModels->update($id_test_list, ['status_test' => $status]);
+        // $check = true;
         $response = [
             'success' => $check,
             'message' => $check ? 'ดำเนินการเสร็จสิ้น' : 'ไม่สามารถดำเนินการได้',

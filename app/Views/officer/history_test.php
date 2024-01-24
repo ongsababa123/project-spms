@@ -326,9 +326,7 @@
                                 </div>
                         </div>
                         <div class="card-footer">
-                        <button type="button" class="btn btn-info float-right ml-2">
-                            ดูคะแนน
-                        </button>
+                        <a href="<?= site_url('officer/scorepage/') ?>${element.id_test_list + "/" + element.id_project}" target="_blank" class="btn btn-info float-right ml-2">ดูคะแนน</a>
                         <button type="button" class="btn btn-danger float-right" ${status_button} onclick="confirm_Alert('ต้องการยกเลิกการสอบหรือไม่', '${element.id_test_list}')">
                             ยกเลิก
                         </button>

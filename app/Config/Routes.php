@@ -52,9 +52,9 @@ $routes->group("teacher/", ['filter' => ['AuthGuard', 'Check_teacher']], functio
     $routes->match(['get', 'post'], 'progress/changestatus/file/(:num)/(:num)/(:num)', 'FileController::change_status/$1/$2/$3');
 
     $routes->match(['get', 'post'], 'scorepage', 'PageController::index_scorepage');
-    $routes->match(['get', 'post'], 'scorepage/(:num)/(:num)', 'ScoreController::index_scorepage/$1/$2');
-    $routes->match(['get', 'post'], 'scorepage/create/(:num)/(:num)', 'ScoreController::create_scorepage/$1/$2');
-    $routes->match(['get', 'post'], 'scorepage/update/(:num)/(:num)/(:num)', 'ScoreController::update_scorepage/$1/$2/$3');
+    $routes->match(['get', 'post'], 'scorepage/(:num)/(:num)/(:num)', 'ScoreController::index_scorepage/$1/$2/$3');
+    $routes->match(['get', 'post'], 'scorepage/create/(:num)/(:num)/(:num)', 'ScoreController::create_scorepage/$1/$2/$3');
+    $routes->match(['get', 'post'], 'scorepage/update/(:num)/(:num)/(:num)/(:num)', 'ScoreController::update_scorepage/$1/$2/$3/$4');
 
 
     $routes->match(['get', 'post'], 'testlist', 'PageController::index_testlist_teacher');
