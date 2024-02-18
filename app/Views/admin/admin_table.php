@@ -27,6 +27,10 @@
 
                         <div class="card-tools">
                             <a class="btn btn-app bg-success" data-toggle="modal" data-target="#modal-default"
+                                onclick="load_modal(3)">
+                                <i class="fas fa-file-csv"></i> เพิ่มข้อมูลนักศึกษาด้วยไฟล์
+                            </a>
+                            <a class="btn btn-app bg-success" data-toggle="modal" data-target="#modal-default"
                                 onclick="load_modal(1)">
                                 <i class="fas fa-plus-square"></i> เพิ่มข้อมูลผู้ดูแลระบบ
                             </a>
@@ -60,12 +64,16 @@
         <div id="crud_user">
             <?= $this->include("modal/crud_user"); ?>
         </div>
+        <div id="c_user_file">
+            <?= $this->include("modal/c_user_file"); ?>
+        </div>
     </div>
     <script>
         function load_modal(load_check, data_encode) {
             const modalBody = $(".modal-body");
             const modalHeader = $(".modal-header");
             const crud_user = $("#crud_user");
+            const c_user_file = $("#c_user_file");
 
             crud_user.show();
             modalBody.find('#name_user, #lastname_user, #email_user, #phone_user').val('');
@@ -76,12 +84,18 @@
 
             switch (load_check) {
                 case 1:
+                    crud_user.show();
+                    c_user_file.hide();
+                    modalBody.find('#name_user, #lastname_user, #email_user, #phone_user, #password, #room_user').prop('disabled', false);
                     textPassword.hide();
                     modalHeader.find('#title_modal').text("สร้างข้อมูลผู้ดูแลระบบ");
                     modalBody.find('#url_route').val("admin/user/create/4");
                     switchStatus.hide();
                     break;
                 case 2:
+                    crud_user.show();
+                    c_user_file.hide();
+
                     const rowData = JSON.parse(decodeURIComponent(data_encode));
                     switchStatus.show();
                     modalBody.find('#name_user').val(rowData.name_user);
@@ -107,6 +121,12 @@
 
                     modalHeader.find('#title_modal').text("แก้ไขข้อมูลผู้ดูแลระบบ");
                     modalBody.find('#url_route').val("admin/user/update/" + rowData.id_user);
+                    break;
+                case 3:
+                    crud_user.hide();
+                    c_user_file.show();
+                    $(".modal-body #file").empty();
+                    $(".modal-body #url_route_file").val("admin/user/create_file/4");
                     break;
             }
         }

@@ -35,35 +35,33 @@
                             <thead>
                                 <tr>
                                     <th style="width: 10px" class="text-center" rowspan="2">ช่วงเวลา</th>
-                                    <th style="width: 130px" class="text-center" colspan="5">วัน</th>
+                                    <th style="width: 130px" class="text-center" colspan="8">วัน</th>
                                 </tr>
                                 <tr>
-                                    <th style="width: 130px" class="text-center">จันทร์</th>
-                                    <th style="width: 130px" class="text-center">อังคาร</th>
-                                    <th style="width: 130px" class="text-center">พุธ</th>
-                                    <th style="width: 130px" class="text-center">พฤหัสบดี</th>
-                                    <th style="width: 130px" class="text-center">ศุกร์</th>
+                                    <?php
+                                    // Array of day names
+                                    $dayNames = ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์'];
+                                    $dayNam = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+
+                                    // Loop for each hour
+                                    for ($i = 9; $i <= 16; $i++):
+                                        ?>
+                                        <?php if ($i != 12): ?>
+                                            <th style="width: 130px" class="text-center">
+                                                <?= $i ?>:00 -
+                                                <?= ($i + 1) ?>:00
+                                            </th>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                // Array of day names
-                                $dayNames = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-
-                                // Loop for each hour
-                                for ($i = 9; $i <= 16; $i++):
-                                    ?>
+                                <?php foreach ($dayNam as $key => $day): ?>
                                     <tr>
-                                        <?php if ($i != 12): ?>
-                                            <td class="text-center" style="vertical-align: middle;">
-                                                <?= $i ?>:00 -
-                                                <?= ($i + 1) ?>:00
-                                            </td>
-                                        <?php endif; ?>
-                                        <?php
-                                        // Loop for each day
-                                        foreach ($dayNames as $day):
-                                            ?>
+                                        <td class="text-center">
+                                            <?= $dayNames[$key] ?>
+                                        </td>
+                                        <?php for ($i = 9; $i <= 16; $i++): ?>
                                             <?php
                                             $projects = [];
                                             $teachers = [];
@@ -121,9 +119,9 @@
                                                     <?php endforeach; ?>
                                                 </td>
                                             <?php endif; ?>
-                                        <?php endforeach; ?>
+                                        <?php endfor; ?>
                                     </tr>
-                                <?php endfor; ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

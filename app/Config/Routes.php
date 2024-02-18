@@ -96,6 +96,7 @@ $routes->group("admin/", ['filter' => ['AuthGuard', 'Check_admin']], function ($
     $routes->match(['get', 'post'], 'user/create/(:num)', 'UserController::create_user/$1');
     $routes->match(['get', 'post'], 'user/update/(:num)', 'UserController::edit_user/$1');
     $routes->match(['get', 'post'], 'user/getdata/(:num)', 'UserController::get_data_table_user/$1');
+    $routes->match(['get', 'post'], 'user/create_file/(:num)', 'UserController::create_with_file/$1');
 });
 
 $routes->match(['get', 'post'], '/', 'PageController::index_home', ['filter' => ['AuthGuard']]);

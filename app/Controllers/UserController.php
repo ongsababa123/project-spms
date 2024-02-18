@@ -185,5 +185,100 @@ class UserController extends BaseController
         return $this->response->setJSON($response);
     }
 
+    public function create_with_file($type = null)
+    {
+        helper('filesystem');
+        $input = $this->validate([
+            'file' => 'uploaded[file]|max_size[file,2048]|ext_in[file,csv],'
+        ]);
+        if (!$input) {
+            $response = [
+                'success' => false,
+                'message' => 'error',
+                'validator' => $this->validator->getErrors(),
+            ];
+            return $this->response->setJSON($response);
+        } else {
+            if ($file = $this->request->getFile('file')) {
+                if ($file->isValid() && !$file->hasMoved()) {
+                    $newName = $file->getRandomName();
+                    $file->move(ROOTPATH . 'public/uploads/', $newName);
+                    $file = fopen(ROOTPATH . 'public/uploads/' . $newName, "r");
+                    $i = 0;
+                    $csvArr = array();
+                    if ($type === '1') {
+                        while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
+                            $number_random = mt_rand(100000, 999999);
+                            if ($i > 0 ) {
+                                $csvArr[$i]['email_user'] = $filedata[0];
+                                $csvArr[$i]['name_user'] = $filedata[1];
+                                $csvArr[$i]['lastname_user'] = $filedata[2];
+                                $csvArr[$i]['phone_user'] = $filedata[3];
+                                $csvArr[$i]['room_user'] = $filedata[4];
+                                $csvArr[$i]['password_user'] = password_hash($filedata[5], PASSWORD_DEFAULT);
+                                $csvArr[$i]['key_pass_user'] = password_hash($number_random, PASSWORD_DEFAULT);
+                                $csvArr[$i]['status_user'] = 2;
+                                $csvArr[$i]['type_user'] = $type;
+                            }
+                            $i++;
+                        }
+                    } else {
+                        while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
+                            $number_random = mt_rand(100000, 999999);
+                            if ($i > 0 ) {
+                                $csvArr[$i]['email_user'] = $filedata[0];
+                                $csvArr[$i]['name_user'] = $filedata[1];
+                                $csvArr[$i]['lastname_user'] = $filedata[2];
+                                $csvArr[$i]['phone_user'] = $filedata[3];
+                                $csvArr[$i]['password_user'] = password_hash($filedata[4], PASSWORD_DEFAULT);
+                                $csvArr[$i]['key_pass_user'] = password_hash($number_random, PASSWORD_DEFAULT);
+                                $csvArr[$i]['status_user'] = 2;
+                                $csvArr[$i]['type_user'] = $type;
+                            }
+                            $i++;
+                        }
+                    }
+                    fclose($file);
+                    delete_files(ROOTPATH . 'public/uploads/', $newName, true);
+                    foreach ($csvArr as $userdata) {
+                        $UserModels = new UserModels();
+                        // เช็คว่าอีเมล์ซ้ำหรือไม่
+                        $isDuplicateEmail = $UserModels->where('email_user', $userdata['email_user'])->countAllResults();
+                        if ($isDuplicateEmail === 0) {
+                            $UserModels->insert($userdata);
+                            $this->sendMail($userdata['email_user'], $userdata['key_pass_user']);
+                        } else {
+                            $response = [
+                                'success' => false,
+                                'message' => 'อีเมล์ ' . $userdata['email_user'] . ' มีอยู่ในระบบแล้ว.',
+                                'reload' => true,
+                            ];
+                            return $this->response->setJSON($response);
+                        }
+                        $respone = [
+                            'success' => true,
+                            'message' => 'สร้างผู้ใช้งานเรียบร้อย',
+                            'reload' => true
+                        ];
+                    }
+
+                } else {
+                    $respone = [
+                        'success' => false,
+                        'message' => 'ไฟล์ CSV ไม่ถูกต้อง.',
+                        'reload' => false
+                    ];
+                }
+            } else {
+                $respone = [
+                    'success' => false,
+                    'message' => 'ไฟล์ CSV ไม่ถูกต้อง.',
+                    'reload' => false
+                ];
+            }
+        }
+        return $this->response->setJSON($respone);
+    }
+
 }
 

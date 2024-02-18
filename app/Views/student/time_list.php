@@ -40,54 +40,45 @@ if (isset($_GET['sort'])) {
                         <form class="mb-3" id="form_timelist" action="javascript:void(0)" method="post"
                             enctype="multipart/form-data">
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <select class="form-control" id="form_project" name="form_project">
-                                        </select>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <button type="button" class="btn btn-success btn-round" onclick="sortItems()">
-                                            ค้นหา
-                                        </button>
-                                    </div>
-                                </div>
-                                <hr>
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="width: 130px" class="text-center" rowspan="2">ช่วงเวลา</th>
-                                            <th style="width: 130px" class="text-center" colspan="5">วัน</th>
-                                        </tr>
-                                        <tr>
-                                            <th style="width: 130px" class="text-center">จันทร์</th>
-                                            <th style="width: 130px" class="text-center">อังคาร</th>
-                                            <th style="width: 130px" class="text-center">พุธ</th>
-                                            <th style="width: 130px" class="text-center">พฤหัสบดี</th>
-                                            <th style="width: 130px" class="text-center">ศุกร์</th>
+                                            <th style="width: 130px" class="text-center">เวลา</th>
+                                            <?php
+                                            // Array of day names
+                                            $dayNames = ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์'];
+                                            $dayNam = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+
+                                            // Loop for each hour
+                                            for ($i = 9; $i <= 16; $i++):
+                                                ?>
+                                                <?php if ($i != 12): ?>
+                                                    <th style="width: 130px" class="text-center">
+                                                        <?= $i ?>:00 -
+                                                        <?= ($i + 1) ?>:00
+                                                    </th>
+                                                <?php endif; ?>
+                                            <?php endfor; ?>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        // Array of day names
-                                        $dayNames = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-
-                                        // Loop for each hour
-                                        for ($i = 9; $i <= 16; $i++):
+                                        // Loop for each day
+                                        foreach ($dayNam as $key => $day):
                                             ?>
                                             <tr>
-                                                <?php if ($i != 12): ?>
-                                                    <td class="text-center">
-                                                        <?= $i ?>:00 -
-                                                        <?= ($i + 1) ?>:00
-                                                    </td>
-                                                <?php endif; ?>
+                                                <td class="text-center">
+                                                    <?= $dayNames[$key] ?>
+                                                </td>
                                                 <?php
-                                                // Loop for each day
-                                                foreach ($dayNames as $day):
-                                                    $temp_name = $day . ',' . $i;
+                                                // Loop for each hour
+                                                for ($i = 9; $i <= 16; $i++):
                                                     ?>
                                                     <?php if ($i != 12): ?>
                                                         <td class="text-center">
+                                                            <?php
+                                                            $temp_name = strtolower($day) . ',' . $i;
+                                                            ?>
                                                             <div class="icheck-primary d-inline">
                                                                 <input type="checkbox" id="<?= $temp_name ?>" name="<?= $temp_name ?>"
                                                                     onclick="handleCheckboxClick(this)">
@@ -95,9 +86,9 @@ if (isset($_GET['sort'])) {
                                                             </div>
                                                         </td>
                                                     <?php endif; ?>
-                                                <?php endforeach; ?>
+                                                <?php endfor; ?>
                                             </tr>
-                                        <?php endfor; ?>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
