@@ -35,7 +35,10 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th style="width: 130px" class="text-center">เวลา</th>
+                                        <th style="width: 10px" class="text-center" rowspan="2">วัน</th>
+                                        <th style="width: 130px" class="text-center" colspan="8">ช่วงเวลา</th>
+                                    </tr>
+                                    <tr>
                                         <?php
                                         // Array of day names
                                         $dayNames = ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์'];

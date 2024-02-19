@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2024 at 02:53 PM
+-- Generation Time: Feb 19, 2024 at 11:10 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,35 @@ SET time_zone = "+00:00";
 --
 -- Database: `project_spms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment_table`
+--
+
+CREATE TABLE `comment_table` (
+  `id_comment` int(100) NOT NULL,
+  `comment` text DEFAULT NULL,
+  `id_file` int(10) DEFAULT NULL,
+  `id_project` int(10) NOT NULL,
+  `id_tk` int(10) NOT NULL,
+  `type` int(10) NOT NULL,
+  `date_time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `comment_table`
+--
+
+INSERT INTO `comment_table` (`id_comment`, `comment`, `id_file`, `id_project`, `id_tk`, `type`, `date_time`) VALUES
+(1, 'adwasdwads', 14, 1, 1, 4, '2024-02-19 09:56:42'),
+(2, 'dsfsdfesdfesd', NULL, 1, 1, 4, '2024-02-19 09:59:53'),
+(3, 'adfwasdaws', 16, 4, 6, 2, '2024-02-19 10:02:49'),
+(4, NULL, 18, 4, 2, 3, '2024-02-19 10:17:18'),
+(5, NULL, NULL, 1, 1, 5, '2024-02-19 10:49:09'),
+(6, NULL, NULL, 1, 1, 1, '2024-02-19 11:02:00'),
+(7, NULL, 18, 4, 2, 3, '2024-02-22 10:17:18');
 
 -- --------------------------------------------------------
 
@@ -46,6 +75,30 @@ CREATE TABLE `file_table` (
   `status_file` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `file_table`
+--
+
+INSERT INTO `file_table` (`id_file`, `name_file`, `date_uploade`, `status_file`) VALUES
+(1, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(2, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(3, 'arjun.pdf', '2024-01-24', NULL),
+(4, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(5, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(6, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(7, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(8, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(9, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(10, 'รายงานยอดขาย.pdf', '2024-01-24', 0),
+(11, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(12, 'รายงานยอดขาย.pdf', '2024-01-24', NULL),
+(13, 'arjun.pdf', '2024-01-24', NULL),
+(14, 'arjun.pdf', '2024-02-19', NULL),
+(15, 'arjun.pdf', '2024-02-19', NULL),
+(16, 'arjun.pdf', '2024-02-19', NULL),
+(17, 'ตัวอย่างแอพที่ต้องการ.pdf', '2024-02-19', NULL),
+(18, 'arjun.pdf', '2024-02-19', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +123,17 @@ CREATE TABLE `list_project_table` (
   `year` varchar(100) NOT NULL,
   `status_project` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `list_project_table`
+--
+
+INSERT INTO `list_project_table` (`id_project`, `name_project_th`, `name_project_eng`, `email_student`, `email_teacher`, `name_consult`, `id_tk01`, `id_tk02`, `id_tk03`, `id_tk04`, `id_tk05`, `department`, `subject_group`, `term`, `year`, `status_project`) VALUES
+(1, 'test', 'test', 'ratthaburee2543@gmail.com', 'jailyootbandit@gmail.com', NULL, 1, 5, 1, 1, 1, 'test', 'test', '1', '1', 1),
+(2, 'test', 'test', 'ratthaburee2543@gmail.com', 'jailyootbandit@gmail.com', NULL, 2, NULL, NULL, NULL, NULL, 'test', 'test', '1', '1', 1),
+(3, 'tt net', 'tt net', 'ratthaburee2543@gmail.com', 'jailyootbandit@gmail.com', NULL, 3, NULL, NULL, NULL, NULL, 'test', 'test', '1', '1', 1),
+(4, 'jriayut bandit', 'jriayut bandit', 'ratthaburee2543@gmail.com,jailyootbandit@gmail.com', 'jailyootbandit@gmail.com', NULL, 4, 6, 2, NULL, NULL, 'asdsad', '1', '1', '1', 1),
+(5, 'sdfsd', 'dsfsdf', 'ratthaburee2543@gmail.com', 'jailyootbandit@gmail.com', NULL, 5, NULL, NULL, NULL, NULL, '1', '1', '1', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -157,6 +221,25 @@ CREATE TABLE `time_list_table` (
   `time_number` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `time_list_table`
+--
+
+INSERT INTO `time_list_table` (`id_time_list`, `id_project`, `email_user`, `date_`, `time_number`) VALUES
+(1, 1, NULL, 'monday', 9),
+(2, 1, NULL, 'monday', 10),
+(3, 1, NULL, 'monday', 16),
+(4, NULL, 'jailyootbandit@gmail.com', 'monday', 9),
+(5, NULL, 'jailyootbandit@gmail.com', 'monday', 10),
+(6, NULL, 'jailyootbandit@gmail.com', 'monday', 16),
+(7, 3, NULL, 'monday', 9),
+(8, 3, NULL, 'tuesday', 9),
+(9, 3, NULL, 'wednesday', 9),
+(13, 4, NULL, 'monday', 9),
+(14, 4, NULL, 'tuesday', 9),
+(15, 4, NULL, 'wednesday', 9),
+(16, 4, NULL, 'wednesday', 10);
+
 -- --------------------------------------------------------
 
 --
@@ -168,6 +251,17 @@ CREATE TABLE `tk01_list_table` (
   `id_file_01` int(10) NOT NULL,
   `status_tk_01` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tk01_list_table`
+--
+
+INSERT INTO `tk01_list_table` (`id_tk_01`, `id_file_01`, `status_tk_01`) VALUES
+(1, 1, 3),
+(2, 2, 1),
+(3, 3, 6),
+(4, 12, 6),
+(5, 13, 3);
 
 -- --------------------------------------------------------
 
@@ -182,6 +276,18 @@ CREATE TABLE `tk02_list_table` (
   `status_tk_02` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `tk02_list_table`
+--
+
+INSERT INTO `tk02_list_table` (`id_tk_02`, `id_file_02`, `id_file_present`, `status_tk_02`) VALUES
+(1, 4, NULL, 2),
+(2, 5, NULL, 2),
+(3, 6, NULL, 2),
+(4, 7, NULL, 2),
+(5, 8, NULL, 6),
+(6, 15, NULL, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -195,6 +301,14 @@ CREATE TABLE `tk03_list_table` (
   `status_tk_03` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `tk03_list_table`
+--
+
+INSERT INTO `tk03_list_table` (`id_tk_03`, `id_file_03`, `id_file_present`, `status_tk_03`) VALUES
+(1, 9, NULL, 3),
+(2, 17, NULL, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -206,6 +320,13 @@ CREATE TABLE `tk04_list_table` (
   `id_file_04` varchar(100) NOT NULL,
   `status_tk_04` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tk04_list_table`
+--
+
+INSERT INTO `tk04_list_table` (`id_tk_04`, `id_file_04`, `status_tk_04`) VALUES
+(1, '10', 3);
 
 -- --------------------------------------------------------
 
@@ -221,6 +342,13 @@ CREATE TABLE `tk05_list_table` (
   `email_director2` varchar(255) DEFAULT NULL,
   `status_tk_05` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tk05_list_table`
+--
+
+INSERT INTO `tk05_list_table` (`id_tk_05`, `id_file_05`, `id_file_present`, `email_director1`, `email_director2`, `status_tk_05`) VALUES
+(1, 11, NULL, NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -246,7 +374,11 @@ CREATE TABLE `user_table` (
 --
 
 INSERT INTO `user_table` (`id_user`, `email_user`, `name_user`, `lastname_user`, `phone_user`, `room_user`, `password_user`, `key_pass_user`, `status_user`, `type_user`) VALUES
-(9, 'ratthaburee2543@gmail.com', 'Ratthaburee', 'Taennil', '0000000000', NULL, '$2y$10$Hjtfb6BdRAH69Pz3ZERaaOxD4WELAixoId/RvWnK2db5KdsgZFXi2', '$2y$10$K1DJ/CcG8tozt.eVt63ILOxEMejfjLwj6szHh/86YQi62wZhqOpmW', 1, 5);
+(9, 'ratthaburee2543@gmail.com', 'Ratthaburee', 'Taennil', '0000000000', NULL, '$2y$10$Hjtfb6BdRAH69Pz3ZERaaOxD4WELAixoId/RvWnK2db5KdsgZFXi2', '$2y$10$K1DJ/CcG8tozt.eVt63ILOxEMejfjLwj6szHh/86YQi62wZhqOpmW', 1, 5),
+(15, 'jailyootbandit@gmail.com', 'jriayut', 'bandit', '1234567891', NULL, '$2y$10$UHmwNdJG30c6ZAIbNl8s2OyyfWLbB49sp6gvvPl26D6zkoXlitR8.', '$2y$10$x4KzmQH9rMuKW7CTuPyMyeaEBRIfUXIPdGmNfXAJOjTaTAxeUOzt2', 1, 1),
+(16, 's6406021421171@email.kmutnb.ac.th', 'จิลายุทธ', 'บัณฑิต', '1234567891', NULL, '$2y$10$2nzdA6uMElgkxOHPC53MROLyuC/b5EZD9leznWvCYpAobSDL8DjLC', '$2y$10$ydClhTCSrKt3EYn6HFfKR.UNqqOtaFNwxxOewXwTq/rnncR3ymeE6', 2, 3),
+(17, '6406021421171@fitm.kmutnb.ac.th', 'jirayut', 'bandit', '0123123123', NULL, '$2y$10$8vaYbt81kqAuHYcOHDtY1.YPytfGl7McIJcbUgrb/l7fJYU.Dt2RC', '$2y$10$LoyI8NTzu6o.oCwjoWe4S.aCRar8NeTR6ZR20YGIfW9Rgx01ypS5C', 2, 4),
+(18, 'enjoy22102543@gmail.com', 'enjoy', 'บัณฑิต', '1234567891', NULL, '$2y$10$2nzdA6uMElgkxOHPC53MROLyuC/b5EZD9leznWvCYpAobSDL8DjLC', '$2y$10$ydClhTCSrKt3EYn6HFfKR.UNqqOtaFNwxxOewXwTq/rnncR3ymeE6', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -266,6 +398,12 @@ CREATE TABLE `user_temp_table` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `comment_table`
+--
+ALTER TABLE `comment_table`
+  ADD PRIMARY KEY (`id_comment`);
 
 --
 -- Indexes for table `file_ex_table`
@@ -356,6 +494,12 @@ ALTER TABLE `user_temp_table`
 --
 
 --
+-- AUTO_INCREMENT for table `comment_table`
+--
+ALTER TABLE `comment_table`
+  MODIFY `id_comment` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `file_ex_table`
 --
 ALTER TABLE `file_ex_table`
@@ -365,13 +509,13 @@ ALTER TABLE `file_ex_table`
 -- AUTO_INCREMENT for table `file_table`
 --
 ALTER TABLE `file_table`
-  MODIFY `id_file` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_file` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `list_project_table`
 --
 ALTER TABLE `list_project_table`
-  MODIFY `id_project` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_project` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `news_list_table`
@@ -389,49 +533,49 @@ ALTER TABLE `score_table`
 -- AUTO_INCREMENT for table `test_list_table`
 --
 ALTER TABLE `test_list_table`
-  MODIFY `id_test_list` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_test_list` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `time_list_table`
 --
 ALTER TABLE `time_list_table`
-  MODIFY `id_time_list` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_time_list` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tk01_list_table`
 --
 ALTER TABLE `tk01_list_table`
-  MODIFY `id_tk_01` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tk_01` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tk02_list_table`
 --
 ALTER TABLE `tk02_list_table`
-  MODIFY `id_tk_02` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tk_02` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tk03_list_table`
 --
 ALTER TABLE `tk03_list_table`
-  MODIFY `id_tk_03` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tk_03` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tk04_list_table`
 --
 ALTER TABLE `tk04_list_table`
-  MODIFY `id_tk_04` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tk_04` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tk05_list_table`
 --
 ALTER TABLE `tk05_list_table`
-  MODIFY `id_tk_05` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tk_05` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user_temp_table`

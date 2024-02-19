@@ -103,8 +103,9 @@
                                                     </div>
                                                     <div class="col-2">
                                                         <button type="button" class="btn btn-block btn-warning btn-sm"
-                                                            onclick="confirm_Alert('ต้องการส่งกลับให้ปรับปรุงหรือไม่?','<?= $value['data_tk01']['id_tk_01'] ?>/1/3')">
-                                                            ส่งกลับไปให้ปรับปรุง</button>
+                                                            data-toggle="modal" data-target="#modal-default"
+                                                            onclick="comment('<?= $value['id_project'] ?>','<?= $value['data_tk01']['id_tk_01'] ?>','1')">
+                                                            ส่งกลับไปแก้ไข</button>
                                                     </div>
                                                     <div class="col-1">
                                                         <button type="button" class="btn btn-block btn-danger btn-sm"
@@ -135,12 +136,19 @@
         <div id="main_tk">
             <?= $this->include("modal/main_tk"); ?>
         </div>
+        <div id="c_comment">
+            <?= $this->include("modal/c_comment"); ?>
+        </div>
     </div>
     <script>
         var data_project = <?php echo json_encode($data_project); ?>;
     </script>
     <script>
         function load_modal(load_check, data_encode) {
+            main_tk = document.getElementById("main_tk");
+            c_comment = document.getElementById("c_comment");
+            main_tk.style.display = "block";
+            c_comment.style.display = "none";
             $(".modal-footer #btn_modal").hide();
             $(".modal-body #select_teacher").empty();
             const fieldsToReset = [
@@ -182,6 +190,7 @@
             });
             $(".modal-footer #submit").prop('disabled', true);
             fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', true));
+            $(".modal-footer #btn_history").prop('href', '<?= base_url('comment/index/') ?>' + data_project[data_encode]['id_project']);
 
             if (load_check == 2) {
                 //edit tk01
@@ -245,6 +254,63 @@
                         }
                     });
                 }
+            });
+        }
+    </script>
+    <script>
+        function comment(id_project, id_tk, type) {
+            main_tk = document.getElementById("main_tk");
+            c_comment = document.getElementById("c_comment");
+            main_tk.style.display = "none";
+            c_comment.style.display = "block";
+            $(".modal-body #file").empty();
+            $(".modal-body #comment").empty();
+            $(".modal-body #url_route_file").val("comment/create/" + id_project + "/" + id_tk + "/" + type);
+        }
+    </script>
+    <script>
+        function action_(url, form) {
+            var formData = new FormData(document.getElementById(form));
+            $.ajax({
+                url: '<?= base_url() ?>' + url,
+                type: "POST",
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "JSON",
+                beforeSend: function () {
+                    // Show loading indicator here
+                    var loadingIndicator = Swal.fire({
+                        title: 'กําลังดําเนินการ...',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                    });
+                },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            title: response.message,
+                            icon: 'success',
+                            showConfirmButton: false,
+                            allowOutsideClick: false
+                        });
+                        setTimeout(() => {
+                            if (response.reload) {
+                                window.location.reload();
+                            }
+                        }, 2000);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire({
+                        title: "เกิดข้อผิดพลาด",
+                        icon: 'error',
+                        showConfirmButton: true,
+                        confirmButtonText: "ตกลง",
+                    });
+                },
             });
         }
     </script>

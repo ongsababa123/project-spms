@@ -40,10 +40,25 @@ if (isset($_GET['sort'])) {
                         <form class="mb-3" id="form_timelist" action="javascript:void(0)" method="post"
                             enctype="multipart/form-data">
                             <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <select class="form-control" id="form_project" name="form_project">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <button type="button" class="btn btn-success btn-round" onclick="sortItems()">
+                                            ค้นหา
+                                        </button>
+                                    </div>
+                                </div>
+                                <hr>
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="width: 130px" class="text-center">เวลา</th>
+                                            <th style="width: 10px" class="text-center" rowspan="2">วัน</th>
+                                            <th style="width: 130px" class="text-center" colspan="8">ช่วงเวลา</th>
+                                        </tr>
+                                        <tr>
                                             <?php
                                             // Array of day names
                                             $dayNames = ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์'];
@@ -121,8 +136,8 @@ if (isset($_GET['sort'])) {
         </section>
     </div>
     <script>
-
         var data_project = <?php echo json_encode($data_project); ?>;
+        console.log(data_project);
         var sort_project = "<?php echo $sortOrder; ?>";
         if (data_project.length === 0) {
             var id_pj = "";

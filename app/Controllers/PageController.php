@@ -31,9 +31,17 @@ class PageController extends BaseController
         $ProjectModels = new ProjectModels();
         $email = session()->get('email');
         $allData = $ProjectModels->where('status_project', 1)->findAll();
-        $data['data_project'] = array_filter($allData, function ($row) use ($email) {
-            return strpos($row['email_student'], $email) !== false;
-        });
+        // $data['data_project'] = array_filter($allData, function ($row) use ($email) {
+        //     return strpos($row['email_student'], $email) !== false;
+        // });
+        $count = 0;
+        foreach ($allData as $key => $value) {
+            $email_students = explode(',', $value['email_student']);
+            if (in_array($email, $email_students)) {
+                $data['data_project'][$count] = $value;
+                $count++;
+            }
+        }
         echo view('layout/header');
         echo view('student/time_list', $data);
     }

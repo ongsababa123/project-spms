@@ -112,3 +112,7 @@ $routes->match(['get', 'post'], '/login/auth', 'LoginController::loginAuth');
 $routes->match(['get', 'post'], '/logout', 'LoginController::logout');
 $routes->match(['get', 'post'], '/openfile/(:num)', 'FileController::openfile/$1');
 
+$routes->match(['get', 'post'], '/comment/index/(:num)', 'CommentController::index_comment/$1' , ['filter' => 'AuthGuard']);
+$routes->match(['get', 'post'], '/comment/create/(:num)/(:num)/(:num)', 'CommentController::insert_comment/$1/$2/$3' , ['filter' => 'AuthGuard']);
+
+

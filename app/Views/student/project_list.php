@@ -82,6 +82,7 @@
                 '#name_student_2', '#lastname_student_2', '#email_student_2', '#phone_student_2', '#room_student_2',
                 '#name_student_3', '#lastname_student_3', '#email_student_3', '#phone_student_3', '#room_student_3'
             ];
+
             if (load_check == 1) {
                 //create tk01
                 var data_user = <?php echo json_encode($data_user); ?>;
@@ -119,6 +120,8 @@
                     contentType: false,
                     dataType: "JSON",
                     success: function (data) {
+                        $(".modal-footer #btn_history").prop('href', '<?= base_url('comment/index/') ?>' + data['project']['id_project']);
+
                         if (data['project']['status_project'] == 2 || data['project']['status_project'] == 0) {
                             $(".modal-footer #btn_modal").hide();
                         } else {

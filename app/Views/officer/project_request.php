@@ -143,7 +143,8 @@
                                                                 onclick="confirm_Alert('ต้องการให้ติดต่อเจ้าหน้าที่หรือไม่?','<?= $value['data_tk01']['id_tk_01'] ?>/1/7')">
                                                                 แจ้งให้ติดต่อ</button>
                                                             <button type="button" class="btn btn-warning float-right mr-3"
-                                                                onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk01']['id_tk_01'] ?>/1/3')">
+                                                                data-toggle="modal" data-target="#modal-default"
+                                                                onclick="comment('<?= $value['data_project']['id_project'] ?>','<?= $value['data_tk01']['id_tk_01'] ?>','1')">
                                                                 ส่งกลับไปแก้ไข</button>
                                                             <button type="button" class="btn btn-success float-right mr-3"
                                                                 onclick="confirm_Alert('ต้องการให้ผ่านหรือไม่?','<?= $value['data_tk01']['id_tk_01'] ?>/1/4')">
@@ -238,7 +239,8 @@
                                                                     onclick="confirm_Alert('ต้องการให้ติดต่อเจ้าหน้าที่หรือไม่?','<?= $value['data_tk02']['id_tk_02'] ?>/2/7')">
                                                                     แจ้งให้ติดต่อ</button>
                                                                 <button type="button" class="btn btn-warning float-right mr-3"
-                                                                    onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk02']['id_tk_02'] ?>/2/3')">
+                                                                    data-toggle="modal" data-target="#modal-default"
+                                                                    onclick="comment('<?= $value['data_project']['id_project'] ?>','<?= $value['data_tk02']['id_tk_02'] ?>','2')">
                                                                     ส่งกลับไปแก้ไข</button>
                                                                 <button type="button" class="btn btn-success float-right mr-3"
                                                                     onclick="confirm_Alert('ต้องการให้ผ่านหรือไม่?','<?= $value['data_tk02']['id_tk_02'] ?>/2/4')">
@@ -334,7 +336,8 @@
                                                                         แจ้งให้ติดต่อ</button>
                                                                     <button type="button"
                                                                         class="btn btn-warning float-right mr-3"
-                                                                        onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk03']['id_tk_03'] ?>/3/3')">
+                                                                        data-toggle="modal" data-target="#modal-default"
+                                                                        onclick="comment('<?= $value['data_project']['id_project'] ?>','<?= $value['data_tk03']['id_tk_03'] ?>','3')">
                                                                         ส่งกลับไปแก้ไข</button>
                                                                     <button type="button"
                                                                         class="btn btn-success float-right mr-3"
@@ -433,7 +436,8 @@
                                                                             แจ้งให้ติดต่อ</button>
                                                                         <button type="button"
                                                                             class="btn btn-warning float-right mr-3"
-                                                                            onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk04']['id_tk_04'] ?>/4/3')">
+                                                                            data-toggle="modal" data-target="#modal-default"
+                                                                            onclick="comment('<?= $value['data_project']['id_project'] ?>','<?= $value['data_tk04']['id_tk_04'] ?>','4')">
                                                                             ส่งกลับไปแก้ไข</button>
                                                                         <button type="button"
                                                                             class="btn btn-success float-right mr-3"
@@ -535,7 +539,8 @@
                                                                                 แจ้งให้ติดต่อ</button>
                                                                             <button type="button"
                                                                                 class="btn btn-warning float-right mr-3"
-                                                                                onclick="confirm_Alert('ต้องการให้ส่งกลับเพื่อแก้ไขหรือไม่?','<?= $value['data_tk05']['id_tk_05'] ?>/5/3')">
+                                                                                data-toggle="modal" data-target="#modal-default"
+                                                                                onclick="comment('<?= $value['data_project']['id_project'] ?>','<?= $value['data_tk05']['id_tk_05'] ?>','5')">
                                                                                 ส่งกลับไปแก้ไข</button>
                                                                             <button type="button"
                                                                                 class="btn btn-success float-right mr-3"
@@ -561,14 +566,19 @@
         <div id="main_tk">
             <?= $this->include("modal/main_tk"); ?>
         </div>
+        <div id="c_comment">
+            <?= $this->include("modal/c_comment"); ?>
+        </div>
     </div>
     <script>
         var data_project_tk = <?php echo json_encode($data_project_tk); ?>;
         function load_modal(load_check, data_encode) {
             $(".modal-body #submit_btn_teacher").hide();
             main_tk = document.getElementById("main_tk");
+            c_comment = document.getElementById("c_comment");
             main_tk.style.display = "block";
-            console.log(data_project_tk[data_encode]);
+            c_comment.style.display = "none";
+            // console.log(data_project_tk[data_encode]);
             $(".modal-body #select_teacher").empty();
             const fieldsToReset = [
                 '#name_project', '#name_project_eng', '#department', '#subject_group',
@@ -609,6 +619,7 @@
                 $(".modal-body #room_student_" + key).val(element.room_user);
             });
             fieldsToReset.forEach(field => $(".modal-body " + field).prop('disabled', true));
+            $(".modal-footer #btn_history").prop('href', '<?= base_url('comment/index/') ?>' + data_project_tk[data_encode]['data_project']['id_project']);
             if (load_check == 2) {
                 //edit tk01
                 $(".modal-header #title_modal").text('ข้อมูล ทก.01');
@@ -777,6 +788,63 @@
                         }
                     });
                 }
+            });
+        }
+    </script>
+    <script>
+        function comment(id_project, id_tk, type) {
+            main_tk = document.getElementById("main_tk");
+            c_comment = document.getElementById("c_comment");
+            main_tk.style.display = "none";
+            c_comment.style.display = "block";
+            $(".modal-body #file").empty();
+            $(".modal-body #comment").empty();
+            $(".modal-body #url_route_file").val("comment/create/" + id_project + "/" + id_tk + "/" + type);
+        }
+    </script>
+    <script>
+        function action_(url, form) {
+            var formData = new FormData(document.getElementById(form));
+            $.ajax({
+                url: '<?= base_url() ?>' + url,
+                type: "POST",
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "JSON",
+                beforeSend: function () {
+                    // Show loading indicator here
+                    var loadingIndicator = Swal.fire({
+                        title: 'กําลังดําเนินการ...',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                    });
+                },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            title: response.message,
+                            icon: 'success',
+                            showConfirmButton: false,
+                            allowOutsideClick: false
+                        });
+                        setTimeout(() => {
+                            if (response.reload) {
+                                window.location.reload();
+                            }
+                        }, 2000);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire({
+                        title: "เกิดข้อผิดพลาด",
+                        icon: 'error',
+                        showConfirmButton: true,
+                        confirmButtonText: "ตกลง",
+                    });
+                },
             });
         }
     </script>

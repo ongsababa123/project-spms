@@ -224,12 +224,13 @@
                         </div>
                         <div id="submit_btn_teacher">
                             <button class="btn btn-success" name="submit_success" id="submit_success">ผ่าน</button>
-                            <button class="btn btn-warning" name="submit_back_edit"
-                                id="submit_back_edit">ส่งกลับแก้ไข</button>
+                            <button type="button" class="btn btn-warning"  name="submit_back_edit" id="submit_back_edit">
+                                ส่งกลับไปแก้ไข</button>
                             <button class="btn btn-danger" name="submit_danger"
                                 id="submit_danger">เอกสารไม่ผ่าน</button>
                         </div>
                     </div>
+                    <a type="button" class="btn btn-primary" target="_blank" id="btn_history">ประวัติคอมเม้น</a>
                     <button type="button" class="btn btn-info" data-dismiss="modal">ปิดหน้าต่าง</button>
                 </div>
             </form>

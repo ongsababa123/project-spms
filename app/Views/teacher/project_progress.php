@@ -120,11 +120,13 @@
         <div id="main_tk">
             <?= $this->include("modal/main_tk"); ?>
         </div>
+        <div id="c_comment">
+            <?= $this->include("modal/c_comment"); ?>
+        </div>
     </div>
     <script>
         $(document).ready(function () {
             getTableData_status1();
-
         });
     </script>
     <script>
@@ -558,11 +560,13 @@
             $(".modal-footer #submit_btn_teacher").show();
 
             const rowData = JSON.parse(decodeURIComponent(data_encode));
-            console.log(rowData);
+            // console.log(rowData);
             $(".modal-body #tk_04_file_1").empty();
             $(".modal-body #select_teacher").empty();
             main_tk = document.getElementById("main_tk");
+            c_comment = document.getElementById("c_comment");
             main_tk.style.display = "block";
+            c_comment.style.display = "none";
             $(".modal-body #select_teacher").empty();
             const fieldsToReset = [
                 '#name_project', '#name_project_eng', '#department', '#subject_group',
@@ -620,6 +624,8 @@
                 $(".modal-body #name_consult_1").val(consultants[0]);
                 $(".modal-body #name_consult_2").val(consultants[1]);
             }
+            $(".modal-footer #btn_history").prop('href', '<?= base_url('comment/index/') ?>' + rowData['id_project']);
+
             if (load_check == 2) {
                 //edit tk01
                 $("#tk_01_file_read_btn").click(() => window.open('<?php echo site_url('openfile/') ?>' + rowData['data_tk01']['id_file_01'], '_blank'));
@@ -634,7 +640,7 @@
                 }
 
                 $("#submit_success").click(() => confirm_Alert('ต้องการให้ผ่านหรือไม่?', rowData['data_tk01']['id_tk_01'] + '/1/6'));
-                $("#submit_back_edit").click(() => confirm_Alert('ต้องการให้กลับแก้ไปไขหรือไม่?', rowData['data_tk01']['id_tk_01'] + '/1/3'));
+                $("#submit_back_edit").click(() => comment(rowData['id_project'], rowData['data_tk01']['id_tk_01'], '1'));
                 $("#submit_danger").click(() => confirm_Alert('ต้องการยกเลิกเอกสารหรือไม่?', rowData['data_tk01']['id_tk_01'] + '/1/5'));
                 $(".modal-header #title_modal").text('ข้อมูล ทก.01');
                 $(".modal-body #tk_01_file_upload").hide();
@@ -664,7 +670,7 @@
                     $(".modal-footer #submit_danger").prop('disabled', true);
                 }
                 $("#submit_success").click(() => confirm_Alert('ต้องการให้ผ่านหรือไม่?', rowData['data_tk02']['id_tk_02'] + '/2/6'));
-                $("#submit_back_edit").click(() => confirm_Alert('ต้องการให้กลับแก้ไปไขหรือไม่?', rowData['data_tk02']['id_tk_02'] + '/2/3'));
+                $("#submit_back_edit").click(() => comment(rowData['id_project'], rowData['data_tk02']['id_tk_02'], '2'));
                 $("#submit_danger").click(() => confirm_Alert('ต้องการยกเลิกเอกสารหรือไม่?', rowData['data_tk02']['id_tk_02'] + '/2/5'));
                 $(".modal-body #tk_02_file").hide();
                 $(".modal-header #title_modal").text('ข้อมูล ทก.02');
@@ -700,7 +706,7 @@
                 }
 
                 $("#submit_success").click(() => confirm_Alert('ต้องการให้ผ่านหรือไม่?', rowData['data_tk03']['id_tk_03'] + '/3/6'));
-                $("#submit_back_edit").click(() => confirm_Alert('ต้องการให้กลับแก้ไปไขหรือไม่?', rowData['data_tk03']['id_tk_03'] + '/3/3'));
+                $("#submit_back_edit").click(() => comment(rowData['id_project'], rowData['data_tk03']['id_tk_03'], '3'));
                 $("#submit_danger").click(() => confirm_Alert('ต้องการยกเลิกเอกสารหรือไม่?', rowData['data_tk03']['id_tk_03'] + '/3/5'));
                 $(".modal-header #title_modal").text('ข้อมูล ทก.03');
                 $(".modal-body #tk_01").hide();
@@ -780,7 +786,7 @@
                 }
 
                 $("#submit_success").click(() => confirm_Alert('ต้องการให้ผ่านหรือไม่?', rowData['data_tk05']['id_tk_05'] + '/5/6'));
-                $("#submit_back_edit").click(() => confirm_Alert('ต้องการให้กลับแก้ไปไขหรือไม่?', rowData['data_tk05']['id_tk_05'] + '/5/3'));
+                $("#submit_back_edit").click(() => comment(rowData['id_project'], rowData['data_tk05']['id_tk_05'], '5'));
                 $("#submit_danger").click(() => confirm_Alert('ต้องการยกเลิกเอกสารหรือไม่?', rowData['data_tk05']['id_tk_05'] + '/5/5'));
                 $(".modal-header #title_modal").text('ข้อมูล ทก.05');
                 $(".modal-body #tk_01").hide();
@@ -897,6 +903,63 @@
                         });
                     }
                 });
+            });
+        }
+    </script>
+    <script>
+        function comment(id_project, id_tk, type) {
+            main_tk = document.getElementById("main_tk");
+            c_comment = document.getElementById("c_comment");
+            main_tk.style.display = "none";
+            c_comment.style.display = "block";
+            $(".modal-body #file").empty();
+            $(".modal-body #comment").empty();
+            $(".modal-body #url_route_file").val("comment/create/" + id_project + "/" + id_tk + "/" + type);
+        }
+    </script>
+    <script>
+        function action_(url, form) {
+            var formData = new FormData(document.getElementById(form));
+            $.ajax({
+                url: '<?= base_url() ?>' + url,
+                type: "POST",
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "JSON",
+                beforeSend: function () {
+                    // Show loading indicator here
+                    var loadingIndicator = Swal.fire({
+                        title: 'กําลังดําเนินการ...',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                    });
+                },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            title: response.message,
+                            icon: 'success',
+                            showConfirmButton: false,
+                            allowOutsideClick: false
+                        });
+                        setTimeout(() => {
+                            if (response.reload) {
+                                window.location.reload();
+                            }
+                        }, 2000);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire({
+                        title: "เกิดข้อผิดพลาด",
+                        icon: 'error',
+                        showConfirmButton: true,
+                        confirmButtonText: "ตกลง",
+                    });
+                },
             });
         }
     </script>
