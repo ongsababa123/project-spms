@@ -28,7 +28,7 @@
                         <div class="card-tools">
                             <a class="btn btn-app bg-success" data-toggle="modal" data-target="#modal-default"
                                 onclick="load_modal(3)">
-                                <i class="fas fa-file-csv"></i> เพิ่มข้อมูลนักศึกษาด้วยไฟล์
+                                <i class="fas fa-file-csv"></i> เพิ่มข้อมูลผู้ดูแลระบบด้วยไฟล์
                             </a>
                             <a class="btn btn-app bg-success" data-toggle="modal" data-target="#modal-default"
                                 onclick="load_modal(1)">

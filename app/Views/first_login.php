@@ -104,7 +104,6 @@
     <script src="<?= base_url('plugins/datatables-buttons/js/buttons.colVis.min.js'); ?>"></script>
 
     <script>
-
         $("#login_form_first").on('submit', function (e) {
             e.preventDefault();
             var id_user = <?php echo json_encode($id_user); ?>;

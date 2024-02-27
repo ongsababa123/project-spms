@@ -720,7 +720,7 @@
                 rowData['data_tk04']['file_04'].forEach((data_file_04, index) => {
                     var statusButtonHtml = '';
                     if (data_file_04.status_file == 0) {
-                        statusButtonHtml = `<button type="button" class="btn btn-block btn-warning btn-sm" onclick="confirm_check_file(${data_file_04.id_file}, ${rowData['data_tk04']['id_tk_04']})" >กำลังตรวจสอบ</button>`;
+                        statusButtonHtml = `<button type="button" class="btn btn-block btn-warning btn-sm" onclick="confirm_check_file(${data_file_04.id_file}, ${rowData['data_tk04']['id_tk_04']}, ${rowData['id_project']})" >กำลังตรวจสอบ</button>`;
                     } else if (data_file_04.status_file == 1) {
                         statusButtonHtml = ` <button type="button" class="btn btn-block btn-success btn-sm">ตรวจสอบแล้ว</button>`;
                     } else {
@@ -850,7 +850,7 @@
         }
     </script>
     <script>
-        function confirm_check_file(id_file, id_tk_04) {
+        function confirm_check_file(id_file, id_tk_04, id_project) {
             Swal.fire({
                 title: "ต้องการให้เอกสารผ่านหรือไม่?",
                 showDenyButton: true,
@@ -862,47 +862,49 @@
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                     var url = id_file + '/1/' + id_tk_04;
+                    Swal.showLoading();
+                    $.ajax({
+                        url: '<?= base_url('/teacher/progress/changestatus/file/') ?>' + url,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        beforeSend: function () {
+                            // Show loading indicator here
+                            var loadingIndicator = Swal.fire({
+                                title: 'กําลังดําเนินการ...',
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                                showConfirmButton: false,
+                            });
+                        },
+                    }).done(function (response) {
+                        Swal.close();
+                        if (response.success) {
+                            Swal.fire({
+                                title: response.message,
+                                icon: 'success',
+                                showConfirmButton: false
+                            });
+                            setTimeout(() => {
+                                if (response.reload) {
+                                    window.location.reload();
+                                }
+                            }, 2000);
+                        } else {
+                            Swal.fire({
+                                title: response.message,
+                                icon: 'error',
+                                showConfirmButton: true
+                            });
+                        }
+                    });
                 } else if (result.isDenied) {
                     var url = id_file + '/2/' + id_tk_04;
+                    $(".modal-body #url_route_file_tk").val(url);
+                    comment(id_project, id_tk_04, '4');
                 }
                 // Show loading indicator
-                Swal.showLoading();
-                console.log(url);
-                $.ajax({
-                    url: '<?= base_url('/teacher/progress/changestatus/file/') ?>' + url,
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    beforeSend: function () {
-                        // Show loading indicator here
-                        var loadingIndicator = Swal.fire({
-                            title: 'กําลังดําเนินการ...',
-                            allowEscapeKey: false,
-                            allowOutsideClick: false,
-                            showConfirmButton: false,
-                        });
-                    },
-                }).done(function (response) {
-                    Swal.close();
-                    if (response.success) {
-                        Swal.fire({
-                            title: response.message,
-                            icon: 'success',
-                            showConfirmButton: false
-                        });
-                        setTimeout(() => {
-                            if (response.reload) {
-                                window.location.reload();
-                            }
-                        }, 2000);
-                    } else {
-                        Swal.fire({
-                            title: response.message,
-                            icon: 'error',
-                            showConfirmButton: true
-                        });
-                    }
-                });
+
             });
         }
     </script>

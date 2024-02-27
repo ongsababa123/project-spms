@@ -10,7 +10,7 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <h6>คอมเม้น</h6>
-                            <textarea class="form-control" id="comment" name="comment" rows="5" 
+                            <textarea class="form-control" id="comment" name="comment" rows="5"
                                 placeholder="กรอกคอมเม้นที่ส่งกลับ"></textarea>
                         </div>
                     </div>
@@ -27,6 +27,7 @@
                     </div>
                 </div>
                 <input type="text" id="url_route_file" name="url_route_file" hidden>
+                <input type="text" id="url_route_file_tk" name="url_route_file_tk" hidden>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">บันทึกข้อมูล</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
@@ -41,6 +42,15 @@
     $("#form_c_comment").on('submit', function (e) {
         e.preventDefault();
         const urlRouteInput = document.getElementById("url_route_file");
+        const url_route_file_tk = document.getElementById("url_route_file_tk");
+        if (url_route_file_tk.value != "") {
+            $.ajax({
+                url: '<?= base_url('/teacher/progress/changestatus/file/') ?>' + url_route_file_tk.value,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+            });
+        }
         action_(urlRouteInput.value, 'form_c_comment');
     });
 </script>
